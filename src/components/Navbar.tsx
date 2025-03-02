@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Zap, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
-import { NavLink } from "react-router-dom";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -13,16 +15,16 @@ const navLinks = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <nav className="dark:bg-dark bg-white py-4 px-6 md:px-20 flex justify-between items-center relative">
       {/* Logo Section */}
-      <div className="flex items-center">
+      <NavLink to="/" className="flex items-center">
         <Zap className="text-primary md:size-8" />
         <p className="ps-2 font-semibold md:text-xl text-sm">
           EEU Complaint System
         </p>
-      </div>
+      </NavLink>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center">
@@ -36,8 +38,15 @@ const Navbar = () => {
           </NavLink>
         ))}
         <DarkModeToggle />
-        <Button variant="outline">Login</Button>
-        <Button className="dark:text-white">Register</Button>
+        <Button onClick={() => navigate("/login")} variant="outline">
+          Login
+        </Button>
+        <Button
+          onClick={() => navigate("/register")}
+          className="dark:text-white"
+        >
+          Register
+        </Button>
       </div>
 
       {/* Mobile Controls (Hamburger + Dark Mode) */}
@@ -74,8 +83,15 @@ const Navbar = () => {
 
         {/* Auth Buttons */}
         <div className="mt-10 flex flex-col gap-4">
-          <Button variant="outline">Login</Button>
-          <Button className="dark:text-white">Register</Button>
+          <Button onClick={() => navigate("/login")} variant="outline">
+            Login
+          </Button>
+          <Button
+            onClick={() => navigate("/register")}
+            className="dark:text-white"
+          >
+            Register
+          </Button>
         </div>
       </motion.div>
     </nav>
