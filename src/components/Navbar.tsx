@@ -3,11 +3,12 @@ import { Zap, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
+import { NavLink } from "react-router-dom";
 
 const navLinks = [
-  { label: "About", href: "#" },
-  { label: "Help/FAQ", href: "#" },
-  { label: "Contact Us", href: "#" },
+  { label: "About", href: "/about" },
+  { label: "Help/FAQ", href: "/help" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 const Navbar = () => {
@@ -26,9 +27,13 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6 items-center">
         {navLinks.map(({ label, href }) => (
-          <a key={label} href={href} className="hover:text-primary transition">
+          <NavLink
+            key={label}
+            to={href}
+            className="hover:text-primary transition"
+          >
             {label}
-          </a>
+          </NavLink>
         ))}
         <DarkModeToggle />
         <Button variant="outline">Login</Button>
@@ -61,9 +66,9 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="flex flex-col gap-6">
           {navLinks.map(({ label, href }) => (
-            <a key={label} href={href} className="transitio">
+            <NavLink key={label} to={href} className="transitio">
               {label}
-            </a>
+            </NavLink>
           ))}
         </div>
 
