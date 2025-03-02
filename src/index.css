@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400&family=Roboto:wght@400;700&display=swap");
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -119,6 +120,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-body text-foreground;
   }
+}
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --font-poppins: "Poppins";
+  --font-inter: "Inter";
+  --color-primary: #ff784b;
+  --color-secondary: #c6635a;
+  --color-body: #f2f2f2;
+  --color-dark: #212121;
 }
