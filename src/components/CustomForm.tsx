@@ -52,14 +52,14 @@ const CustomForm = () => {
 
         <FormField
           control={form.control}
-          name="username"
+          name="message"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
                   {...field}
-                  className="h-40"
+                  className="h-40 resize-none"
                   placeholder="Type your message here..."
                 />
               </FormControl>
