@@ -17,7 +17,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   return (
-    <nav className="dark:bg-dark bg-white py-4 px-6 md:px-20 flex justify-between items-center relative">
+    <nav className="dark:bg-dark bg-white py-4 px-4 md:px-20 flex justify-between items-center relative">
       {/* Logo Section */}
       <NavLink to="/" className="flex items-center">
         <Zap className="text-primary md:size-8" />
