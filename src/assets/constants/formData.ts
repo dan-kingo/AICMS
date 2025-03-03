@@ -12,7 +12,7 @@ const formData = [
   {
     name: "subject",
     label: "Subject",
-    placeholder: "enter the subject of the message",
+    placeholder: "enter your subject",
   },
 ];
 
