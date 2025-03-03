@@ -6,12 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
-
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "Help/FAQ", href: "/help" },
-  { label: "Contact Us", href: "/contact-us" },
-];
+import navLinks from "@/assets/constants/navLinks";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

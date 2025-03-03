@@ -12,7 +12,7 @@ const Contact = () => {
       </div> */}
 
       <div className="flex gap-8 md:flex-nowrap flex-wrap">
-        <div className="flex p-4 bg-white dark:bg-dark h-96 rounded-sm shadow-xl w-full">
+        <div className="flex flex-4/6 p-4 bg-white dark:bg-dark h-96 rounded-sm shadow-xl w-full">
           left
         </div>
         <div className="flex p-4 bg-white dark:bg-dark h-96 w-full rounded-sm shadow-xl">
