@@ -1,12 +1,7 @@
 import contactInfo from "@/assets/constants/contact";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-
-const icons = {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-};
+import { icons, socialIcons } from "@/assets/constants/icons";
+import socialLinks from "@/assets/constants/social";
+import { NavLink } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -22,10 +17,12 @@ const Contact = () => {
       </div> */}
 
       <div className="flex gap-8 md:flex-nowrap flex-wrap">
+        {/* left hand contact section */}
         <div className="flex flex-4/6 p-4 bg-white dark:bg-dark  flex-col space-y-4 rounded-sm shadow-xl w-full">
           <h1 className="md:text-2xl text-xl font-palanquin font-semibold">
             Contact Information
           </h1>
+          {/* contact info section */}
           {contactInfo.map((item, index) => {
             const Icon = icons[item.iconName as keyof typeof icons];
             return (
@@ -45,7 +42,33 @@ const Contact = () => {
               </div>
             );
           })}
+
+          {/* social links section  */}
+
+          <h1 className="md:text-2xl text-xl font-palanquin font-semibold">
+            Social Links
+          </h1>
+
+          <div className="flex space-x-4">
+            {socialLinks.map((item, index) => {
+              const Icon =
+                socialIcons[item.iconName as keyof typeof socialIcons];
+              return (
+                <NavLink
+                  key={index}
+                  to={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition"
+                >
+                  <Icon className="w-6 h-6 text-primary" />
+                </NavLink>
+              );
+            })}
+          </div>
         </div>
+
+        {/* right hand contact section  */}
         <div className="flex p-4 bg-white dark:bg-dark h-96 w-full rounded-sm shadow-xl">
           right
         </div>
