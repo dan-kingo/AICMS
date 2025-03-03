@@ -1,5 +1,6 @@
 import ContactInfo from "@/components/ContactInfo";
 import CustomForm from "@/components/CustomForm";
+import Footer from "@/components/Footer";
 import Map from "@/components/Map";
 import SocialLink from "@/components/SocialLink";
 
@@ -23,13 +24,14 @@ const Contact = () => {
 
         {/* right hand contact section  */}
         <div className="flex flex-col p-4 bg-white dark:bg-dark  w-full rounded-sm shadow-xl">
-          <h1 className="md:text-2xl text-xl font-palanquin font-semibold mb-6">
+          <p className="md:text-2xl text-xl font-palanquin font-semibold mb-6">
             Fill out the form
-          </h1>
+          </p>
           <CustomForm />
           <Map />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
