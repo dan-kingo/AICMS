@@ -3,7 +3,7 @@ import { z } from "zod";
 const contactFormSchema = z.object({
   fullname: z
     .string({ required_error: "Full Name is required!" })
-    .min(3, { message: "Full name must be at least 5 characters long." })
+    .min(5, { message: "Full name must be at least 5 characters long." })
     .max(50, { message: "Full name cannot exceed 50 characters." }),
 
   email: z

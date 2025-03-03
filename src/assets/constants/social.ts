@@ -17,7 +17,7 @@ const socialLinks = [
   {
     iconName: "Linkedin",
     title: "LinkedIn",
-    url: "https://www.linkedin.com/company/eeucomplaints",
+    url: "https://www.linkedin.com/eeucomplaints",
   },
 ];
 

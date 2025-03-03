@@ -18,7 +18,9 @@ import formData from "@/assets/constants/formData";
 import { Textarea } from "./ui/textarea";
 
 const onSubmit = (data: z.infer<typeof contactFormSchema>) => {
-  toast.success("Form submitted successfully!");
+  toast.success("Form submitted successfully!", {
+    description: <pre>Thanks for your message {data.fullname}!</pre>,
+  });
 };
 
 const CustomForm = () => {

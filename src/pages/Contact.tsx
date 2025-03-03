@@ -9,7 +9,7 @@ const Contact = () => {
     <div className="md:mx-20 mx-4 my-12">
       <div className="flex gap-8 md:flex-nowrap flex-wrap">
         {/* left hand contact section */}
-        <div className="flex flex-4/6 p-4 bg-white dark:bg-dark  flex-col space-y-4 rounded-sm shadow-xl w-full">
+        <div className="flex flex-4/6 p-4 bg-white dark:bg-dark  flex-col space-y-4 rounded-sm shadow-xl w-full ">
           <h1 className="md:text-2xl text-xl font-palanquin font-semibold">
             Contact Information
           </h1>
@@ -19,7 +19,7 @@ const Contact = () => {
             return (
               <div key={index} className="flex items-center space-x-4">
                 <Icon className="w-6 h-6 text-primary" />
-                <div>
+                <div className="space-y-1">
                   <h3 className="md:text-[18px] text-sm text-primary font-semibold font-palanquin">
                     {item.title}
                   </h3>
@@ -40,7 +40,7 @@ const Contact = () => {
             Social Links
           </h1>
 
-          <div className="flex space-x-4">
+          <div className="flex flex-col space-y-4">
             {socialLinks.map((item, index) => {
               const Icon =
                 socialIcons[item.iconName as keyof typeof socialIcons];
@@ -50,9 +50,19 @@ const Contact = () => {
                   to={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition"
+                  className="flex gap-4 items-center"
                 >
-                  <Icon className="w-6 h-6 text-primary" />
+                  <Icon className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition w-10 h-10 text-primary" />
+                  <div className="space-y-1">
+                    <p>{item.title}</p>
+                    <a
+                      target="_blank"
+                      href={item.url}
+                      className="text-sm text-secondary"
+                    >
+                      {item.url}
+                    </a>
+                  </div>
                 </NavLink>
               );
             })}
@@ -60,7 +70,10 @@ const Contact = () => {
         </div>
 
         {/* right hand contact section  */}
-        <div className="flex p-4 bg-white dark:bg-dark  w-full rounded-sm shadow-xl">
+        <div className="flex flex-col p-4 bg-white dark:bg-dark  w-full rounded-sm shadow-xl">
+          <h1 className="md:text-2xl text-xl font-palanquin font-semibold mb-6">
+            Fill out the form
+          </h1>
           <CustomForm />
         </div>
       </div>
