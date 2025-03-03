@@ -1,21 +1,12 @@
 import contactInfo from "@/assets/constants/contact";
 import { icons, socialIcons } from "@/assets/constants/icons";
 import socialLinks from "@/assets/constants/social";
+import CustomForm from "@/components/CustomForm";
 import { NavLink } from "react-router-dom";
 
 const Contact = () => {
   return (
     <div className="md:mx-20 mx-4 my-12">
-      {/* <div className="flex items-center flex-col">
-        <h1 className="md:text-3xl text-lg font-semibold font-palanquin">
-          Contact Us
-        </h1>
-        <p className="text-gray-600">
-          We're here to help! Reach out to us for support, inquiries, or
-          feedback.
-        </p>
-      </div> */}
-
       <div className="flex gap-8 md:flex-nowrap flex-wrap">
         {/* left hand contact section */}
         <div className="flex flex-4/6 p-4 bg-white dark:bg-dark  flex-col space-y-4 rounded-sm shadow-xl w-full">
@@ -70,7 +61,7 @@ const Contact = () => {
 
         {/* right hand contact section  */}
         <div className="flex p-4 bg-white dark:bg-dark h-96 w-full rounded-sm shadow-xl">
-          right
+          <CustomForm />
         </div>
       </div>
     </div>
