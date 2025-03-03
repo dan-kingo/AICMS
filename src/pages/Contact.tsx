@@ -5,7 +5,7 @@ import SocialLink from "@/components/SocialLink";
 
 const Contact = () => {
   return (
-    <div className="md:mx-20 mx-4 my-12">
+    <div className="md:mx-20 mx-4 my-12 mt-24">
       <div className="flex gap-8 md:flex-nowrap flex-wrap">
         {/* left hand contact section */}
         <div className="flex flex-4/6 p-4 bg-white dark:bg-dark  flex-col space-y-4 rounded-sm shadow-xl w-full md:h-[816px] h-[732px]">

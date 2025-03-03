@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Zap, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
@@ -9,10 +9,29 @@ import DarkModeToggle from "./DarkModeToggle";
 import navLinks from "@/assets/constants/navLinks";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(!scrolled);
+      } else {
+        setScrolled(scrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="dark:bg-dark bg-white py-4 px-4 md:px-20 flex justify-between items-center relative">
+    <nav
+      className={`${
+        scrolled ? "dark:bg-dark  bg-white shadow-xl" : "dark:bg-dark  bg-white"
+      } py-4 px-4 md:px-20 flex justify-between items-center fixed top-0 w-full`}
+    >
       {/* Logo Section */}
       <NavLink to="/" className="flex items-center">
         <Zap className="text-primary md:size-8" />

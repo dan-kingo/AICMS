@@ -5,7 +5,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-custom flex flex-col">
+    <div className="min-h-custom flex flex-col mt-[68px]">
       {/* Main Content */}
       <div className="flex flex-1 flex-col items-center justify-center text-center md:px-6 px-1">
         <h1 className="font-palanquin text-[26px] md:text-5xl font-semibold">
