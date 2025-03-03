@@ -1,5 +1,6 @@
 import ContactInfo from "@/components/ContactInfo";
 import CustomForm from "@/components/CustomForm";
+import Map from "@/components/Map";
 import SocialLink from "@/components/SocialLink";
 
 const Contact = () => {
@@ -26,6 +27,7 @@ const Contact = () => {
             Fill out the form
           </h1>
           <CustomForm />
+          <Map />
         </div>
       </div>
     </div>
