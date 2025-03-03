@@ -60,7 +60,7 @@ const Contact = () => {
         </div>
 
         {/* right hand contact section  */}
-        <div className="flex p-4 bg-white dark:bg-dark h-96 w-full rounded-sm shadow-xl">
+        <div className="flex p-4 bg-white dark:bg-dark  w-full rounded-sm shadow-xl">
           <CustomForm />
         </div>
       </div>
