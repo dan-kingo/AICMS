@@ -14,14 +14,14 @@ const contactInfo = [
   {
     iconName: "Mail",
     title: "Email Contacts",
-    description1: "General Inquiries: support@eeucomplaints.com",
-    description2: "Technical Issues: techsupport@eeucomplaints.com",
+    description1: "General: eeusupport@gmail.com",
+    description2: "Technical: techsupporteeu@gmail.com",
   },
   {
     iconName: "Clock",
     title: "Working Hours",
-    description1: "Monday – Friday: 2:30 AM – 11:30 AM (Local Time).",
-    description2: "Saturday – Sunday: Closed (or emergency support details).",
+    description1: "Monday – Friday: 2:30 – 11:30 AM (LT).",
+    description2: "Saturday – Sunday: Emergency supports.",
   },
 ];
 
