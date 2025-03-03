@@ -46,7 +46,9 @@ const Navbar = () => {
           <NavLink
             key={label}
             to={href}
-            className="hover:text-primary transition"
+            className={({ isActive }) =>
+              `hover:text-primary transition ${isActive ? "text-primary" : ""} `
+            }
           >
             {label}
           </NavLink>
