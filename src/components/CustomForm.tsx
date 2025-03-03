@@ -32,7 +32,7 @@ const CustomForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full md:w-3/4 space-y-6"
+        className="w-full md:w-3/4 space-y-6 "
       >
         {formData.map((formInput, index) => (
           <FormField
@@ -43,7 +43,11 @@ const CustomForm = () => {
               <FormItem>
                 <FormLabel>{formInput.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder={formInput.placeholder} {...field} />
+                  <Input
+                    className="placeholder:text-[13px] md:placeholder:text-[14px]"
+                    placeholder={formInput.placeholder}
+                    {...field}
+                  />
                 </FormControl>
 
                 <FormMessage />
@@ -61,7 +65,7 @@ const CustomForm = () => {
               <FormControl>
                 <Textarea
                   {...field}
-                  className="h-40 resize-none"
+                  className="h-40 resize-none placeholder:text-[13px] md:placeholder:text-[14px]"
                   placeholder="Type your message here..."
                 />
               </FormControl>
