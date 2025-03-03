@@ -18,7 +18,7 @@ import formData from "@/assets/constants/formData";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 
-const CustomForm = () => {
+const ContactForm = () => {
   const [isLoading, setLoading] = useState(false);
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
@@ -122,4 +122,4 @@ const CustomForm = () => {
   );
 };
 
-export default CustomForm;
+export default ContactForm;

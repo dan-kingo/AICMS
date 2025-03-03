@@ -1,5 +1,5 @@
 import ContactInfo from "@/components/ContactInfo";
-import CustomForm from "@/components/CustomForm";
+import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Map from "@/components/Map";
 import SocialLink from "@/components/SocialLink";
@@ -27,7 +27,7 @@ const Contact = () => {
           <p className="md:text-2xl text-xl font-palanquin font-semibold mb-6">
             Fill out the form
           </p>
-          <CustomForm />
+          <ContactForm />
           <Map />
         </div>
       </div>
