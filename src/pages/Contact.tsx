@@ -8,7 +8,7 @@ const Contact = () => {
     <div className="md:mx-20 mx-4 my-12">
       <div className="flex gap-8 md:flex-nowrap flex-wrap">
         {/* left hand contact section */}
-        <div className="flex flex-4/6 p-4 bg-white dark:bg-dark  flex-col space-y-4 rounded-sm shadow-xl w-full ">
+        <div className="flex flex-4/6 p-4 bg-white dark:bg-dark  flex-col space-y-4 rounded-sm shadow-xl w-full md:h-[816px] h-[732px]">
           <h1 className="md:text-2xl text-xl font-palanquin font-semibold">
             Contact Information
           </h1>
