@@ -1,4 +1,3 @@
-import { contactFormSchema } from "@/utils/contactFormSchema";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 
@@ -14,10 +13,14 @@ import {
 import { Input } from "./ui/input";
 import { useState } from "react";
 import registerData from "@/assets/constants/registerData";
+import registerSchema from "@/utils/registerFormSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const RegisterForm = () => {
   const [isLoading, setLoading] = useState(false);
-  const form = useForm();
+  const form = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema),
+  });
   return (
     <div className="dark:bg-dark p-4 bg-white  w-96 flex flex-col rounded-lg shadow-lg">
       <h1 className="md:text-xl font-semibold  pb-6 text-lg font-palanquin flex justify-center w-full">
@@ -32,7 +35,7 @@ const RegisterForm = () => {
             <FormField
               key={index}
               control={form.control}
-              name={formInput.name as keyof z.infer<typeof contactFormSchema>}
+              name={formInput.name as keyof z.infer<typeof registerSchema>}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>{formInput.label}</FormLabel>
