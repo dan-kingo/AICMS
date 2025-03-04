@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import aboutImg from "../assets/undraw_electricity_iu6d.svg";
 import FeatureCard from "@/components/FeatureCard";
 const About = () => {
@@ -21,8 +20,6 @@ const About = () => {
           Our Features
         </h1>
         <div className="flex justify-around gap-6 py-8 md:flex-nowrap flex-wrap">
-          <FeatureCard />
-          <FeatureCard />
           <FeatureCard />
         </div>
       </div>
