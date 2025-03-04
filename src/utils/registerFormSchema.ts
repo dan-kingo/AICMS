@@ -45,7 +45,7 @@ const registerSchema = z
 
     confirmPassword: z
       .string({ required_error: "Confirm Password is required." })
-      .min(8, { message: "Confirm Password is required." }),
+      .min(8, { message: "Confirm Password is at least 8 charcter." }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match.",
