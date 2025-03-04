@@ -15,6 +15,7 @@ import { useState } from "react";
 import registerData from "@/assets/constants/registerData";
 import registerSchema from "@/utils/registerFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
 
 const RegisterForm = () => {
   const [isLoading, setLoading] = useState(false);
@@ -31,6 +32,39 @@ const RegisterForm = () => {
     },
   });
 
+  const onSubmit = async (data: z.infer<typeof registerSchema>) => {
+    setLoading(true);
+
+    let isComponentMounted = true;
+
+    try {
+      const response = await fetch("https://localohst:3000/register");
+
+      const result = await response.json();
+
+      if (isComponentMounted) {
+        if (result.success) {
+          toast.success("Registerd successfully!", {
+            description: `Thanks for registering, ${data.firstName} ${data.lastName}!`,
+          });
+          form.reset();
+        } else {
+          toast.error("Something went wrong. Please try again.");
+        }
+      }
+    } catch (error) {
+      if (isComponentMounted) {
+        toast.error("Failed to register.");
+      }
+    } finally {
+      if (isComponentMounted) setLoading(false);
+    }
+
+    return () => {
+      isComponentMounted = false;
+    };
+  };
+
   return (
     <div className="dark:bg-dark p-4 bg-white  w-96 flex flex-col rounded-lg shadow-lg">
       <h1 className="md:text-xl font-semibold  pb-6 text-lg font-palanquin flex justify-center w-full">
@@ -38,7 +72,7 @@ const RegisterForm = () => {
       </h1>
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(() => console.log("Submitted!"))}
+          onSubmit={form.handleSubmit(onSubmit)}
           className="w-full  space-y-6 "
         >
           {registerData.map((formInput, index) => (
