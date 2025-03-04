@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { Button } from "./ui/button";
 import {
@@ -136,6 +136,12 @@ const RegisterForm = () => {
           </Button>
         </form>
       </Form>
+      <p className="font-md text-center py-4">
+        Already a member?{" "}
+        <NavLink to="/login" className="text-primary">
+          Login
+        </NavLink>
+      </p>
     </div>
   );
 };
