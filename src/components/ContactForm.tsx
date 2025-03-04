@@ -23,6 +23,12 @@ const ContactForm = () => {
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      fullname: "",
+      email: "",
+      message: "",
+      subject: "",
+    },
   });
 
   const onSubmit = async (data: z.infer<typeof contactFormSchema>) => {
