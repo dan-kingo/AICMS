@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "./ui/button";
 import {
@@ -18,6 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -47,14 +49,17 @@ const RegisterForm = () => {
           toast.success("Registerd successfully!", {
             description: `Thanks for registering, ${data.firstName} ${data.lastName}!`,
           });
+          navigate("/login");
           form.reset();
         } else {
           toast.error("Something went wrong. Please try again.");
+          navigate("/");
         }
       }
     } catch (error) {
       if (isComponentMounted) {
         toast.error("Failed to register.");
+        navigate("/");
       }
     } finally {
       if (isComponentMounted) setLoading(false);
