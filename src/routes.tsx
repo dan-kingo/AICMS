@@ -25,15 +25,15 @@ const router = createBrowserRouter([
         path: "contact-us",
         element: <Contact />,
       },
-      {
-        path: "register",
-        element: <Register />,
-      },
-      {
-        path: "login",
-        element: <Login />,
-      },
     ],
+  },
+  {
+    path: "register",
+    element: <Register />,
+  },
+  {
+    path: "login",
+    element: <Login />,
   },
 ]);
 
