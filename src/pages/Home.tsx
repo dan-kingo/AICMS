@@ -1,20 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Home = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      easing: "ease-in-out",
-    });
-  }, []);
 
   return (
-    <div data-aos="fade-down" className="min-h-custom flex flex-col mt-[68px]">
+    <div className="min-h-custom flex flex-col mt-[68px]">
       {/* Main Content */}
       <div className="flex flex-1 flex-col items-center justify-center text-center md:px-6 px-1">
         <h1 className="font-palanquin text-[26px] md:text-5xl font-semibold">

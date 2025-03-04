@@ -78,7 +78,7 @@ const Navbar = () => {
         initial={{ x: "100%" }}
         animate={{ x: isMenuOpen ? "0%" : "100%" }}
         transition={{ type: "spring", stiffness: 100, damping: 15 }}
-        className="fixed top-0 right-0 w-3/4 h-full bg-body dark:text-white text-dark shadow-lg flex flex-col py-6 px-6 md:hidden"
+        className="fixed top-0 z-50 right-0 w-3/4 h-full bg-body dark:text-white text-dark shadow-lg flex flex-col py-6 px-6 md:hidden"
       >
         {/* Close Button */}
         <button
@@ -91,7 +91,15 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="flex flex-col gap-6">
           {navLinks.map(({ label, href }) => (
-            <NavLink key={label} to={href} className="transitio">
+            <NavLink
+              key={label}
+              to={href}
+              className={({ isActive }) =>
+                `hover:text-primary transition ${
+                  isActive ? "text-primary" : ""
+                } `
+              }
+            >
               {label}
             </NavLink>
           ))}
