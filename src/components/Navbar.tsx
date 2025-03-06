@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav
       className={`${
         scrolled ? "dark:bg-dark  bg-white shadow-xl" : "dark:bg-dark  bg-white"
-      } py-4 px-4 md:px-20 flex justify-between items-center fixed top-0 w-full`}
+      } z-50 py-4 px-4 md:px-20 flex justify-between items-center fixed top-0 w-full`}
     >
       {/* Logo Section */}
       <NavLink to="/" className="flex items-center">

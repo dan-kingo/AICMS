@@ -9,7 +9,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 
 const FAQAccordion = () => {
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState<boolean>();
   const visibleFaqs = showMore
     ? faqs
     : faqs.filter((faq) => faq.category === "General Questions");
@@ -36,6 +36,11 @@ const FAQAccordion = () => {
       {!showMore && (
         <div className="text-center mt-4">
           <Button onClick={() => setShowMore(true)}>Show More FAQs</Button>
+        </div>
+      )}
+      {showMore && (
+        <div className="text-center mt-4">
+          <Button onClick={() => setShowMore(false)}>Show Less</Button>
         </div>
       )}
     </div>
