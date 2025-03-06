@@ -1,5 +1,5 @@
 import { isRouteErrorResponse, Link, useRouteError } from "react-router-dom";
-import notFoundImg from "../assets/undraw_page-not-found_6wni.svg";
+import notFoundImg1 from "../assets/404 Error-rafiki.svg";
 
 const Error = () => {
   const error = useRouteError();
@@ -7,8 +7,8 @@ const Error = () => {
     <div className="flex items-center flex-col min-h-screen justify-center">
       {isRouteErrorResponse(error) ? (
         <>
-          <img className="w-96" src={notFoundImg} alt="page not found" />
-          <h1 className="lg:text-4xl sm: text-2xl mt-12">
+          <img className="w-96" src={notFoundImg1} alt="page not found" />
+          <h1 className="lg:text-4xl sm: text-2xl mt-2">
             Ohhh! Page Not Found
           </h1>
           <p className="mt-4">It seems you have taken a wrong turn.</p>

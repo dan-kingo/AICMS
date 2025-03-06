@@ -1,16 +1,17 @@
 import Footer from "@/components/Footer";
-import aboutImg from "../assets/undraw_electricity_iu6d.svg";
 import FeatureCard from "@/components/FeatureCard";
+import aboutImg2 from "../assets/Electrician-rafiki.svg";
+
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
+
 const About = () => {
   return (
     <div className="md:mx-20 mx-4 py-12 mt-24 min-h-about">
       {/* Hero section  */}
       <div className="flex w-full gap-12 pt-6 py-24">
-        <img src={aboutImg} alt="about image" className="hidden md:block" />
-        <div className="flex flex-4/5  w-full flex-col justify-center">
-          <h1 className="pb-4  md:text-7xl text-4xl font-semibold font-palanquin text-center dark:text-gray-300 text-gray-900">
+        <div className="flex  w-full flex-col justify-center">
+          <h1 className="pb-4  lg:text-7xl md:6xl text-4xl font-semibold font-palanquin text-center dark:text-gray-300 text-gray-900">
             Bridging Gaps in{" "}
             <span className="bg-gradient-to-r  from-primary to-blue-700 bg-clip-text text-transparent">
               {" "}
@@ -18,6 +19,9 @@ const About = () => {
             </span>{" "}
             with AI.
           </h1>
+        </div>
+        <div className="w-full  items-center justify-center hidden md:flex">
+          <img src={aboutImg2} alt="about image" className=" w-[450px]" />
         </div>
       </div>
 
