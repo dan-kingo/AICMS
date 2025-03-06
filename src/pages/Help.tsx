@@ -2,6 +2,7 @@ import FAQAccordion from "@/components/faqAccordion";
 import FAQImage from "../assets/FAQs-amico.svg";
 import SearchInput from "@/components/SearchInput";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 const Help = () => {
   const [searchItem, setSearchItem] = useState("");
@@ -23,6 +24,7 @@ const Help = () => {
           />
         </div>
       </div>
+      <Footer />{" "}
     </div>
   );
 };

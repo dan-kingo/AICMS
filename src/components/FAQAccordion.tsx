@@ -15,23 +15,29 @@ interface Props {
 const FAQAccordion = ({ searchTerm }: Props) => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
-  // Ensure searchTerm is processed correctly
-  const lowerCaseSearchTerm = searchTerm?.toLowerCase() || "";
+  // Ensure searchTerm is processed correctly, trimming whitespace and making lowercase
+  const lowerCaseSearchTerm = searchTerm?.trim().toLowerCase() || "";
 
-  const filteredFaqs = faqs
+  // 🔹 Search in ALL FAQs regardless of showMore state
+  const allFilteredFaqs = faqs
     .map((section) => ({
       ...section,
-      items: section.items.filter(
-        (faq) =>
-          faq.title.toLowerCase().includes(lowerCaseSearchTerm) ||
-          faq.content.toLowerCase().includes(lowerCaseSearchTerm)
+      items: section.items.filter((faq) =>
+        [faq.title, faq.content]
+          .map((text) => text.toLowerCase().replace(/&/g, "and")) // Normalize '&' to 'and'
+          .some((text) =>
+            text.includes(lowerCaseSearchTerm.replace(/&/g, "and"))
+          )
       ),
     }))
     .filter((section) => section.items.length > 0);
 
-  const visibleFaqs = showMore
-    ? filteredFaqs
-    : filteredFaqs.filter((faq) => faq.category === "General Questions");
+  // 🔹 If there's a search term, we should display all matching FAQs
+  const visibleFaqs = lowerCaseSearchTerm
+    ? allFilteredFaqs
+    : showMore
+    ? allFilteredFaqs
+    : allFilteredFaqs.filter((faq) => faq.category === "General Questions");
 
   return (
     <div className="w-full max-w-2xl mx-auto p-4">
@@ -58,17 +64,28 @@ const FAQAccordion = ({ searchTerm }: Props) => {
         </p>
       )}
 
-      {/* Show More / Show Less Buttons */}
-      {!showMore &&
-        filteredFaqs.some((faq) => faq.category !== "General Questions") && (
+      {/* Show More / Show Less Buttons (Only when not searching) */}
+      {!lowerCaseSearchTerm &&
+        !showMore &&
+        allFilteredFaqs.some((faq) => faq.category !== "General Questions") && (
           <div className="text-center mt-4">
-            <Button onClick={() => setShowMore(true)}>Show More FAQs</Button>
+            <Button
+              className="dark:text-white"
+              onClick={() => setShowMore(true)}
+            >
+              Show More FAQs
+            </Button>
           </div>
         )}
 
-      {showMore && filteredFaqs.length > 1 && (
+      {!lowerCaseSearchTerm && showMore && allFilteredFaqs.length > 1 && (
         <div className="text-center mt-4">
-          <Button onClick={() => setShowMore(false)}>Show Less</Button>
+          <Button
+            className="dark:text-white"
+            onClick={() => setShowMore(false)}
+          >
+            Show Less
+          </Button>
         </div>
       )}
     </div>
