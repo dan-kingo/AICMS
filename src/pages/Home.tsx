@@ -25,7 +25,7 @@ const Home = () => {
             Submit a Complaint
           </Button>
           <Button
-            onClick={() => navigate("/help")}
+            onClick={() => navigate("/faqs")}
             variant="outline"
             className="dark:text-white"
           >

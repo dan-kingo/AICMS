@@ -41,7 +41,7 @@ const Navbar = () => {
       </NavLink>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex gap-6 items-center">
+      <div className="hidden lg:flex gap-6 items-center">
         {navLinks.map(({ label, href }) => (
           <NavLink
             key={label}
@@ -66,7 +66,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Controls (Hamburger + Dark Mode) */}
-      <div className="md:hidden flex items-center gap-4">
+      <div className="lg:hidden flex items-center gap-4">
         <DarkModeToggle />
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <Menu size={28} />

@@ -13,7 +13,7 @@ import { Button } from "./ui/button";
 
 const CustomDropDown = () => {
   return (
-    <div className="sm:hidden lg:block">
+    <div>
       <DropdownMenu>
         {/* Fix: Use asChild to prevent extra button wrapping */}
         <DropdownMenuTrigger asChild>
