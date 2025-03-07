@@ -1,5 +1,5 @@
 import { Menu, X, Zap } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CustomDropDown from "./CustomDropdown";
 import sidebarItems from "@/assets/constants/sidebarItems";
@@ -10,6 +10,8 @@ import { Button } from "./ui/button";
 const DashboardNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -70,20 +72,22 @@ const DashboardNavbar = () => {
 
         {/* Navigation Links */}
         <div className="flex flex-col gap-6">
-          {sidebarItems.map((item) => (
-            <NavLink
-              key={item.title}
-              to={item.path}
-              className={({ isActive }) =>
-                `hover:text-primary transition ${
-                  isActive ? "text-primary" : ""
-                }  flex gap-4 `
-              }
-            >
-              <item.icon />
-              {item.title}
-            </NavLink>
-          ))}
+          {sidebarItems.map((item) => {
+            let isActiveLink = location.pathname === item.path;
+
+            return (
+              <NavLink
+                key={item.title}
+                to={item.path}
+                className={`hover:text-primary transition ${
+                  isActiveLink ? "text-primary" : ""
+                }  flex gap-4 `}
+              >
+                <item.icon />
+                {item.title}
+              </NavLink>
+            );
+          })}
         </div>
       </motion.div>
     </nav>
