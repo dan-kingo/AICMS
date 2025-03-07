@@ -10,32 +10,32 @@ import {
 const sidebarItems = [
   {
     title: "User Profile",
-    path: "/profile",
+    path: "/dashboard/profile",
     icon: User,
   },
   {
     title: "Make Complaint",
-    path: "/complaint/new",
+    path: "/dashboard/add-complaint",
     icon: FilePlus,
   },
   {
     title: "Complaint History",
-    path: "/complaints",
+    path: "/dashboard/complaints",
     icon: ListChecks,
   },
   {
     title: "Change Password",
-    path: "/change-password",
+    path: "/dashboard/change-password",
     icon: Key,
   },
   {
     title: "Settings",
-    path: "/settings",
+    path: "/dashboard/settings",
     icon: Settings,
   },
   {
     title: "Help and Support",
-    path: "/help",
+    path: "/dashboard/help",
     icon: HelpCircle,
   },
 ];

@@ -8,7 +8,7 @@ const Dashboard = () => {
       <DashboardNavbar />
 
       <div className="flex flex-1">
-        <aside className="w-64 sm:hidden md:block">
+        <aside className="w-64 hidden md:block">
           <CustomSidebar />
         </aside>
 

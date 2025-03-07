@@ -1,4 +1,4 @@
-import FAQAccordion from "@/components/faqAccordion";
+import FAQAccordion from "@/components/FAQAccordion";
 import FAQImage from "../assets/FAQs-amico.svg";
 import SearchInput from "@/components/SearchInput";
 import { useState } from "react";

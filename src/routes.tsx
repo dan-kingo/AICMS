@@ -1,12 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import {
   About,
+  ChangePassword,
+  ComplaintHistory,
   Contact,
   Dashboard,
-  Help,
+  FAQs,
+  HelpAndSupport,
   Home,
   Login,
+  MakeComplaint,
   Register,
+  Settings,
+  UserProfile,
 } from "./pages";
 import Layout from "./pages/Layout";
 import Error from "./pages/Error";
@@ -26,8 +32,8 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "help",
-        element: <Help />,
+        path: "faqs",
+        element: <FAQs />,
       },
       {
         path: "contact-us",
@@ -44,8 +50,34 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "dashboard",
+    path: "/dashboard",
     element: <Dashboard />,
+    children: [
+      {
+        path: "profile",
+        element: <UserProfile />,
+      },
+      {
+        path: "add-complaint",
+        element: <MakeComplaint />,
+      },
+      {
+        path: "change-password",
+        element: <ChangePassword />,
+      },
+      {
+        path: "help",
+        element: <HelpAndSupport />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
+        path: "complaints",
+        element: <ComplaintHistory />,
+      },
+    ],
   },
 ]);
 
