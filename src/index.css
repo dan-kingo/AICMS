@@ -152,3 +152,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.sidebar-height {
+  margin-top: 68px;
+}
