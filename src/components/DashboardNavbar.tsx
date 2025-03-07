@@ -1,7 +1,7 @@
 import { Zap } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import CustomDropDown from "./CustomDropdown";
 
 const DashboardNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -32,9 +32,8 @@ const DashboardNavbar = () => {
           EEU Complaint System
         </p>
       </NavLink>
-      <div>
-        <Button className="dark:text-white rounded-full">Logout</Button>
-      </div>
+
+      <CustomDropDown />
     </nav>
   );
 };
