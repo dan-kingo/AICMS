@@ -31,7 +31,7 @@ const DashboardNavbar = () => {
     >
       {/* Logo Section */}
       <NavLink to="/" className="flex items-center">
-        <Zap className="text-primary md:size-8" />
+        <Zap className="text-primary size-8" />
         <p className="ps-2 font-semibold md:text-xl hidden md:block">
           EEU Complaint System
         </p>
