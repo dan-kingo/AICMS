@@ -18,10 +18,10 @@ const ProfilePictureUpload = () => {
           <img
             src={image}
             alt="Profile"
-            className="w-20 h-20 rounded-full object-cover border-2 border-gray-300"
+            className="w-18 h-18 rounded-full object-cover border-2 border-gray-300"
           />
         ) : (
-          <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm border-2 border-gray-400">
+          <div className="w-18 h-18 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm border-2 border-gray-400">
             <Upload />
           </div>
         )}
