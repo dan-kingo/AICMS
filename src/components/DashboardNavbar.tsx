@@ -32,7 +32,7 @@ const DashboardNavbar = () => {
       {/* Logo Section */}
       <NavLink to="/" className="flex items-center">
         <Zap className="text-primary size-8" />
-        <p className="ps-2 font-semibold md:text-xl hidden md:block">
+        <p className="ps-2 font-semibold md:text-xl hidden sm:block">
           EEU Complaint System
         </p>
       </NavLink>
@@ -57,7 +57,7 @@ const DashboardNavbar = () => {
         initial={{ x: "100%" }}
         animate={{ x: isMenuOpen ? "0%" : "100%" }}
         transition={{ type: "spring", stiffness: 100, damping: 15 }}
-        className="fixed top-0 z-50 right-0 w-3/4 h-full bg-body dark:text-white text-dark shadow-lg flex flex-col py-6 px-6 md:hidden"
+        className="fixed top-0 z-50 right-0 w-3/4 sm:w-1/2  h-full bg-body dark:text-white text-dark shadow-lg flex flex-col py-6 px-6 md:hidden"
       >
         {/* Close Button */}
         <Button
@@ -70,17 +70,18 @@ const DashboardNavbar = () => {
 
         {/* Navigation Links */}
         <div className="flex flex-col gap-6">
-          {sidebarItems.map(({ title, path }) => (
+          {sidebarItems.map((item) => (
             <NavLink
-              key={title}
-              to={path}
+              key={item.title}
+              to={item.path}
               className={({ isActive }) =>
                 `hover:text-primary transition ${
                   isActive ? "text-primary" : ""
-                } `
+                }  flex gap-4 `
               }
             >
-              {title}
+              <item.icon />
+              {item.title}
             </NavLink>
           ))}
         </div>

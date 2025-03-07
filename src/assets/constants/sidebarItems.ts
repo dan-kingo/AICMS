@@ -10,7 +10,7 @@ import {
 const sidebarItems = [
   {
     title: "User Profile",
-    path: "/dashboard/profile",
+    path: "/dashboard",
     icon: User,
   },
   {
