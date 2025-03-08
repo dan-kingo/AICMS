@@ -19,4 +19,5 @@ const loginSchema = z.object({
     }),
 });
 
+export type loginFormData = z.infer<typeof loginSchema>;
 export default loginSchema;
