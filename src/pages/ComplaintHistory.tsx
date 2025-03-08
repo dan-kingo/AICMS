@@ -13,6 +13,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const ComplaintHistory = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -50,7 +51,22 @@ const ComplaintHistory = () => {
             <TableRow key={complaint.id}>
               <TableCell>{complaint.id}</TableCell>
               <TableCell>{complaint.subject}</TableCell>
-              <TableCell>{complaint.status}</TableCell>
+              <TableCell>
+                {
+                  <Badge
+                    className="text-white"
+                    variant={
+                      complaint.status === "Resolved"
+                        ? "default"
+                        : complaint.status === "In Progress"
+                        ? "secondary"
+                        : "destructive"
+                    }
+                  >
+                    {complaint.status}
+                  </Badge>
+                }
+              </TableCell>
               <TableCell>{complaint.date}</TableCell>
               <TableCell>
                 <Button
