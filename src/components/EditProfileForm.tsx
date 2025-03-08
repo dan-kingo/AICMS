@@ -49,7 +49,7 @@ const EditProfileForm = () => {
 
           <div className="flex justify-center">
             <Button
-              className="dark:text-white rounded-full  w-1/2 "
+              className="dark:text-white rounded-full  md:w-1/2 "
               type="submit"
               disabled={isLoading}
             >
