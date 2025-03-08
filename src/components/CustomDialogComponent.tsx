@@ -4,6 +4,7 @@ import {
   DialogContent,
   DialogTitle,
   DialogHeader,
+  DialogDescription,
 } from "@/components/ui/dialog";
 
 export interface Complaint {
@@ -26,6 +27,9 @@ const CustomDialogComponent = ({ selectedComplaint, onClose }: Props) => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Complaint Details</DialogTitle>
+            <DialogDescription>
+              Details of the selected complaint.
+            </DialogDescription>
           </DialogHeader>
           <div className="p-4 space-y-3">
             <p>
