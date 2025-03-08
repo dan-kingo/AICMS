@@ -1,8 +1,9 @@
+import EditProfileForm from "@/components/EditProfileForm";
 import ProfilePictureUpload from "@/components/ProfilePictureUpload";
 
 const UserProfile = () => {
   return (
-    <div className="ms-12">
+    <div className="md:ms-12">
       {/* profile picture */}
       <div className="flex gap-4 items-center">
         <ProfilePictureUpload />
@@ -15,6 +16,10 @@ const UserProfile = () => {
       </div>
 
       {/* profile update field */}
+
+      <div className="mt-2 md:mr-12">
+        <EditProfileForm />
+      </div>
     </div>
   );
 };
