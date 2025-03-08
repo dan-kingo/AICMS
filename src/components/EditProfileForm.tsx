@@ -13,19 +13,18 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { useState } from "react";
-import registerData from "@/assets/constants/registerData";
-import registerSchema from "@/utils/registerFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import profileData from "@/assets/constants/profileData";
+import profileUpdateSchema from "@/utils/profileUpdateSchema";
 
 const EditProfileForm = () => {
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
-  const form = useForm<z.infer<typeof registerSchema>>({
-    resolver: zodResolver(registerSchema),
+  const form = useForm<z.infer<typeof profileUpdateSchema>>({
+    resolver: zodResolver(profileUpdateSchema),
     defaultValues: {
-      firstName: "John",
+      firstName: "Johnas",
       lastName: "Smith",
       userName: "@johnas",
       email: "johnas23@gmail.com",
@@ -33,32 +32,29 @@ const EditProfileForm = () => {
     },
   });
 
-  const onSubmit = async (data: z.infer<typeof registerSchema>) => {
+  const onSubmit = async (data: z.infer<typeof profileUpdateSchema>) => {
     setLoading(true);
 
     let isComponentMounted = true;
 
     try {
-      const response = await fetch("https://localohst:3000/register");
+      const response = await fetch(
+        "https://localohst:3000/dashboard/update-profile"
+      );
 
       const result = await response.json();
 
       if (isComponentMounted) {
         if (result.success) {
-          toast.success("Registerd successfully!", {
-            description: `Thanks for registering, ${data.firstName} ${data.lastName}!`,
-          });
-          navigate("/login");
+          toast.success("Updated successfully!");
           form.reset();
         } else {
           toast.error("Something went wrong. Please try again.");
-          navigate("/");
         }
       }
     } catch (error) {
       if (isComponentMounted) {
-        toast.error("Failed to register.");
-        navigate("/");
+        toast.error("Failed to update!.");
       }
     } finally {
       if (isComponentMounted) setLoading(false);
@@ -80,7 +76,7 @@ const EditProfileForm = () => {
             <FormField
               key={index}
               control={form.control}
-              name={formInput.name as keyof z.infer<typeof registerSchema>}
+              name={formInput.name as keyof z.infer<typeof profileUpdateSchema>}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>{formInput.label}</FormLabel>
