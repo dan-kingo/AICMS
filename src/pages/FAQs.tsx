@@ -13,7 +13,10 @@ const Help = () => {
           <h1 className=" font-bold font-palanquin  md:text-6xl text-4xl md:mb-12 mb-8 dark:text-gray-200 text-gray-900">
             Frequenty Asked Questions
           </h1>
-          <SearchInput onSearch={(term) => setSearchItem(term)} />
+          <SearchInput
+            onSearch={(term) => setSearchItem(term)}
+            placeholder="Search questions here..."
+          />
           <FAQAccordion searchTerm={searchItem} />
         </div>
         <div className="w-full  hidden md:block ">
