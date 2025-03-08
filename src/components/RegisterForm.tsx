@@ -18,7 +18,7 @@ const RegisterForm = () => {
   const { isLoading, form, onSubmit } = useRegister();
 
   return (
-    <div className="dark:bg-dark p-4 bg-white  w-[350px] md:w-[450px] flex flex-col rounded-lg shadow-lg">
+    <div className="dark:bg-dark p-4 bg-white  w-[340px] md:w-[450px] flex flex-col rounded-lg shadow-lg">
       <h1 className="md:text-xl font-semibold  pb-6 text-lg font-palanquin flex justify-center w-full">
         Create Your Account
       </h1>
