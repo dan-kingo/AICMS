@@ -29,4 +29,6 @@ const profileUpdateSchema = z.object({
     }),
 });
 
+export type profileUpdateData = z.infer<typeof profileUpdateSchema>;
+
 export default profileUpdateSchema;
