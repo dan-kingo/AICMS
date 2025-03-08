@@ -55,7 +55,9 @@ const EditProfileForm = () => {
 
           <div className="flex justify-center">
             <Button
-              className="dark:text-white rounded-full  md:w-1/2 "
+              className={`dark:text-white ${
+                isUserPath ? " rounded-full md:w-1/2 w-full" : "w-full"
+              } `}
               type="submit"
               disabled={isLoading}
             >
