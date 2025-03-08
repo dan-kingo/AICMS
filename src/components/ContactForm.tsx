@@ -12,15 +12,18 @@ import { contactFormData } from "@/utils/contactFormSchema";
 import formData from "@/assets/constants/formData";
 import { Textarea } from "./ui/textarea";
 import useContact from "@/hooks/useContact";
+import { useLocation } from "react-router-dom";
 
 const ContactForm = () => {
+  const location = useLocation();
   const { form, isLoading, onSubmit } = useContact();
 
+  let isContactPath = location.pathname === "/contact-us";
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full md:w-3/4 space-y-6 "
+        className={` space-y-6 ${isContactPath ? "w-full md:w-3/4" : "w-full"}`}
       >
         {formData.map((formInput, index) => (
           <FormField
