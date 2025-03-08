@@ -1,6 +1,4 @@
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { Button } from "./ui/button";
 import {
@@ -12,63 +10,12 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
-import { useState } from "react";
 import registerData from "@/assets/constants/registerData";
-import registerSchema from "@/utils/registerFormSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
+import { registerFormData } from "@/utils/registerFormSchema";
+import useRegister from "@/hooks/useRegister";
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
-  const [isLoading, setLoading] = useState(false);
-  const form = useForm<z.infer<typeof registerSchema>>({
-    resolver: zodResolver(registerSchema),
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      userName: "",
-      email: "",
-      phoneNumber: "",
-      password: "",
-      confirmPassword: "",
-    },
-  });
-
-  const onSubmit = async (data: z.infer<typeof registerSchema>) => {
-    setLoading(true);
-
-    let isComponentMounted = true;
-
-    try {
-      const response = await fetch("https://localohst:3000/register");
-
-      const result = await response.json();
-
-      if (isComponentMounted) {
-        if (result.success) {
-          toast.success("Registerd successfully!", {
-            description: `Thanks for registering, ${data.firstName} ${data.lastName}!`,
-          });
-          navigate("/login");
-          form.reset();
-        } else {
-          toast.error("Something went wrong. Please try again.");
-          navigate("/");
-        }
-      }
-    } catch (error) {
-      if (isComponentMounted) {
-        toast.error("Failed to register.");
-        navigate("/");
-      }
-    } finally {
-      if (isComponentMounted) setLoading(false);
-    }
-
-    return () => {
-      isComponentMounted = false;
-    };
-  };
+  const { isLoading, form, onSubmit } = useRegister();
 
   return (
     <div className="dark:bg-dark p-4 bg-white  w-[350px] md:w-[450px] flex flex-col rounded-lg shadow-lg">
@@ -84,7 +31,7 @@ const RegisterForm = () => {
             <FormField
               key={index}
               control={form.control}
-              name={formInput.name as keyof z.infer<typeof registerSchema>}
+              name={formInput.name as keyof registerFormData}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>{formInput.label}</FormLabel>
@@ -102,30 +49,6 @@ const RegisterForm = () => {
               )}
             />
           ))}
-          {/* <FormField
-            control={form.control}
-            name="gender"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Gender</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="w-full rounded-full">
-                      <SelectValue placeholder="Enter your gender" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="Male">Male</SelectItem>
-                    <SelectItem value="Female">Female </SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          /> */}
 
           <Button
             className="dark:text-white rounded-full w-full"

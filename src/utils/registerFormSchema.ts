@@ -52,4 +52,5 @@ const registerSchema = z
     path: ["confirmPassword"], // Error is linked to the confirmPassword field
   });
 
+export type registerFormData = z.infer<typeof registerSchema>;
 export default registerSchema;
