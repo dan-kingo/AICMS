@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import FeatureCard from "@/components/FeatureCard";
-import aboutImg2 from "../assets/Electrician-rafiki.svg";
+import aboutImg2 from "../assets/images/Electrician-rafiki.svg";
 
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";

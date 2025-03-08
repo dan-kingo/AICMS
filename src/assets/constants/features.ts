@@ -1,6 +1,6 @@
-import AI from "../AI_brain-removebg-preview.png";
-import automation from "../automation-removebg-preview.png";
-import realTime from "../realtime-removebg-preview.png";
+import AI from "../images/AI_brain-removebg-preview.png";
+import automation from "../images/automation-removebg-preview.png";
+import realTime from "../images/realtime-removebg-preview.png";
 
 const features = [
   {

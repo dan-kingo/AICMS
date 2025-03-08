@@ -14,7 +14,7 @@ const changePassword = [
   {
     name: "confirmPassword",
     label: "Confirm Password",
-    placeholder: "confirm password",
+    placeholder: "confirm the new password",
     type: "password",
   },
 ];

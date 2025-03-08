@@ -1,5 +1,5 @@
 import { isRouteErrorResponse, Link, useRouteError } from "react-router-dom";
-import notFoundImg1 from "../assets/404 Error-rafiki.svg";
+import notFoundImg1 from "../assets/images/404 Error-rafiki.svg";
 
 const Error = () => {
   const error = useRouteError();
