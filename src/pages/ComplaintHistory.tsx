@@ -1,54 +1,48 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import complaints from "@/assets/constants/complaints";
+import CustomDialogComponent, {
+  Complaint,
+} from "@/components/CustomDialogComponent";
+import SearchInput from "@/components/SearchInput";
 import {
   Table,
-  TableBody,
-  TableCell,
-  TableHead,
   TableHeader,
   TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
 } from "@/components/ui/table";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
-import { format } from "date-fns";
-import complaints from "@/assets/constants/complaints";
-import SearchInput from "@/components/SearchInput";
+import { Button } from "@/components/ui/button";
 
 const ComplaintHistory = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedComplaint, setSelectedComplaint] = useState<any>(null);
+  const [selectedComplaint, setSelectedComplaint] = useState<Complaint | null>(
+    null
+  );
 
-  // Filter complaints based on search term
   const filteredComplaints = complaints.filter((complaint) =>
     complaint.subject.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-4">Complaint History</h1>
+    <div className="p-6 space-y-6">
+      <h1 className="text-xl font-semibold">Complaint History</h1>
 
       {/* Search Bar */}
-
       <SearchInput
+        onSearch={setSearchTerm}
         placeholder="Search complaints..."
-        onSearch={(term) => setSearchTerm(term)}
       />
 
       {/* Complaints Table */}
-      <Table className="mt-4">
+      <Table>
         <TableHeader>
           <TableRow>
             <TableHead>ID</TableHead>
             <TableHead>Subject</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Date</TableHead>
-            <TableHead>Actions</TableHead>
+            <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -56,72 +50,26 @@ const ComplaintHistory = () => {
             <TableRow key={complaint.id}>
               <TableCell>{complaint.id}</TableCell>
               <TableCell>{complaint.subject}</TableCell>
+              <TableCell>{complaint.status}</TableCell>
+              <TableCell>{complaint.date}</TableCell>
               <TableCell>
-                <Badge
-                  className="text-white"
-                  variant={
-                    complaint.status === "Resolved"
-                      ? "default"
-                      : complaint.status === "In Progress"
-                      ? "secondary"
-                      : "destructive"
-                  }
+                <Button
+                  variant="outline"
+                  onClick={() => setSelectedComplaint(complaint)}
                 >
-                  {complaint.status}
-                </Badge>
-              </TableCell>
-              <TableCell>
-                {format(new Date(complaint.date), "yyyy-MM-dd")}
-              </TableCell>
-              <TableCell>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="outline"
-                      onClick={() => setSelectedComplaint(complaint)}
-                    >
-                      View
-                    </Button>
-                  </DialogTrigger>
-                  {selectedComplaint && (
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>Complaint Details</DialogTitle>
-                      </DialogHeader>
-                      <div className="p-4">
-                        <p>
-                          <strong>ID:</strong> {selectedComplaint.id}
-                        </p>
-                        <p>
-                          <strong>Subject:</strong> {selectedComplaint.subject}
-                        </p>
-                        <p>
-                          <strong>Status:</strong> {selectedComplaint.status}
-                        </p>
-                        <p>
-                          <strong>Date:</strong>{" "}
-                          {format(
-                            new Date(selectedComplaint.date),
-                            "yyyy-MM-dd"
-                          )}
-                        </p>
-                        <p>
-                          <strong>Details:</strong> {selectedComplaint.details}
-                        </p>
-                      </div>
-                    </DialogContent>
-                  )}
-                </Dialog>
+                  View
+                </Button>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
 
-      {/* No Results Message */}
-      {filteredComplaints.length === 0 && (
-        <p className="text-gray-500 text-center mt-4">No complaints found.</p>
-      )}
+      {/* Dialog Component */}
+      <CustomDialogComponent
+        selectedComplaint={selectedComplaint}
+        onClose={() => setSelectedComplaint(null)}
+      />
     </div>
   );
 };
