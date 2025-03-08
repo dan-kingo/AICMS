@@ -45,6 +45,7 @@ const Settings = () => {
           <div className="flex justify-between items-center">
             <Label>Dark Mode</Label>
             <Switch
+              className="cursor-pointer"
               checked={theme === "dark"}
               onCheckedChange={() =>
                 setTheme(theme === "dark" ? "light" : "dark")
@@ -54,7 +55,11 @@ const Settings = () => {
 
           <div className="flex justify-between items-center">
             <Label>Enable Two-Factor Authentication</Label>
-            <Switch checked={is2FAEnabled} onCheckedChange={setIs2FAEnabled} />
+            <Switch
+              className="cursor-pointer"
+              checked={is2FAEnabled}
+              onCheckedChange={setIs2FAEnabled}
+            />
           </div>
         </CardContent>
       </Card>
