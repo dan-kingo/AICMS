@@ -20,9 +20,9 @@ const ChangePassword = () => {
     <div
       className={`flex  ${
         isChangePassword
-          ? "md:ms-12 py-12 h-11/12  items-center justify-center w-11/12"
-          : "w-full"
-      }  dark:bg-dark px-4  bg-white   flex-col rounded-lg shadow-lg`}
+          ? " dark:bg-dark rounded-lg shadow-lg mt-6 bg-white  md:ms-12 py-12 h-11/12  items-center justify-center md:w-11/12"
+          : "w-full "
+      }   px-4  flex-col `}
     >
       {isChangePassword && (
         <h1 className="md:text-2xl font-semibold  pb-6 text-xl font-palanquin flex justify-center w-full">

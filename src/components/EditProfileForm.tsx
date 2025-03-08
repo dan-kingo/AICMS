@@ -20,7 +20,11 @@ const EditProfileForm = () => {
   const isUserPath = location.pathname === "/dashboard";
   const { form, isLoading, onSubmit } = useUpdate();
   return (
-    <div className="dark:bg-dark p-4 bg-white  w-full  flex flex-col rounded-lg shadow-lg">
+    <div
+      className={`${
+        isUserPath ? "dark:bg-dark bg-white  w-full rounded-lg shadow-lg" : ""
+      } p-4   flex flex-col `}
+    >
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
