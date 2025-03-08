@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import { Button } from "./ui/button";
 import {
@@ -16,6 +16,8 @@ import { profileUpdateData } from "@/utils/profileUpdateSchema";
 import useUpdate from "@/hooks/useUpdate";
 
 const EditProfileForm = () => {
+  const location = useLocation();
+  const isUserPath = location.pathname === "/dashboard";
   const { form, isLoading, onSubmit } = useUpdate();
   return (
     <div className="dark:bg-dark p-4 bg-white  w-full  flex flex-col rounded-lg shadow-lg">
@@ -58,12 +60,14 @@ const EditProfileForm = () => {
           </div>
         </form>
       </Form>
-      <p className="font-md text-center py-4">
-        Do you want to change you password?{" "}
-        <NavLink to="/dashboard/change-password" className="text-primary">
-          Click Here
-        </NavLink>
-      </p>
+      {isUserPath && (
+        <p className="font-md text-center py-4">
+          Do you want to change you password?{" "}
+          <NavLink to="/dashboard/change-password" className="text-primary">
+            Click Here
+          </NavLink>
+        </p>
+      )}
     </div>
   );
 };

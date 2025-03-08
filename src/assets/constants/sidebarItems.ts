@@ -29,7 +29,7 @@ const sidebarItems = [
     icon: Key,
   },
   {
-    title: "Settings",
+    title: "Settings and Privacy",
     path: "/dashboard/settings",
     icon: Settings,
   },
