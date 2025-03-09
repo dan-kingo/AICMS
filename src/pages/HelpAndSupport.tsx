@@ -4,11 +4,11 @@ import ContactForm from "@/components/ContactForm";
 
 const HelpAndSupport = () => {
   return (
-    <div className=" lg:mx-auto lg:p-6">
+    <div className=" lg:mx-auto lg:p-6 md:w-[96%]">
       <h1 className="text-2xl font-semibold mb-6">Help & Support</h1>
 
       {/* Frequently Asked Questions */}
-      <Card className="mb-6 dark:bg-dark">
+      <Card className="mb-6 dark:bg-dark ">
         <CardHeader>
           <CardTitle>Frequently Asked Questions</CardTitle>
         </CardHeader>

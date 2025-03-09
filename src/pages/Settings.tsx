@@ -13,11 +13,11 @@ const Settings = () => {
   const [is2FAEnabled, setIs2FAEnabled] = useState(false);
 
   return (
-    <div className=" lg:mx-auto lg:p-6">
+    <div className=" lg:mx-auto lg:p-6 md:w-[96%]">
       <h1 className="text-2xl font-semibold mb-6">Settings & Privacy</h1>
 
       {/* Profile Settings */}
-      <Card className="mb-6 dark:bg-dark">
+      <Card className="mb-6 dark:bg-dark ">
         <CardHeader>
           <CardTitle>Profile Settings</CardTitle>
         </CardHeader>

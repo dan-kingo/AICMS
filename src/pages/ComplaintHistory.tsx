@@ -19,8 +19,8 @@ const ComplaintHistory = () => {
   );
 
   return (
-    <div className="space-y-6 lg:mx-auto lg:p-6">
-      <Card className="dark:bg-dark">
+    <div className="space-y-6 lg:mx-auto lg:p-6 ">
+      <Card className="dark:bg-dark md:w-[98%]">
         <CardHeader>
           <CardTitle>Complaint History</CardTitle>
         </CardHeader>
