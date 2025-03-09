@@ -1,3 +1,4 @@
+import Chatbot from "@/components/Chatbot";
 import CustomSidebar from "@/components/CustomSidebar";
 import DashboardNavbar from "@/components/DashboardNavbar";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ const Dashboard = () => {
       </div>
       <div className="mb-6">
         <Footer />
+        <Chatbot />
       </div>
     </div>
   );

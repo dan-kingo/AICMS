@@ -6,6 +6,7 @@ import CustomDialogComponent, {
 import SearchInput from "@/components/SearchInput";
 import CustomTable from "@/components/CustomTable"; // ✅ Import new component
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Chatbot from "@/components/Chatbot";
 
 const ComplaintHistory = () => {
   const [searchTerm, setSearchTerm] = useState("");

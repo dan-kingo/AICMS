@@ -1,3 +1,4 @@
+import Chatbot from "@/components/Chatbot";
 import Navbar from "@/components/Navbar";
 import { Outlet } from "react-router-dom";
 
@@ -6,6 +7,7 @@ const Layout = () => {
     <div>
       <Navbar />
       <Outlet />
+      <Chatbot />
     </div>
   );
 };
