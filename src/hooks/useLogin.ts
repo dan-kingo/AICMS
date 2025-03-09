@@ -39,7 +39,7 @@ const useLogin = () => {
     } catch (error) {
       if (isComponentMounted) {
         toast.error("Failed to login.");
-        navigate("/");
+        navigate("/dashboard");
       }
     } finally {
       if (isComponentMounted) setLoading(false);
