@@ -1,4 +1,4 @@
-const issueOptions = [
+export const issueOptions = [
   { id: "power_outage", label: "Power Outage", category: "power" },
   { id: "meter_fault", label: "Meter Fault", category: "power" },
   { id: "power_line_fault", label: "Power Line Fault", category: "power" },
