@@ -1,7 +1,7 @@
 export const issueOptions = [
-  { id: "power_outage", label: "Power Outage", category: "power" },
-  { id: "meter_fault", label: "Meter Fault", category: "power" },
-  { id: "power_line_fault", label: "Power Line Fault", category: "power" },
+  { id: "power_outage", label: "Power Outage", category: "supply" },
+  { id: "meter_fault", label: "Meter Fault", category: "supply" },
+  { id: "power_line_fault", label: "Power Line Fault", category: "supply" },
 
   {
     id: "customer_info_change",
