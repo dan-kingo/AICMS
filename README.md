@@ -71,7 +71,21 @@ This project uses **React Router DOM** for navigation. Below are the main routes
 
 ```tsx
 import { createBrowserRouter } from "react-router-dom";
-import { About, Contact, Help, Home, Login, Register } from "./pages";
+import {
+  About,
+  ChangePassword,
+  ComplaintHistory,
+  Contact,
+  Dashboard,
+  FAQs,
+  HelpAndSupport,
+  Home,
+  Login,
+  MakeComplaint,
+  Register,
+  Settings,
+  UserProfile,
+} from "./pages";
 import Layout from "./pages/Layout";
 import Error from "./pages/Error";
 
@@ -90,26 +104,57 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "help",
-        element: <Help />,
+        path: "faqs",
+        element: <FAQs />,
       },
       {
         path: "contact-us",
         element: <Contact />,
       },
+    ],
+  },
+  {
+    path: "register",
+    element: <Register />,
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
       {
-        path: "register",
-        element: <Register />,
+        index: true,
+        element: <UserProfile />,
       },
       {
-        path: "login",
-        element: <Login />,
+        path: "add-complaint",
+        element: <MakeComplaint />,
+      },
+      {
+        path: "change-password",
+        element: <ChangePassword />,
+      },
+      {
+        path: "help",
+        element: <HelpAndSupport />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
+        path: "complaints",
+        element: <ComplaintHistory />,
       },
     ],
   },
 ]);
 
 export default router;
+
 
 ```
 
