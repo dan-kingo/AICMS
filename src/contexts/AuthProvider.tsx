@@ -11,13 +11,22 @@ const AuthProvider = ({ children }: Props) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    axios
-      .get<AuthContextType["user"]>("/api/user/current-user", {
-        withCredentials: true,
-      })
-      .then((res) => setUser(res.data))
-      .catch(() => setUser(null))
-      .finally(() => setLoading(false));
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+      setLoading(false);
+    } else {
+      axios
+        .get<AuthContextType["user"]>("/api/user/current-user", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setUser(res.data);
+          localStorage.setItem("user", JSON.stringify(res.data)); // Store user
+        })
+        .catch(() => setUser(null))
+        .finally(() => setLoading(false));
+    }
   }, []);
 
   const login = (token: string) => {
@@ -30,11 +39,25 @@ const AuthProvider = ({ children }: Props) => {
   };
 
   const logout = () => {
-    axios.post("/api/logout").finally(() => {
+    axios.get("/api/auth/logout").finally(() => {
       setUser(null);
       <Navigate to="/login" />;
     });
   };
+
+  useEffect(() => {
+    const handleBackForwardNavigation = () => {
+      if (window.location.pathname !== "/dashboard") {
+        logout();
+      }
+    };
+
+    window.addEventListener("popstate", handleBackForwardNavigation);
+
+    return () => {
+      window.removeEventListener("popstate", handleBackForwardNavigation);
+    };
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, loading, login, logout }}>
