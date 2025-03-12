@@ -1,56 +1,43 @@
-import loginSchema, { loginFormData } from "@/utils/loginFormSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { loginFormData } from "@/utils/loginFormSchema";
 
 const useLogin = () => {
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
-  const form = useForm<loginFormData>({
-    resolver: zodResolver(loginSchema),
-    defaultValues: {
-      userName: "",
-      password: "",
-    },
-  });
 
-  const onSubmit = async (_data: loginFormData) => {
+  const loginUser = async (data: loginFormData) => {
     setLoading(true);
 
-    let isComponentMounted = true;
-
     try {
-      const response = await fetch("https://localohst:3000/register");
+      const response = await axios.post(
+        "http://localhost:3000/api/auth/login",
+        data,
+        { withCredentials: true }
+      );
 
-      const result = await response.json();
-
-      if (isComponentMounted) {
-        if (result.success) {
-          toast.success("Logged in successfully!");
-          navigate("/Dashboard");
-          form.reset();
-        } else {
-          toast.error("Something went wrong. Please try again.");
-          navigate("/");
-        }
+      if (response.data.success) {
+        toast.success("Logged in successfully!");
+        navigate("/dashboard");
+      } else {
+        toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {
-      if (isComponentMounted) {
-        toast.error("Failed to login.");
-        navigate("/dashboard");
+      if (error instanceof AxiosError) {
+        const errorMessage =
+          error.response?.data?.message || "An unknown error occurred.";
+        toast.error(errorMessage);
+      } else {
+        toast.error("Failed to login");
       }
     } finally {
-      if (isComponentMounted) setLoading(false);
+      setLoading(false);
     }
-
-    return () => {
-      isComponentMounted = false;
-    };
   };
 
-  return { isLoading, form, onSubmit };
+  return { loginUser, isLoading };
 };
 
 export default useLogin;

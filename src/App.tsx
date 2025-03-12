@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
-      <Toaster position="bottom-right" richColors />
+      <Toaster position="top-center" richColors />
     </>
   );
 };
