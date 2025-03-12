@@ -2,9 +2,15 @@ import Chatbot from "@/components/Chatbot";
 import CustomSidebar from "@/components/CustomSidebar";
 import DashboardNavbar from "@/components/DashboardNavbar";
 import Footer from "@/components/Footer";
-import { Outlet } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
+import { Navigate, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
   return (
     <div className="min-h-screen flex flex-col">
       <DashboardNavbar />
