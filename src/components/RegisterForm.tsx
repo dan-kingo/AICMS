@@ -11,12 +11,26 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import registerData from "@/assets/constants/registerData";
-import { registerFormData } from "@/utils/registerFormSchema";
+import registerSchema, { registerFormData } from "@/utils/registerFormSchema";
 import useRegister from "@/hooks/useRegister";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 const RegisterForm = () => {
-  const { isLoading, form, onSubmit } = useRegister();
+  const { isLoading, registerUser } = useRegister();
 
+  const form = useForm<registerFormData>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      userName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
   return (
     <div className="dark:bg-dark p-4 bg-white  w-[340px] md:w-[450px] flex flex-col rounded-lg shadow-lg">
       <h1 className="md:text-xl font-semibold  pb-6 text-lg font-palanquin flex justify-center w-full">
@@ -24,7 +38,7 @@ const RegisterForm = () => {
       </h1>
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit((data) => registerUser(data, form.reset))}
           className="w-full  space-y-6 "
         >
           {registerData.map((formInput, index) => (
