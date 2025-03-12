@@ -45,9 +45,10 @@ const AuthProvider = ({ children }: Props) => {
     });
   };
 
+  // handle back and forth navigation
   useEffect(() => {
     const handleBackForwardNavigation = () => {
-      if (window.location.pathname !== "/dashboard") {
+      if (!window.location.pathname.startsWith("/dashboard")) {
         logout();
       }
     };
@@ -57,6 +58,14 @@ const AuthProvider = ({ children }: Props) => {
     return () => {
       window.removeEventListener("popstate", handleBackForwardNavigation);
     };
+  }, []);
+
+  // handle site exist
+  useEffect(() => {
+    const handleSiteExit = () => logout();
+
+    window.addEventListener("beforeunload", handleSiteExit);
+    return () => window.removeEventListener("beforeunload", handleSiteExit);
   }, []);
 
   return (
