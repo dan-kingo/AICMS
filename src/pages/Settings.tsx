@@ -6,9 +6,13 @@ import { Switch } from "@/components/ui/switch";
 import EditProfileForm from "@/components/EditProfileForm";
 import ChangePassword from "./ChangePassword";
 import { useTheme } from "@/components/theme-provider";
+import useLogout from "@/hooks/useLogout";
+import { useForm } from "react-hook-form";
 
 const Settings = () => {
   const { setTheme, theme } = useTheme();
+  const { isLoading, logoutUser } = useLogout();
+  const { handleSubmit } = useForm();
 
   const [is2FAEnabled, setIs2FAEnabled] = useState(false);
 
@@ -73,9 +77,11 @@ const Settings = () => {
           <Button variant="destructive" className="w-full">
             Delete Account
           </Button>
-          <Button variant="secondary" className="w-full text-white ">
-            Log Out
-          </Button>
+          <form onSubmit={handleSubmit(logoutUser)}>
+            <Button variant="secondary" className="w-full text-white ">
+              {isLoading ? "Logging Out" : "Log Out"}
+            </Button>
+          </form>
         </CardContent>
       </Card>
     </div>
