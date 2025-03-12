@@ -2,6 +2,7 @@ import { useState, useEffect, ReactNode } from "react";
 import axios from "axios";
 import { AuthContext, AuthContextType } from "./AuthContext";
 import { Navigate } from "react-router-dom";
+import { registerFormData } from "@/utils/registerFormSchema";
 
 interface Props {
   children: ReactNode;
@@ -11,22 +12,13 @@ const AuthProvider = ({ children }: Props) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-      setLoading(false);
-    } else {
-      axios
-        .get<AuthContextType["user"]>("/api/user/current-user", {
-          withCredentials: true,
-        })
-        .then((res) => {
-          setUser(res.data);
-          localStorage.setItem("user", JSON.stringify(res.data)); // Store user
-        })
-        .catch(() => setUser(null))
-        .finally(() => setLoading(false));
-    }
+    axios
+      .get<registerFormData>("/api/user/current-user", {
+        withCredentials: true,
+      }) // Read user session from cookie
+      .then((res) => setUser(res.data))
+      .catch(() => setUser(null))
+      .finally(() => setLoading(false));
   }, []);
 
   const login = (token: string) => {
