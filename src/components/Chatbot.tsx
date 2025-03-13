@@ -6,7 +6,13 @@ import {
   DialogOverlay,
   DialogTitle,
 } from "@/components/ui/dialog"; // ShadCN Dialog for modal functionality
-import { MessageCircleDashed } from "lucide-react";
+import {
+  BotIcon,
+  Loader2Icon,
+  MessageCircleDashed,
+  SendHorizonalIcon,
+  User2Icon,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import useMessage from "@/hooks/useMessage";
@@ -39,13 +45,18 @@ const Chatbot = () => {
             <div className="chat-messages">
               {messages.map((msg, index) => (
                 <div key={index} className="mb-3">
-                  <div className="text-sm font-semibold">User:</div>
-                  <div className="dark:text-gray-400 text-gray-800">
-                    {msg.user}
+                  <div className="text-sm font-semibold flex gap-4 items-center">
+                    <User2Icon />
+                    <div className=" bg-blue-900 rounded-full p-2 text-white">
+                      {msg.user}
+                    </div>
                   </div>
-                  <div className="text-sm font-semibold mt-2">Bot:</div>
-                  <div className="text-gray-600 dark:text-gray-400 ">
-                    {msg.bot}
+
+                  <div className="text-sm font-semibold mt-2 flex items-center gap-4">
+                    <BotIcon />
+                    <div className="text-white bg-gray-700 p-2 rounded-full">
+                      {msg.bot}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -61,13 +72,18 @@ const Chatbot = () => {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask something..."
             />
-            <button
+            <Button
+              variant="outline"
+              className="dark:text-white"
               onClick={sendMessage}
               disabled={loading}
-              className="px-4 py-2 bg-primary text-white rounded-lg cursor-pointer"
             >
-              {loading ? "Sending..." : "Send"}
-            </button>
+              {loading ? (
+                <Loader2Icon className="animate-spin" />
+              ) : (
+                <SendHorizonalIcon size="18px" />
+              )}
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

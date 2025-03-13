@@ -12,18 +12,18 @@ const useMessage = () => {
 
   // Send message to API
   const sendMessage = async () => {
-    if (!input.trim()) return; // Do nothing if input is empty
+    if (!input.trim()) return;
 
     // Add user message to the chat
     setMessages([...messages, { user: input, bot: "..." }]);
     setLoading(true);
 
     try {
-      // Make a request to your backend (replace with your own API endpoint)
-      const response = await axios.post("/chatbot", { message: input });
-      // Add the bot response to the chat
+      const response = await axios.post("http://localhost:3000/api/chatbot", {
+        message: input,
+      });
       setMessages([...messages, { user: input, bot: response.data.reply }]);
-      setInput(""); // Clear input field
+      setInput("");
     } catch (error) {
       console.error("Error sending message:", error);
       setMessages([
