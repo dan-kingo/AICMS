@@ -3,6 +3,7 @@ import { Card, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import useRegister from "@/hooks/useRegister";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const OTPVerification = () => {
   const { verifyOTP, resendOTP, isLoading } = useRegister();
@@ -10,7 +11,7 @@ const OTPVerification = () => {
 
   const handleVerify = () => {
     if (otp.length !== 6) {
-      alert("Please enter a valid 6-digit OTP");
+      toast.error("Please enter a valid 6-digit OTP");
       return;
     }
     verifyOTP(otp);
