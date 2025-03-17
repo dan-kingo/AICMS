@@ -73,11 +73,15 @@ const useRegister = (): {
   const resendOTP = async () => {
     setLoading(true);
     try {
+      console.log("Sending request to resend OTP...");
+
       const response = await axios.post(
         "http://localhost:3000/api/auth/resend-otp",
         {}, // No email needed (backend gets it from cookies)
         { withCredentials: true } // ⬅️ Ensures cookies are sent
       );
+
+      console.log("Response from server:", response.data); // Log the server's response
 
       if (response.data.success) {
         toast.success("OTP resent successfully!");
@@ -85,6 +89,7 @@ const useRegister = (): {
         toast.error("Failed to resend OTP.");
       }
     } catch (error) {
+      console.log("Error resending OTP:", error); // Log error during the request
       toast.error("Error resending OTP.");
     } finally {
       setLoading(false);
