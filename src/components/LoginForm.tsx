@@ -66,6 +66,13 @@ const LoginForm = () => {
             {isLoading ? "Logging..." : "Login"}
           </Button>
         </form>
+
+        <NavLink
+          to="/forgot-password"
+          className="text-primary pt-4 tex-md text-center"
+        >
+          Forgot Password
+        </NavLink>
       </Form>
       <p className="font-md text-center py-4">
         Don't have an account?{" "}

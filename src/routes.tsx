@@ -17,6 +17,7 @@ import {
 import Layout from "./pages/Layout";
 import Error from "./pages/Error";
 import OTPVerification from "./pages/OTPVerification";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "verify-otp",
     element: <OTPVerification />,
+  },
+  {
+    path: "forgot-password",
+    element: <ForgotPassword />,
   },
   {
     path: "/dashboard",
