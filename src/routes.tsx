@@ -16,6 +16,7 @@ import {
 } from "./pages";
 import Layout from "./pages/Layout";
 import Error from "./pages/Error";
+import OTPVerification from "./pages/OTPVerification";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "verify-otp",
+    element: <OTPVerification />,
   },
   {
     path: "/dashboard",
