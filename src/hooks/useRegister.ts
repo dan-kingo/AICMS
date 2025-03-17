@@ -53,8 +53,8 @@ const useRegister = (): {
     try {
       const response = await axios.post(
         "http://localhost:3000/api/auth/verify-otp",
-        { otp }, // No email needed (backend gets it from cookies)
-        { withCredentials: true } // ⬅️ Ensures cookie is sent with the request
+        { otp },
+        { withCredentials: true }
       );
 
       if (response.data.success) {
@@ -64,7 +64,7 @@ const useRegister = (): {
         toast.error("Invalid OTP. Please try again.");
       }
     } catch (error) {
-      toast.error("Failed to verify OTP.");
+      toast.error("Invalid OTP. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -77,11 +77,9 @@ const useRegister = (): {
 
       const response = await axios.post(
         "http://localhost:3000/api/auth/resend-otp",
-        {}, // No email needed (backend gets it from cookies)
-        { withCredentials: true } // ⬅️ Ensures cookies are sent
+        {},
+        { withCredentials: true }
       );
-
-      console.log("Response from server:", response.data); // Log the server's response
 
       if (response.data.success) {
         toast.success("OTP resent successfully!");

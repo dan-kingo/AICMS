@@ -6,7 +6,11 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const OTPVerification = () => {
-  const { verifyOTP, resendOTP, isLoading } = useRegister();
+  // Separate loading states for verifying and resending OTP
+  const [isVerifying, setIsVerifying] = useState(false);
+  const [isResending, setIsResending] = useState(false);
+
+  const { verifyOTP, resendOTP } = useRegister();
   const [otp, setOtp] = useState("");
 
   const handleVerify = () => {
@@ -14,7 +18,13 @@ const OTPVerification = () => {
       toast.error("Please enter a valid 6-digit OTP");
       return;
     }
-    verifyOTP(otp);
+    setIsVerifying(true);
+    verifyOTP(otp).finally(() => setIsVerifying(false));
+  };
+
+  const handleResend = () => {
+    setIsResending(true);
+    resendOTP().finally(() => setIsResending(false));
   };
 
   return (
@@ -34,12 +44,12 @@ const OTPVerification = () => {
         <Button
           className="dark:text-white"
           onClick={handleVerify}
-          disabled={isLoading}
+          disabled={isVerifying}
         >
-          {isLoading ? "Verifying..." : "Verify OTP"}
+          {isVerifying ? "Verifying..." : "Verify OTP"}
         </Button>
-        <Button onClick={resendOTP} variant="ghost">
-          Resend OTP
+        <Button onClick={handleResend} variant="ghost" disabled={isResending}>
+          {isResending ? "Resending..." : "Resend OTP"}
         </Button>
       </Card>
     </div>
