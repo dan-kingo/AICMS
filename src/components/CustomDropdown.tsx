@@ -47,7 +47,9 @@ const CustomDropDown = () => {
                 alt="User Image"
               />
               <AvatarFallback>
-                {user ? user.firstName.charAt(0) : "G"}
+                {user
+                  ? user.firstName.charAt(0) + user.firstName.charAt(0)
+                  : "G"}
               </AvatarFallback>
             </Avatar>
             {user ? user.firstName : "Guest"}
