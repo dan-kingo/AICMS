@@ -30,7 +30,6 @@ const CustomDropDown = () => {
     const fetchUser = async () => {
       const userData = await useUser();
       setUser(userData);
-      console.log(userData);
     };
 
     fetchUser();
@@ -47,7 +46,9 @@ const CustomDropDown = () => {
                 src="https://plus.unsplash.com/premium_photo-1664533227571-cb18551cac82?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="User Image"
               />
-              <AvatarFallback>JS</AvatarFallback>
+              <AvatarFallback>
+                {user ? user.firstName.charAt(0) : "G"}
+              </AvatarFallback>
             </Avatar>
             {user ? user.firstName : "Guest"}
             <ChevronDown size="16px" />
