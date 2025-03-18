@@ -25,7 +25,7 @@ const useRegister = (): {
       const response = await axios.post(
         "http://localhost:3000/api/auth/register",
         data,
-        { withCredentials: true } // ⬅️ Important: Ensures cookies are set
+        { withCredentials: true }
       );
 
       if (response.data.success) {

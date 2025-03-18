@@ -12,10 +12,30 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
 import useLogout from "@/hooks/useLogout";
+import useUser from "@/hooks/useUser";
+import { useState, useEffect } from "react";
+
+interface User {
+  firstName: string;
+  [key: string]: any;
+}
 
 const CustomDropDown = () => {
   const { logoutUser } = useLogout();
   const { handleSubmit } = useForm();
+
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userData = await useUser();
+      setUser(userData);
+      console.log(userData);
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <div>
       <DropdownMenu>
@@ -29,7 +49,7 @@ const CustomDropDown = () => {
               />
               <AvatarFallback>JS</AvatarFallback>
             </Avatar>
-            John
+            {user ? user.firstName : "Guest"}
             <ChevronDown size="16px" />
           </Button>
         </DropdownMenuTrigger>
