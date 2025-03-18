@@ -10,8 +10,12 @@ import {
 import { ChevronDown, User, Settings, HelpCircle, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import { useForm } from "react-hook-form";
+import useLogout from "@/hooks/useLogout";
 
 const CustomDropDown = () => {
+  const { logoutUser } = useLogout();
+  const { handleSubmit } = useForm();
   return (
     <div>
       <DropdownMenu>
@@ -35,28 +39,33 @@ const CustomDropDown = () => {
           <DropdownMenuSeparator />
           {/* Fix: Use asChild to ensure Link replaces DropdownMenuItem properly */}
           <DropdownMenuItem asChild>
-            <Link to="/profile">
+            <Link to="/dashboard">
               <User size={16} />
               Profile
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link to="/">
+            <Link to="/dashboard/settings">
               <Settings size={16} />
               Settings & Privacy
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link to="/">
+            <Link to="/dashboard/help">
               <HelpCircle size={16} />
               Help & Support
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link to="/">
-              <LogOut size={16} />
-              Logout
-            </Link>
+            <form onSubmit={handleSubmit(logoutUser)}>
+              <Button
+                className="flex items-center justify-center w-full"
+                variant="outline"
+              >
+                <LogOut size={16} />
+                Logout
+              </Button>
+            </form>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
