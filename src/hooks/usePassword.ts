@@ -11,7 +11,7 @@ const usePassword = () => {
   const form = useForm<changePasswordData>({
     resolver: zodResolver(changePasswordSchema),
     defaultValues: {
-      currentPassword: "Dani@1123",
+      currentPassword: "Dani@123",
       newPassword: "",
       confirmPassword: "",
     },

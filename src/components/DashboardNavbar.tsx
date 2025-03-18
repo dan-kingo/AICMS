@@ -32,12 +32,12 @@ const DashboardNavbar = () => {
       } z-50 py-4 px-4 lg:px-14 flex justify-between items-center fixed top-0 w-full`}
     >
       {/* Logo Section */}
-      <NavLink to="/" className="flex items-center">
+      <div className="flex items-center">
         <Zap className="text-primary size-8" />
         <p className="ps-2 font-semibold md:text-xl hidden sm:block">
           EEU Complaint System
         </p>
-      </NavLink>
+      </div>
 
       <div className="hidden md:flex gap-4 ">
         <DarkModeToggle />
