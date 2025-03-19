@@ -2,55 +2,58 @@ import profileUpdateSchema, {
   profileUpdateData,
 } from "@/utils/profileUpdateSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import useUser from "./useUser";
+import axios from "axios";
 
 const useUpdate = () => {
   const [isLoading, setLoading] = useState(false);
   const form = useForm<profileUpdateData>({
     resolver: zodResolver(profileUpdateSchema),
     defaultValues: {
-      firstName: "Johnas",
-      lastName: "Smith",
-      userName: "@johnas",
-      email: "johnas23@gmail.com",
-      phoneNumber: "0923455676",
+      firstName: "",
+      lastName: "",
+      userName: "",
+      email: "",
+      phoneNumber: "",
     },
   });
+  const fetchUser = async () => {
+    const userData = await useUser();
+    if (userData) {
+      form.reset(userData);
+    }
+  };
 
-  const onSubmit = async (_data: profileUpdateData) => {
+  useEffect(() => {
+    fetchUser();
+  }, [form.reset]);
+
+  const onSubmit = async (data: profileUpdateData) => {
     setLoading(true);
-
-    let isComponentMounted = true;
-
     try {
-      const response = await fetch(
-        "https://localohst:3000/dashboard/update-profile"
+      const response = await axios.post(
+        "http://localhost:3000/api/user/update-user",
+        data,
+        { withCredentials: true }
       );
 
-      const result = await response.json();
-
-      if (isComponentMounted) {
-        if (result.success) {
-          toast.success("Updated successfully!");
-          form.reset();
-        } else {
-          toast.error("Something went wrong. Please try again.");
-        }
+      if (response.data.success) {
+        toast.success("Updated successfully!");
+        form.reset(response.data.user);
+      } else {
+        toast.error(response.data.message || "Something went wrong.");
       }
     } catch (error) {
-      if (isComponentMounted) {
-        toast.error("Failed to update!.");
-      }
+      console.log(error);
+      toast.error("Failed to update! Please try again.");
     } finally {
-      if (isComponentMounted) setLoading(false);
+      setLoading(false);
     }
-
-    return () => {
-      isComponentMounted = false;
-    };
   };
+
   return { isLoading, onSubmit, form };
 };
 
