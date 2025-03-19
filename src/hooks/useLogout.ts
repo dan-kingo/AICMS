@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import Cookies from "js-cookie";
 
 const useLogout = () => {
   const navigate = useNavigate();
@@ -15,6 +16,9 @@ const useLogout = () => {
 
       if (response.data.success) {
         toast.success("Logged out successfully!");
+        Object.keys(Cookies.get()).forEach((cookie) => {
+          Cookies.remove(cookie);
+        });
         navigate("/");
       } else {
         toast.error("Something went wrong. Please try again.");

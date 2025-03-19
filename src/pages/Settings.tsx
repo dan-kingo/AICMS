@@ -8,6 +8,7 @@ import ChangePassword from "./ChangePassword";
 import { useTheme } from "@/components/theme-provider";
 import useLogout from "@/hooks/useLogout";
 import { useForm } from "react-hook-form";
+import DeleteAccount from "@/components/DeleteAccount";
 
 const Settings = () => {
   const { setTheme, theme } = useTheme();
@@ -74,9 +75,7 @@ const Settings = () => {
           <CardTitle>Account Actions</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Button variant="destructive" className="w-full">
-            Delete Account
-          </Button>
+          <DeleteAccount />
           <form onSubmit={handleSubmit(logoutUser)}>
             <Button variant="secondary" className="w-full text-white ">
               {isLoading ? "Logging Out" : "Log Out"}

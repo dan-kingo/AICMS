@@ -30,6 +30,7 @@
     "cookie-parser": "^1.4.7",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.4.7",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.477.0",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/aos": "^3.0.7",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^22.13.8",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
