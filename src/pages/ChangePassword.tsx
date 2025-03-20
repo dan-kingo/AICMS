@@ -65,7 +65,7 @@ const ChangePassword = () => {
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? "Updating..." : "Change Password"}
+              {isLoading ? "Changing..." : "Change Password"}
             </Button>
           </div>
         </form>

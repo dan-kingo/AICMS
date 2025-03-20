@@ -2,6 +2,7 @@ import changePasswordSchema, {
   changePasswordData,
 } from "@/utils/changePasswordSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -11,33 +12,39 @@ const usePassword = () => {
   const form = useForm<changePasswordData>({
     resolver: zodResolver(changePasswordSchema),
     defaultValues: {
-      currentPassword: "Dani@123",
+      currentPassword: "",
       newPassword: "",
       confirmPassword: "",
     },
   });
 
-  const onSubmit = async (_data: changePasswordData) => {
+  const onSubmit = async (data: changePasswordData) => {
     setLoading(true);
-
     let isComponentMounted = true;
 
     try {
-      const response = await fetch("https://localohst:3000/register");
+      const response = await axios.post(
+        "http://localhost:3000/api/user/change-password",
+        data,
+        { withCredentials: true }
+      );
 
-      const result = await response.json();
+      const result = response.data;
 
       if (isComponentMounted) {
         if (result.success) {
-          toast.success("Update successfully!");
+          toast.success("Password changed successfully!");
           form.reset();
         } else {
-          toast.error("Something went wrong. Please try again.");
+          toast.error(
+            result.message || "Something went wrong. Please try again."
+          );
         }
       }
     } catch (error) {
+      console.log(error);
       if (isComponentMounted) {
-        toast.error("Failed to update.");
+        toast.error("Failed to update. Please try again.");
       }
     } finally {
       if (isComponentMounted) setLoading(false);
