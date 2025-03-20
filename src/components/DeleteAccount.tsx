@@ -9,17 +9,17 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { Button } from "./ui/button";
-
+import { useDeleteAccount } from "@/hooks/useDeleteAccount";
 const DeleteAccount = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleDelete = () => {
+  const { deleteAccount } = useDeleteAccount();
+  const handleDelete = async () => {
+    await deleteAccount();
     setIsOpen(false);
   };
 
   return (
     <div>
-      {/* Triggering the Modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           <Button
@@ -31,7 +31,6 @@ const DeleteAccount = () => {
           </Button>
         </DialogTrigger>
 
-        {/* Modal Content */}
         <DialogContent>
           <DialogTitle>Are you sure?</DialogTitle>
           <DialogDescription>

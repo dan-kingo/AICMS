@@ -24,27 +24,20 @@ const useResetPassword = () => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post(
-        `http://localhost:3000/api/auth/reset-password`,
-        {
-          resetToken: resetId, // Ensure you're sending the correct field
-          newPassword,
-        }
-      );
+      await axios.post(`http://localhost:3000/api/auth/reset-password`, {
+        resetToken: resetId,
+        newPassword,
+      });
 
-      console.log("Response:", response.data); // Log response for debugging
       toast.success("Password reset successfully!");
       navigate("/login");
     } catch (error) {
-      // Check if it's an Axios error
       if (axios.isAxiosError(error)) {
-        // Log the Axios error response data if it exists
         console.error("Axios Error Response:", error.response?.data);
         toast.error(
           error.response?.data?.message || "Error resetting password."
         );
       } else {
-        // Log unknown errors
         console.error("Unknown Error:", error);
         toast.error("An unexpected error occurred.");
       }

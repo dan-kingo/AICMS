@@ -59,7 +59,10 @@ const Settings = () => {
           </div>
 
           <div className="flex justify-between items-center">
-            <Label>Enable Two-Factor Authentication</Label>
+            <Label className="hidden md:block">
+              Enable Two-Factor Authentication
+            </Label>
+            <Label className="block md:hidden">Enable 2FA</Label>
             <Switch
               className="cursor-pointer"
               checked={is2FAEnabled}
