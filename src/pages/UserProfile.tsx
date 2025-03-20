@@ -1,24 +1,9 @@
 import EditProfileForm from "@/components/EditProfileForm";
 import ProfilePictureUpload from "@/components/ProfilePictureUpload";
-import useUser from "@/hooks/useUser";
-import { useState, useEffect } from "react";
-
-interface User {
-  firstName: string;
-  [key: string]: any;
-}
+import useUserStore from "@/store/userStore";
 
 const UserProfile = () => {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const userData = await useUser();
-      setUser(userData);
-    };
-
-    fetchUser();
-  }, []);
+  const user = useUserStore((state) => state.user);
   return (
     <div className="md:ms-12">
       {/* profile picture */}

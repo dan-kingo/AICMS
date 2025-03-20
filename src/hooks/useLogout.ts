@@ -3,6 +3,7 @@ import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Cookies from "js-cookie";
+import useUserStore from "@/store/userStore";
 
 const useLogout = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const useLogout = () => {
 
       if (response.data.success) {
         toast.success("Logged out successfully!");
+        useUserStore.getState().setUser(null);
         Object.keys(Cookies.get()).forEach((cookie) => {
           Cookies.remove(cookie);
         });

@@ -1,3 +1,4 @@
+// src/hooks/useUpdate.ts
 import profileUpdateSchema, {
   profileUpdateData,
 } from "@/utils/profileUpdateSchema";
@@ -5,8 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import useUser from "./useUser";
+import useUserStore from "@/store/userStore";
 import axios from "axios";
+import useUser from "./useUser";
 
 const useUpdate = () => {
   const [isLoading, setLoading] = useState(false);
@@ -20,6 +22,7 @@ const useUpdate = () => {
       phoneNumber: "",
     },
   });
+
   const fetchUser = async () => {
     const userData = await useUser();
     if (userData) {
@@ -42,6 +45,8 @@ const useUpdate = () => {
 
       if (response.data.success) {
         toast.success("Updated successfully!");
+
+        useUserStore.getState().updateUser(response.data.user);
         form.reset(response.data.user);
       } else {
         toast.error(response.data.message || "Something went wrong.");
