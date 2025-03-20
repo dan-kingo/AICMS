@@ -16,4 +16,7 @@ export { default as Error } from "./Error";
 export { default as OTPVerification } from "./OTPVerification";
 export { default as ForgotPassword } from "./ForgotPassword";
 export { default as ResetPassword } from "./ResetPassword";
-export { default as AdminDashboard } from "./AdminDashboard";
+export { default as AdminDashboardLayout } from "./AdminDashboardLayout";
+export { default as ManageUsers } from "./ManageUsers";
+export { default as ManageComplaints } from "./ManageComplaints";
+export { default as AdminSetting } from "./AdminSetting";
