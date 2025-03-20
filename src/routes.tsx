@@ -1,24 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
 import {
   About,
+  Error,
+  AdminDashboard,
   ChangePassword,
   ComplaintHistory,
   Contact,
   Dashboard,
   FAQs,
+  ForgotPassword,
   HelpAndSupport,
   Home,
+  Layout,
   Login,
   MakeComplaint,
+  OTPVerification,
   Register,
+  ResetPassword,
   Settings,
   UserProfile,
 } from "./pages";
-import Layout from "./pages/Layout";
-import Error from "./pages/Error";
-import OTPVerification from "./pages/OTPVerification";
-import ForgotPassword from "./pages/ForgotPassword";
-import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,11 @@ const router = createBrowserRouter([
         element: <ComplaintHistory />,
       },
     ],
+  },
+
+  {
+    path: "/admin-dashboard",
+    element: <AdminDashboard />,
   },
 ]);
 
