@@ -1,3 +1,4 @@
+import sidebarItems from "@/assets/constants/sidebarItems";
 import Chatbot from "@/components/Chatbot";
 import CustomSidebar from "@/components/CustomSidebar";
 import DashboardNavbar from "@/components/DashboardNavbar";
