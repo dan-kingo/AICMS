@@ -1,6 +1,7 @@
 import CustomBar from "@/components/CustomBar";
 import CustomSidebar from "@/components/CustomSidebar";
 import DashboardNavbar from "@/components/DashboardNavbar";
+import StatusCard from "@/components/StatusCard";
 
 const AdminDashboard = () => {
   return (
@@ -12,6 +13,9 @@ const AdminDashboard = () => {
           <CustomSidebar />
         </aside>
         <main className="flex-1   p-6 sm:p-4 sidebar-height overflow-auto ">
+          <div className="flex lg:gap-16 gap-4  w-full flex-wrap">
+            <StatusCard />
+          </div>
           <CustomBar />
         </main>
       </div>
