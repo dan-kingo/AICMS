@@ -9,13 +9,6 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "./ui/select"; // Import Select components
 import loginSchema, { loginFormData } from "@/utils/loginFormSchema";
 import loginData from "@/assets/constants/loginData";
 import useLogin from "@/hooks/useLogin";
