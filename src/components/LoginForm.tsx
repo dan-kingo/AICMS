@@ -9,6 +9,13 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "./ui/select"; // Import Select components
 import loginSchema, { loginFormData } from "@/utils/loginFormSchema";
 import loginData from "@/assets/constants/loginData";
 import useLogin from "@/hooks/useLogin";
@@ -23,17 +30,19 @@ const LoginForm = () => {
     defaultValues: {
       userName: "",
       password: "",
+      role: "User",
     },
   });
+
   return (
-    <div className="dark:bg-dark p-4 bg-white  md:w-96 w-80 flex flex-col rounded-lg shadow-lg">
-      <h1 className="md:text-xl font-semibold  pb-6 text-lg font-palanquin flex justify-center w-full">
-        Wellcome Back
+    <div className="dark:bg-dark p-4 bg-white md:w-96 w-80 flex flex-col rounded-lg shadow-lg">
+      <h1 className="md:text-xl font-semibold pb-6 text-lg font-palanquin flex justify-center w-full">
+        Welcome Back
       </h1>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(loginUser)}
-          className="w-full  space-y-6 "
+          className="w-full space-y-6"
         >
           {loginData.map((formInput, index) => (
             <FormField
@@ -51,12 +60,45 @@ const LoginForm = () => {
                       {...field}
                     />
                   </FormControl>
-
                   <FormMessage />
                 </FormItem>
               )}
             />
           ))}
+
+          {/* Role Selection Field */}
+          <FormField
+            control={form.control}
+            name="role"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Role</FormLabel>
+                <FormControl>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <SelectTrigger className="w-full rounded-full">
+                      <SelectValue placeholder="Select your role" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="User">User</SelectItem>
+                      <SelectItem value="Customer Service Supervisor">
+                        Customer Service Supervisor
+                      </SelectItem>
+                      <SelectItem value="General Manager">
+                        General Manager
+                      </SelectItem>
+                      <SelectItem value="Distribution Supervisor">
+                        Distribution Supervisor
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <Button
             className="dark:text-white rounded-full w-full"
