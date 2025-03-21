@@ -17,12 +17,6 @@ const loginSchema = z.object({
     .regex(/[\W_]/, {
       message: "Password must contain at least one special character.",
     }),
-  role: z.enum([
-    "User",
-    "Distribution Supervisor",
-    "General Manager",
-    "Customer Service Supervisor",
-  ]),
 });
 
 export type loginFormData = z.infer<typeof loginSchema>;

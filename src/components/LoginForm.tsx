@@ -30,7 +30,6 @@ const LoginForm = () => {
     defaultValues: {
       userName: "",
       password: "",
-      role: "User",
     },
   });
 
@@ -65,40 +64,6 @@ const LoginForm = () => {
               )}
             />
           ))}
-
-          {/* Role Selection Field */}
-          <FormField
-            control={form.control}
-            name="role"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Role</FormLabel>
-                <FormControl>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <SelectTrigger className="w-full rounded-full">
-                      <SelectValue placeholder="Select your role" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="User">User</SelectItem>
-                      <SelectItem value="Customer Service Supervisor">
-                        Customer Service Supervisor
-                      </SelectItem>
-                      <SelectItem value="General Manager">
-                        General Manager
-                      </SelectItem>
-                      <SelectItem value="Distribution Supervisor">
-                        Distribution Supervisor
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
           <Button
             className="dark:text-white rounded-full w-full"
