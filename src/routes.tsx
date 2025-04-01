@@ -18,12 +18,7 @@ import {
   ResetPassword,
   Settings,
   UserProfile,
-  AdminDashboardLayout,
-  ManageUsers,
-  ManageComplaints,
-  AdminSetting,
 } from "./pages";
-import AdminDashboard from "./pages/AdminDashboard";
 
 const router = createBrowserRouter([
   {
@@ -97,17 +92,6 @@ const router = createBrowserRouter([
         path: "complaints",
         element: <ComplaintHistory />,
       },
-    ],
-  },
-
-  {
-    path: "/admin-dashboard",
-    element: <AdminDashboardLayout />,
-    children: [
-      { index: true, element: <AdminDashboard /> },
-      { path: "manage-users", element: <ManageUsers /> },
-      { path: "manage-complaints", element: <ManageComplaints /> },
-      { path: "settings", element: <AdminSetting /> },
     ],
   },
 ]);
