@@ -19,7 +19,7 @@ const Home = () => {
         {/* Buttons */}
         <div className="mt-6 flex gap-4">
           <Button
-            onClick={() => navigate("/submit-complaint")}
+            onClick={() => navigate("/login")}
             className="dark:text-white"
           >
             Submit a Complaint
