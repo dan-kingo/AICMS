@@ -8,10 +8,10 @@ import {
 } from "@/components/ui/dialog";
 
 export interface Complaint {
-  id: string;
-  subject: string;
-  date: string; // Ensure date is a string (ISO format) if coming from an API
-  details: string;
+  user: string;
+  description: string;
+  createdAt: string;
+  category: string;
   status: string;
 }
 
@@ -33,20 +33,23 @@ const CustomDialogComponent = ({ selectedComplaint, onClose }: Props) => {
           </DialogHeader>
           <div className="p-4 space-y-3">
             <p>
-              <strong>ID:</strong> {selectedComplaint.id}
+              <strong>ID:</strong> {selectedComplaint.user}
             </p>
             <p>
-              <strong>Subject:</strong> {selectedComplaint.subject}
+              <strong>Description:</strong> {selectedComplaint.description}
+            </p>
+            <p>
+              <strong>Category:</strong> {selectedComplaint.category}
             </p>
             <p>
               <strong>Status:</strong> {selectedComplaint.status}
             </p>
             <p>
               <strong>Date:</strong>{" "}
-              {format(new Date(selectedComplaint.date), "yyyy-MM-dd")}
-            </p>
-            <p>
-              <strong>Details:</strong> {selectedComplaint.details}
+              {format(
+                new Date(selectedComplaint.createdAt),
+                "hh:mm a, MM-dd-yyyy"
+              )}
             </p>
           </div>
         </DialogContent>

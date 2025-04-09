@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Complaint } from "@/components/CustomDialogComponent";
 import { Badge } from "./ui/badge";
+import { format } from "date-fns";
 
 interface Props {
   complaints: Complaint[];
@@ -21,17 +22,17 @@ const CustomTable = ({ complaints, onSelectComplaint }: Props) => {
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>
-          <TableHead>Subject</TableHead>
+          <TableHead>Category</TableHead>
           <TableHead>Status</TableHead>
           <TableHead>Date</TableHead>
           <TableHead>Action</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {complaints.map((complaint) => (
-          <TableRow key={complaint.id}>
-            <TableCell>{complaint.id}</TableCell>
-            <TableCell>{complaint.subject}</TableCell>
+        {complaints.map((complaint, index) => (
+          <TableRow key={index}>
+            <TableCell>{complaint.user}</TableCell>
+            <TableCell>{complaint.category}</TableCell>
             <TableCell>
               {
                 <Badge
@@ -48,7 +49,9 @@ const CustomTable = ({ complaints, onSelectComplaint }: Props) => {
                 </Badge>
               }
             </TableCell>
-            <TableCell>{complaint.date}</TableCell>
+            <TableCell>
+              {format(new Date(complaint.createdAt), " hh:mm a, MM-dd-yyyy")}
+            </TableCell>
             <TableCell>
               <Button
                 variant="outline"

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import complaints from "@/assets/constants/complaints";
 import CustomDialogComponent, {
   Complaint,
 } from "@/components/CustomDialogComponent";
 import SearchInput from "@/components/SearchInput";
 import CustomTable from "@/components/CustomTable"; // ✅ Import new component
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useUserComplaints } from "@/hooks/useUserComplaints";
 
 const ComplaintHistory = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,8 +13,12 @@ const ComplaintHistory = () => {
     null
   );
 
+  const { complaints, loading } = useUserComplaints();
+
+  if (loading) return <div>Loading...</div>;
+
   const filteredComplaints = complaints.filter((complaint) =>
-    complaint.subject.toLowerCase().includes(searchTerm.toLowerCase())
+    complaint.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
