@@ -16,12 +16,17 @@ interface Props {
   onSelectComplaint: (complaint: Complaint) => void;
 }
 
+const formatId = (index: number) => {
+  return `00${index + 1}`.slice(-3); // Always returns 3-digit formatted ID
+};
+
 const CustomTable = ({ complaints, onSelectComplaint }: Props) => {
   return (
     <Table className="mt-4">
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>
+          <TableHead>Description</TableHead>
           <TableHead>Category</TableHead>
           <TableHead>Status</TableHead>
           <TableHead>Date</TableHead>
@@ -31,7 +36,12 @@ const CustomTable = ({ complaints, onSelectComplaint }: Props) => {
       <TableBody>
         {complaints.map((complaint, index) => (
           <TableRow key={index}>
-            <TableCell>{complaint.user}</TableCell>
+            <TableCell>{formatId(index)}</TableCell>
+            <TableCell>
+              {complaint.description.length > 40
+                ? complaint.description.slice(0, 40) + " . . ."
+                : complaint.description}
+            </TableCell>
             <TableCell>{complaint.category}</TableCell>
             <TableCell>
               {
