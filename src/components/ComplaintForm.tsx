@@ -1,14 +1,9 @@
 import { useForm, Controller } from "react-hook-form";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { toast } from "sonner";
-import { Input } from "./ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import complaintFormSchema, {
-  ComplaintFormType,
-} from "@/utils/complaintValidation";
+import useComplaint from "@/hooks/useComplaint";
 
 export default function ComplaintForm() {
   const [file, setFile] = useState<File | null>(null);
@@ -17,20 +12,36 @@ export default function ComplaintForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ComplaintFormType>({
-    resolver: zodResolver(complaintFormSchema),
+  } = useForm({
     defaultValues: { description: "" },
   });
+
+  const { submitComplaint } = useComplaint();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
     setFile(selectedFile);
   };
 
-  const onSubmit = (data: ComplaintFormType) => {
-    console.log("Submitted Complaint:", data);
-    toast.success("Complaint Submitted Successfully!");
+  const onSubmit = (data: { description: string }) => {
+    if (file) {
+      const formData = new FormData();
+      formData.append("description", data.description); // adjust key based on backend
+      formData.append("supportingFile", file);
+
+      // Submit with FormData
+      submitComplaint(formData, true);
+    } else {
+      const jsonData = {
+        description: data.description,
+      };
+
+      // Submit with JSON
+      submitComplaint(jsonData, false);
+    }
+
     reset();
+    setFile(null); // reset file input too
   };
 
   return (
@@ -62,7 +73,7 @@ export default function ComplaintForm() {
         <Label htmlFor="file-upload" className="block mb-4 font-medium">
           Upload Supporting File (Optional)
         </Label>
-        <Input
+        <input
           id="file-upload"
           type="file"
           accept="image/*, .pdf, .docx"

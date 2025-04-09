@@ -5,6 +5,7 @@ const complaintFormSchema = z.object({
     .string()
     .min(10, { message: "Description must be at least 10 characters long" })
     .max(500, { message: "Description must be no longer than 500 characters" }),
+  category: z.string().nonempty({ message: "Category is required" }),
 });
 
 export type ComplaintFormType = z.infer<typeof complaintFormSchema>;
