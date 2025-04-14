@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import useUserStore from "@/store/userStore";
 import axios from "axios";
 import useUser from "./useUser";
+import Cookies from "js-cookie";
 
 const useUpdate = () => {
   const [isLoading, setLoading] = useState(false);
@@ -36,11 +37,25 @@ const useUpdate = () => {
 
   const onSubmit = async (data: profileUpdateData) => {
     setLoading(true);
+
+    const token = Cookies.get("token");
+    const user = useUserStore.getState().user; // Assuming you store user in Zustand
+
+    if (!user?._id) {
+      toast.error("User not found in local store.");
+      return;
+    }
+
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/user/update-user",
+      const response = await axios.put(
+        `http://localhost:3000/api/user/update-user/${user._id}`,
         data,
-        { withCredentials: true }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
       );
 
       if (response.data.success) {

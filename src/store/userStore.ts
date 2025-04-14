@@ -6,6 +6,7 @@ interface User {
   userName: string;
   email: string;
   phoneNumber: string;
+  _id: string;
 }
 
 interface UserStore {
