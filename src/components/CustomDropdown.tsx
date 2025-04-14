@@ -1,4 +1,3 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -14,9 +13,6 @@ import {
   HelpCircle,
   LogOut,
   User2Icon,
-  SectionIcon,
-  UserPlusIcon,
-  UserCog,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
