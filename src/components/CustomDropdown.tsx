@@ -7,7 +7,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, User, Settings, HelpCircle, LogOut } from "lucide-react";
+import {
+  ChevronDown,
+  User,
+  Settings,
+  HelpCircle,
+  LogOut,
+  User2Icon,
+  SectionIcon,
+  UserPlusIcon,
+  UserCog,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { useForm } from "react-hook-form";
@@ -26,17 +36,7 @@ const CustomDropDown = () => {
         {/* Fix: Use asChild to prevent extra button wrapping */}
         <DropdownMenuTrigger asChild>
           <Button className="dark:text-white flex items-center gap-2">
-            <Avatar className="w-6 h-6">
-              <AvatarImage
-                src="https://plus.unsplash.com/premium_photo-1664533227571-cb18551cac82?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="User Image"
-              />
-              <AvatarFallback>
-                {user
-                  ? user.firstName.charAt(0) + user.firstName.charAt(0)
-                  : "GU"}
-              </AvatarFallback>
-            </Avatar>
+            <User2Icon />
             {user ? user.firstName : "Guest"}
             <ChevronDown size="16px" />
           </Button>

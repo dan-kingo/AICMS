@@ -1,5 +1,4 @@
 import EditProfileForm from "@/components/EditProfileForm";
-import ProfilePictureUpload from "@/components/ProfilePictureUpload";
 import useUserStore from "@/store/userStore";
 
 const UserProfile = () => {
@@ -8,7 +7,6 @@ const UserProfile = () => {
     <div className="md:ms-12">
       {/* profile picture */}
       <div className="flex gap-4 items-center">
-        <ProfilePictureUpload />
         <div>
           <h3 className="md:text-2xl text-xl font-bold font-palanquin">
             {user?.firstName + " " + user?.lastName}
