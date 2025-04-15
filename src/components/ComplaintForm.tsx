@@ -26,27 +26,24 @@ export default function ComplaintForm() {
   const onSubmit = (data: { description: string }) => {
     if (file) {
       const formData = new FormData();
-      formData.append("description", data.description); // adjust key based on backend
+      formData.append("description", data.description);
       formData.append("supportingFile", file);
 
-      // Submit with FormData
       submitComplaint(formData, true);
     } else {
       const jsonData = {
         description: data.description,
       };
 
-      // Submit with JSON
       submitComplaint(jsonData, false);
     }
 
     reset();
-    setFile(null); // reset file input too
+    setFile(null);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {/* Complaint Description */}
       <div>
         <Label htmlFor="description">Complaint Description</Label>
         <Controller
@@ -87,7 +84,6 @@ export default function ComplaintForm() {
         )}
       </div>
 
-      {/* Submit Button */}
       <Button
         type="submit"
         className="w-full mt-6 flex justify-center items-center dark:text-white cursor-pointer"
