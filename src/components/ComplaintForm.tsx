@@ -4,6 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import useComplaint from "@/hooks/useComplaint";
+import { Tooltip, TooltipContent } from "@radix-ui/react-tooltip";
+import { TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 export default function ComplaintForm() {
   const [file, setFile] = useState<File | null>(null);
@@ -67,16 +69,29 @@ export default function ComplaintForm() {
 
       {/* Supporting File (Optional) */}
       <div>
-        <Label htmlFor="file-upload" className="block mb-4 font-medium">
-          Upload Supporting File (Optional)
-        </Label>
-        <input
-          id="file-upload"
-          type="file"
-          accept="image/*, .pdf, .docx"
-          className="mt-2 w-full p-3 border border-gray-300 rounded-md cursor-pointer"
-          onChange={handleFileChange}
-        />
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div>
+                <Label htmlFor="file-upload" className="block mb-4 font-medium">
+                  Upload Supporting File (Optional)
+                </Label>
+                <input
+                  disabled
+                  id="file-upload"
+                  type="file"
+                  accept="image/*, .pdf, .docx"
+                  className="mt-2 w-full p-3 border border-gray-300 rounded-md cursor-pointer"
+                  onChange={handleFileChange}
+                />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent className="text-secondary">
+              For now file uplaoding is not allowed! We will update soon!
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
         {file && (
           <div className="mt-2 text-sm text-gray-500">
             Selected file: {file.name}
