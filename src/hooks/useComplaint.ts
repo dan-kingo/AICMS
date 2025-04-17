@@ -21,7 +21,7 @@ const useComplaint = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/complaints",
+        "https://aicms-api.onrender.com/api/complaints",
         data,
         {
           headers: {

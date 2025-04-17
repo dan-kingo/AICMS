@@ -48,7 +48,7 @@ const useUpdate = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/user/update-user/${user._id}`,
+        `https://aicms-api.onrender.com/api/user/update-user/${user._id}`,
         data,
         {
           headers: {

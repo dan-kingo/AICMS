@@ -25,9 +25,12 @@ const useMessage = () => {
     setInput("");
 
     try {
-      const response = await axios.post("http://localhost:3000/api/chatbot", {
-        message: userInput,
-      });
+      const response = await axios.post(
+        "https://aicms-api.onrender.com/api/chatbot",
+        {
+          message: userInput,
+        }
+      );
 
       setMessages((prevMessages) => [
         ...prevMessages.slice(0, -1),

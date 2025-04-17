@@ -13,7 +13,7 @@ const useLogin = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        "https://aicms-api.onrender.com/api/auth/login",
         data,
         { withCredentials: true }
       );

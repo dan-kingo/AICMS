@@ -24,7 +24,7 @@ const usePassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/user/change-password",
+        "https://aicms-api.onrender.com/api/user/change-password",
         data,
         { withCredentials: true }
       );

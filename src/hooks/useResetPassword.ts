@@ -24,10 +24,13 @@ const useResetPassword = () => {
 
     setIsLoading(true);
     try {
-      await axios.post(`http://localhost:3000/api/auth/reset-password`, {
-        resetToken: resetId,
-        newPassword,
-      });
+      await axios.post(
+        `https://aicms-api.onrender.com/api/auth/reset-password`,
+        {
+          resetToken: resetId,
+          newPassword,
+        }
+      );
 
       toast.success("Password reset successfully!");
       navigate("/login");

@@ -33,7 +33,7 @@ export const useDeleteAccount = () => {
     setLoading(true);
     try {
       await axios.delete(
-        `http://localhost:3000/api/user/delete-user/${userId}`,
+        `https://aicms-api.onrender.com/api/user/delete-user/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           withCredentials: true,

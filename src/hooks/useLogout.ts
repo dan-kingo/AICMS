@@ -13,7 +13,9 @@ const useLogout = () => {
     setLoading(true);
 
     try {
-      const response = await axios.get("http://localhost:3000/api/auth/logout");
+      const response = await axios.get(
+        "https://aicms-api.onrender.com/api/auth/logout"
+      );
 
       if (response.data.success) {
         toast.success("Logged out successfully!");

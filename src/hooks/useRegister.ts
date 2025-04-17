@@ -23,7 +23,7 @@ const useRegister = (): {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        "https://aicms-api.onrender.com/api/auth/register",
         data,
         { withCredentials: true }
       );
@@ -52,7 +52,7 @@ const useRegister = (): {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/verify-otp",
+        "https://aicms-api.onrender.com/api/auth/verify-otp",
         { otp },
         { withCredentials: true }
       );
@@ -76,7 +76,7 @@ const useRegister = (): {
       console.log("Sending request to resend OTP...");
 
       const response = await axios.post(
-        "http://localhost:3000/api/auth/resend-otp",
+        "https://aicms-api.onrender.com/api/auth/resend-otp",
         {},
         { withCredentials: true }
       );

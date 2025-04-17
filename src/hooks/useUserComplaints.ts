@@ -19,12 +19,15 @@ export const useUserComplaints = () => {
     const fetchComplaints = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:3000/api/complaints", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://aicms-api.onrender.com/api/complaints",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
         setComplaints(res.data);
       } catch (err) {
         console.error("Failed to fetch complaints", err);

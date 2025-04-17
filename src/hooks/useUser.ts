@@ -12,7 +12,7 @@ const useUser = async () => {
     }
 
     const response = await axios.get(
-      "http://localhost:3000/api/user/current-user",
+      "https://aicms-api.onrender.com/api/user/current-user",
       {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
