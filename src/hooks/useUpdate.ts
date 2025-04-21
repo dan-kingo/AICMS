@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import useUserStore from "@/store/userStore";
 import axios from "axios";
 import useUser from "./useUser";
-import Cookies from "js-cookie";
 
 const useUpdate = () => {
   const [isLoading, setLoading] = useState(false);
@@ -38,8 +37,7 @@ const useUpdate = () => {
   const onSubmit = async (data: profileUpdateData) => {
     setLoading(true);
 
-    const token = Cookies.get("token");
-    const user = useUserStore.getState().user; // Assuming you store user in Zustand
+    const user = useUserStore.getState().user;
 
     if (!user?._id) {
       toast.error("User not found in local store.");
@@ -51,9 +49,6 @@ const useUpdate = () => {
         `https://aicms-api.onrender.com/api/user/update-user/${user._id}`,
         data,
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
           withCredentials: true,
         }
       );

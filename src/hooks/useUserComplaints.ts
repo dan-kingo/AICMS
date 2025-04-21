@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
 
 interface Complaint {
   user: string;
@@ -13,8 +12,6 @@ export const useUserComplaints = () => {
   const [complaints, setComplaints] = useState<Complaint[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const token = Cookies.get("token");
-
   useEffect(() => {
     const fetchComplaints = async () => {
       setLoading(true);
@@ -22,9 +19,6 @@ export const useUserComplaints = () => {
         const res = await axios.get(
           "https://aicms-api.onrender.com/api/complaints",
           {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
             withCredentials: true,
           }
         );

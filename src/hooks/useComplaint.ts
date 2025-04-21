@@ -3,14 +3,11 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useComplaintStore } from "@/store/complaintStore";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const useComplaint = () => {
   const { resetComplaint, setLoading } = useComplaintStore();
   const [isLoading, setLoadingState] = useState(false);
   const navigate = useNavigate();
-
-  const token = Cookies.get("token");
 
   const submitComplaint = async (
     data: FormData | { description: string },
@@ -28,7 +25,6 @@ const useComplaint = () => {
             ...(isFormData
               ? { "Content-Type": "multipart/form-data" }
               : { "Content-Type": "application/json" }),
-            Authorization: `Bearer ${token}`,
           },
           withCredentials: true,
         }
