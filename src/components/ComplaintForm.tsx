@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 
 export default function ComplaintForm() {
   const { t } = useTranslation();
+  const [isLoading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const {
     control,
@@ -34,6 +35,7 @@ export default function ComplaintForm() {
       formData.append("supportingFile", file);
 
       submitComplaint(formData, true);
+      setLoading(true);
     } else {
       const jsonData = {
         description: data.description,
@@ -105,7 +107,7 @@ export default function ComplaintForm() {
         type="submit"
         className="w-full mt-6 flex justify-center items-center dark:text-white cursor-pointer"
       >
-        {t("Submit Complaint")}
+        {isLoading ? t("Submitting Complaint") : t("Submit Complaint")}
       </Button>
     </form>
   );
