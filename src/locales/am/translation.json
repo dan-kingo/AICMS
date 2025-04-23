@@ -1,5 +1,248 @@
 {
-  "welcome": "እንኳን ደህና መጡ",
-  "makeComplaint": "ቅሬታ ማቅረብ",
-  "logout": "ውጣ"
+  "AI Chatbot": "AI Chatbot",
+  "About": "ስለ እኛ",
+  "About Us": "ስለ እኛ",
+  "Account Actions": "የመለያ እርምጃዎች",
+  "Action": "እርምጃ",
+  "Already a member": "ቀድሞውኑ አባል ነዎት",
+  "An unexpected error occurred": "ያልተጠበቀ ስህተት ተከስቷል",
+  "An unknown error occurred": "ያልታወቀ ስህተት ተከስቷል",
+  "Are you sure": "እርግጠኛ ነዎት",
+  "Bahir Dar, Amhara, Ethiopia": "ባህር ዳር, አማራ, ኢትዮጵያ",
+  "Cancel": "ይቅር",
+  "Category": "ምድብ",
+  "Change Password": "የይለፍ ቃል ይለውጡ",
+  "Change Password Settings": "የይለፍ ቃል ቅንብሮችን ይቀይሩ",
+  "Changing": "መለወጥ ላይ",
+  "Click Here": "እዚህ ጠቅ ያድርጉ",
+  "Complaint Description": "የቅሬታ መግለጫ",
+  "Complaint History": "የቅሬታ ታሪኮች",
+  "Complaint submitted successfully!": "ቅሬታ በተሳካ ሁኔታ ገብቷል!",
+  "Confirm Deletion": "ስረዛውን ያረጋግጡ",
+  "Confirm Password": "የይለፍ ቃል ያረጋግጡ",
+  "Confirm the new password": "አዲሱን የይለፍ ቃል ያረጋግጡ",
+  "Confirm your password": "የይለፍ ቃልዎን ያረጋግጡ",
+  "Contact Information": "የእውቂያ መረጃ",
+  "Contact Support": "ድጋፍን ያነጋግሩ",
+  "Contact Us": "እኛን ያግኙን",
+  "Create Your Account": "መለያዎን ይፍጠሩ",
+  "Current Password": "የአሁኑ ሚስጥራዊ ማለፊያ ቁልፍ",
+  "Dark Mode": "ወደ ጨለማ ሁኔታ ይቀይሩ",
+  "Date": "ቀን",
+  "Delete Account": "መለያ ሰርዝ",
+  "Describe your complaint...": "ቅሬታዎን ይግለጹ...",
+  "Description": "መግለጫ",
+  "Details of the selected complaint": "የተመረጠው ቅሬታ ዝርዝሮች",
+  "Do you want to change you password": "የይለፍ ቃልዎን መለወጥ ይፈልጋሉ",
+  "Don't have an account": "መለያ የለዎትም",
+  "Email": "ኢሜል",
+  "AM": "አማ",
+  "Email Contacts": "የኢሜል አድራሻዎች",
+  "Enable 2FA": "2FA ን ያንቁ",
+  "Enable Two-Factor Authentication": "ሁለት-ግምታዊ ማረጋገጫ",
+  "Enter OTP": "ኦቲፒ ያስገቡ",
+  "Enter your current password": "የአሁኑን የይለፍ ቃልዎን ያስገቡ",
+  "Enter your email": "ኢሜልዎን ያስገቡ",
+  "Enter your email address": "የኢሜል አድራሻዎን ያስገቡ",
+  "Enter your first name": "የመጀመሪያ ስምዎን ያስገቡ",
+  "Enter your full name": "ሙሉ ስምዎን ያስገቡ",
+  "Enter your last name": "የአያት ስምዎን ያስገቡ",
+  "Enter your new password": "አዲሱን የይለፍ ቃልዎን ያስገቡ",
+  "Enter your password": "የይለፍ ቃልዎን ያስገቡ",
+  "Enter your phone number": "የስልክ ቁጥርዎን ያስገቡ",
+  "Enter your subject": "ርዕሰ ጉዳይዎን ያስገቡ",
+  "Enter your username": "የተጠቃሚ ስምዎን ያስገቡ",
+  "Error resetting password": "የይለፍ ቃል ዳግም ማስጀመር ስህተት",
+  "Error sending password reset link": "የይለፍ ቃል ዳግም ማስጀመሪያ አገናኝን መላክ ስህተት",
+  "Ethiopian Electric Utility": "የኢትዮጵያ ኤሌክትሪክ ፍጆታ",
+  "All Rights Reserved": " ሁሉም መብቶች የተጠበቁ ናቸው",
+  "Ethiopian Electric Utility Bahir Dar District": "የኢትዮጵያ ኤሌክትሪክ መገልገያ ባህር ዳር ወረዳ",
+  "FAQs": "ተዘውትረው የሚጠየቁ ጥያቄዎች",
+  "Failed to delete account": "መለያ መሰረዝ አልተሳካም",
+  "Failed to login": "መግባት አልተቻለም",
+  "Failed to logout": "መተው አልተሳካም",
+  "Failed to register": "መመዝገብ አልተሳካም",
+  "Failed to send message": "መልእክት መላክ አልተሳካም",
+  "Failed to send password reset link": "የይለፍ ቃል ዳግም ማስጀመሪያ አገናኝ መላክ አልተሳካም",
+  "Failed to submit complaint": "ቅሬታ ማቅረብ አልተቻለም",
+  "Failed to update": "ማዘመን አልተሳካም",
+  " Please try again": " እባክዎ እንደገና ይሞክሩ",
+  "Failed to update! Please try again": "ማዘመን አልተሳካም! ",
+  "Fill out the form": "ቅጹን ይሙሉ",
+  "First Name": "የመጀመሪያ ስም",
+  "For now file uplaoding is not allowed! We will update soon!": "ለአሁኑ የፋይል ማሻሻያ አይፈቀድም! ",
+  "Forgot Password": "የይለፍ ቃል ረሱ",
+  "Form submitted successfully!": "ቅጽ በተሳካ ሁኔታ ገብቷል!",
+  "Frequently Asked Questions": "ተዘውትረው የሚጠየቁ ጥያቄዎች",
+  "Frequenty Asked Questions": "የተጠበቁ ጥያቄዎች",
+  "Full Name": "ሙሉ ስም",
+  "Get In Touch": "ተገናኙን",
+  "Guest": "እንግዳ",
+  "Have questions? Contact us for more information": "ጥያቄዎች አሉዎት? ",
+  "Help & Support": "እገዛ እና ድጋፍ",
+  "Help and Support": "እገዛ እና ድጋፍ",
+  "ID": "መታወቂያ",
+  "It seems you have taken a wrong turn": "የተሳሳተ ተራ ያዘዙ ይመስላል",
+  "Last Name": "የአያት ስም",
+  "Learn More": "ተጨማሪ ለመረዳት",
+  "Log Out": "ውጣ",
+  "Loading": "በመፈለግ ላይ ",
+  "Logged in successfully!": "በተሳካ ሁኔታ ገብቷል!",
+  "Logged out successfully!": "በተሳካ ሁኔታ ወጥቷል!",
+  "Logging": "በመግባት ላይ",
+  "Logging Out": "እየገሰገሰ",
+  "Login": "ይግቡ",
+  "Logout": "ውጣ",
+  "Make Complaint": "ቅሬታ ያቅርቡ",
+  "Make a Complaint": "ቅሬታ ያቅርቡ",
+  "My Account": "የእኔ መለያ",
+  "New Password": "አዲስ የይለፍ ቃል",
+  "No matching FAQs found": "ምንም ተዛማጅ ጥያቄዎች አልተገኙም",
+  "OTP sent! Please verify your email": "OTP ተልኳል! ",
+  "Office Address": "የቢሮ አድራሻ",
+  "Ohhh! Page Not Found": "ኦህ! ገፁ አልተገኘም!",
+  "Our Features": "የእኛ ባህሪዎች",
+  "Password": "የይለፍ ቃል",
+  "Password changed successfully!": "የይለፍ ቃል በተሳካ ሁኔታ ተለውጧል!",
+  "Password must be at least 8 characters": "የይለፍ ቃል ቢያንስ 8 ቁምፊዎች መሆን አለበት",
+  "Password reset link sent to your email": "የይለፍ ቃል ዳግም ማስጀመሪያ አገናኝ ወደ ኢሜልዎ ተልኳል",
+  "Password reset successfully!": "የይለፍ ቃል ዳግም በተሳካ ሁኔታ ጀምሯል!",
+  "Passwords do not match": "የይለፍ ቃላት አይዛመዱም",
+  "Phone Number": "የስልክ ቁጥር",
+  "Phone Numbers": "የስልክ ቁጥሮች",
+  "Please enter a valid 6-digit OTP": "እባክዎ ትክክለኛ ባለ 6 አሃዝ ኦቲፒ ያስገቡ",
+  "Please enter your email": "እባክዎ ኢሜልዎን ያስገቡ",
+  "Privacy Settings": "የግላዊነት ቅንብሮች",
+  "Profile": "መገለጫ",
+  "Profile Settings": "የመገለጫ ቅንጅቶች",
+  "Register": "ይመዝገቡ",
+  "Registering": "መመዝገብ ላይ",
+  "Resend OTP": "OTP እንደገና ተልኳል",
+  "Resending": "በመላክ ላይ",
+  "Reset Password": "የይለፍ ቃል ዳግም አስጀምር",
+  "Reset Your Password": "የይለፍ ቃልዎን እንደገና ያስጀምሩ",
+  "Resetting": "ዳግም ማስጀመር",
+  "Save Now": "አሁኑ ቀይር",
+  "Saving": "ቀይር",
+  "Send Reset Link": "ዳግም ማስጀመሪያ አገናኝ ይላኩ",
+  "Sending": "መላክ ላይ",
+  "Settings & Privacy": "ቅንብሮች እና ግላዊነት",
+  "Settings and Privacy": "ቅንብሮች እና ግላዊነት",
+  "Show Less": "ያነሰ አሳይ",
+  "Show More FAQs": "ተጨማሪ ተዘውትረው የሚጠየቁ ጥያቄዎች ያሳዩ",
+  "Social Links": "ማህበራዊ ገፆች",
+  "Something went wrong": "የሆነ ነገር ተሳስቷል",
+  "Bridging Gaps in": "የደንበኞች ቅሬታን በAI እናቀናለን",
+  "Customer Service": "",
+  "with AI": "",
+  "Status": "ሁኔታ",
+  "Subject": "ርዕሰ ጉዳይ",
+  "Submit": "ያስገቡ",
+  "Submit Complaint": "ቅሬታ ያስገቡ",
+  "Submit a Complaint": "ቅሬታ ያስገቡ",
+  "Submit, track, and resolve complaints right now": "አሁኑኑ ቅሬታወትን ያስገቡ, ይከታተሉ እና ይፍቱ",
+  "Submitting": "ማስገባት",
+  "Thanks for your message": "ስለ መልእክትዎ አመሰግናለሁ",
+  "This action will permanently delete your account": "ይህ እርምጃ መለያዎን በቋሚነት ይሰርዛል",
+  " Are you sure you want to proceed": "መቀጠል እንደሚፈልጉ እርግጠኛ ነዎት",
+  "Unexpected error occured": "ያልተጠበቀ ስህተት ተከስቷል",
+  "Updated successfully!": "በተሳካ ሁኔታ ተስተካክሏል!",
+  "Upload Supporting File (Optional)": "ድጋፍ ፋይል ይስቀሉ (ከተፈለገ)",
+  "User Profile": "የተጠቃሚ መገለጫ",
+  "User not authenticated or ID missing": "ተጠቃሚው አልተረጋገጠም",
+  "User not found in local store": "በተጠቃሚው በአካባቢያዊ መደብር ውስጥ አልተገኘም",
+  "User not found or unauthorized": "ተጠቃሚ አልተገኘም ወይም ያልተፈቀደ ተጠቃሚ ነዎት",
+  "Username": "የተጠቃሚ ስም",
+  "Verify OTP": "ኦቲፒን ያረጋግጡ",
+  "Verifying": "በማረጋገጥ ላይ",
+  "View": "እይ",
+  "Welcome Back": "እንኳን ደህና መጣችሁ",
+  "Welcome to EEU Complaint System": "ወደ EEU ቅሬታ ስርዓት እንኳን በደህና መጡ",
+  "Working Hours": "የሥራ ሰዓቶች",
+  "Your account has been deleted successfully": "የእርስዎ መለያ በተሳካ ሁኔታ ተሰርዟል",
+  "faq": {
+    "category": {
+      "general": "አጠቃላይ ጥያቄዎች",
+      "account": "መለያ እና ይግቡ",
+      "complaint": "ቅሬታ ማቅረቢያ እና መከታተያ",
+      "ai": "AI",
+      "tech": "ቴክኒካዊ ድጋፍ",
+      "contact": "እውቂያ እና ድጋፍ"
+    },
+    "general": {
+      "q1": {
+        "title": "የ EEUCMS ቅሬታ አስተዳደር ስርዓት ምንድ ነው?",
+        "content": "ደንበኞች አቤቱታዎችን እንዲያቀርቡ የሚያስችላቸው መድረክ ነው, እድገታቸውን ይከታተሉ እና ውሳኔዎችን ይቀበላሉ."
+      },
+      "q2": {
+        "title": "ይህን ሥርዓት ማን ሊጠቀም ይችላል?",
+        "content": "ስርዓቱ ለተሰጡት ደንበኞች, ቅሬታዎች, አስተዳዳሪዎች እና ለአስተዳዳሪዎች ነው. "
+      }
+    },
+    "account": {
+      "q1": {
+        "title": "ለመለያ እንዴት መመዝገብ እችላለሁ?",
+        "content": "ዝርዝሮችዎን ጠቅ ያድርጉ, የስልክ ቁጥርዎን በ OTP ያረጋግጡ, እና ይግቡ."
+      },
+      "q2": {
+        "title": "የይለፍ ቃሌን ከረሳሁ?",
+        "content": "በመግቢያ ገጽ ላይ 'የይለፍ ቃልዎን' ረሱ 'የሚለውን ጠቅ ያድርጉ, የስልክ ቁጥርዎን ወይም ኢሜልዎን ያስገቡ እና ዳግም ማስጀመሪያ መመሪያዎችን ይከተሉ."
+      },
+      "q3": {
+        "title": "የመገለጫ ዝርዝሮቼን ማዘመን እችላለሁን?",
+        "content": "አዎ, የእውቂያ ዝርዝሮችዎን በ <መገለጫ ቅንጅቶች> ውስጥ መለወጥ ይችላሉ."
+      }
+    },
+    "complaint": {
+      "q1": {
+        "title": "ቅሬታ እንዴት ማቅረብ እችላለሁ?",
+        "content": "ይግቡ, 'ቅሬታዎን ያስገቡ,' ያጋጠሙዎትን አንድ ጉዳይ ይምረጡ እና ያስገቡትን አንድ ጉዳይ ይምረጡ."
+      },
+      "q2": {
+        "title": "የእኔን ቅሬታዬን ሁኔታ እንዴት መከታተል እችላለሁ?",
+        "content": "'የትራንስፖርት ሁኔታን ሁኔታ' ፈልገህ ወደ 'ሰዓት ማዘመኛዎችን ይመልከቱ."
+      },
+      "q3": {
+        "title": "አቤቱታዬ ካልተፈታስ?",
+        "content": "በተቀናጀ የጊዜ ሰንጠረዥ ውስጥ ካልተገለበጠ ወደ ቅሬታ ተቆጣጣሪ ወይም ወደ አጠቃላይ ሥራ አስኪያጅ ይረበሻል."
+      }
+    },
+    "ai": {
+      "q1": {
+        "title": "የ AI ስርዓት ቅሬታዎችን እንዴት ይረዳል?",
+        "content": "አቤቱ ቅሬታዎችን ይመድባል, እና የተወሳሰበ ጉዳዮችን ለሰው ልጆች ተቆጣጣሪዎች."
+      }
+    },
+    "tech": {
+      "q1": {
+        "title": "መግባት አልችልም. ምን ማድረግ አለብኝ?",
+        "content": "ማረጋገጫዎችዎ ትክክል መሆናቸውን ያረጋግጡ, የይለፍ ቃልዎን ዳግም ያስጀምሩ ከሆነ, አስፈላጊ ከሆነ የአሳሽዎን መሸጎጫ ወይም ድጋፍን ያፅዱ."
+      },
+      "q2": {
+        "title": "ስርዓቱ የእኔን ቅሬታ አልተቀበለም. ",
+        "content": "ሁሉም የሚፈለጉ መስኮች በትክክል መሞላት እና የበይነመረብ ግንኙነትዎ የተረጋጋ መሆኑን ያረጋግጡ. "
+      }
+    },
+    "contact": {
+      "q1": {
+        "title": "ድጋፍን እንዴት ማግኘት እችላለሁ?",
+        "content": "በኢሜይል (Sups@eucoclins.com), በስልክ (+ 251-999-888-7777-7777), ወይም የቀጥታ ውይይት በስርዓቱ ውስጥ."
+      }
+    }
+  },
+  "features": {
+    "ai": {
+      "title": "በAi-ኃይል የተሰጠ ምድብ ልየታ ",
+      "description": "ለፈጣን ውሳኔዎች ስማርት አቤቱታ ምደባ."
+    },
+    "realtime": {
+      "title": "የእውነተኛ ጊዜ መከታተያ",
+      "description": "ደንበኞች የቅሬታ መሻሻል ወዲያውኑ መከታተል ይችላሉ."
+    },
+    "automation": {
+      "title": "የተቀላጠፉ ምላሾች",
+      "description": "ለተለመደው የኤሌክትሪክ ጉዳዮች ፈጣን መፍትሔዎች."
+    }
+  },
+  "go to home": "ወደ መጀመሪያው ገፅ ይሒዱ"
 }

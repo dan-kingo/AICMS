@@ -13,8 +13,8 @@ const Footer = () => {
           isDashboardPath ? "md:ml-64" : ""
         }`}
       >
-        &copy; {new Date().getFullYear()}{" "}
-        {t("Ethiopian Electric Utility. All Rights Reserved")}.
+        &copy; {new Date().getFullYear()} {t("Ethiopian Electric Utility")}.{" "}
+        {t("All Rights Reserved")}.
       </p>
     </div>
   );

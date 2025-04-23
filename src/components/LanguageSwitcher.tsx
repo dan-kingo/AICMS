@@ -1,17 +1,30 @@
 import { useTranslation } from "react-i18next";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(e.target.value);
+  const handleChange = (value: string) => {
+    i18n.changeLanguage(value);
   };
 
   return (
-    <select onChange={handleChange} value={i18n.language}>
-      <option value="en">EN</option>
-      <option value="am">AM</option>
-    </select>
+    <Select value={i18n.language} onValueChange={handleChange}>
+      <SelectTrigger className="md:w-[80px] w-full dark:bg-black cursor-pointer">
+        <SelectValue placeholder={t("Select Language")} />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="en">{t("EN")}</SelectItem>
+        <SelectItem value="am">{t("AM")}</SelectItem>
+      </SelectContent>
+    </Select>
   );
 };
+
 export default LanguageSwitcher;

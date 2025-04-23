@@ -8,8 +8,10 @@ import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
 import useNavLinks from "@/assets/constants/navLinks";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -36,8 +38,8 @@ const Navbar = () => {
     >
       {/* Logo Section */}
       <NavLink to="/" className="flex items-center">
-        <Zap className="text-primary md:size-8" />
-        <p className="ps-2 font-semibold md:text-xl text-sm">
+        <Zap className="text-primary size-9 md:size-8" />
+        <p className="ps-2 font-semibold md:text-xl text-sm hidden md:block">
           EEU Complaint System
         </p>
       </NavLink>
@@ -46,6 +48,7 @@ const Navbar = () => {
       <div className="hidden lg:flex gap-6 items-center">
         {navLinks.map(({ label, href }) => (
           <NavLink
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             key={label}
             to={href}
             className={({ isActive }) =>
@@ -58,19 +61,20 @@ const Navbar = () => {
         <DarkModeToggle />
         <LanguageSwitcher />
         <Button onClick={() => navigate("/login")} variant="outline">
-          Login
+          {t("Login")}
         </Button>
         <Button
           onClick={() => navigate("/register")}
           className="dark:text-white"
         >
-          Register
+          {t("Register")}
         </Button>
       </div>
 
       {/* Mobile Controls (Hamburger + Dark Mode) */}
       <div className="lg:hidden flex items-center gap-4">
         <DarkModeToggle />
+        <LanguageSwitcher />
         <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <Menu size={28} />
         </button>
@@ -95,6 +99,7 @@ const Navbar = () => {
         <div className="flex flex-col gap-6">
           {navLinks.map(({ label, href }) => (
             <NavLink
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               key={label}
               to={href}
               className={({ isActive }) =>
@@ -111,13 +116,13 @@ const Navbar = () => {
         {/* Auth Buttons */}
         <div className="mt-10 flex flex-col gap-4">
           <Button onClick={() => navigate("/login")} variant="outline">
-            Login
+            {t("Login")}
           </Button>
           <Button
             onClick={() => navigate("/register")}
             className="dark:text-white"
           >
-            Register
+            {t("Register")}
           </Button>
         </div>
       </motion.div>

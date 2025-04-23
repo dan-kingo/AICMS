@@ -1,5 +1,245 @@
 {
-  "welcome": "Welcome",
-  "makeComplaint": "Make a Complaint",
-  "logout": "Logout"
+  "AI Chatbot": "AI Chatbot",
+  "About": "About",
+  "Account Actions": "Account Actions",
+  "Action": "Action",
+  "Already a member": "Already a member",
+  "An unexpected error occurred": "An unexpected error occurred",
+  "An unknown error occurred": "An unknown error occurred",
+  "Are you sure": "Are you sure",
+  "Bahir Dar, Amhara, Ethiopia": "Bahir Dar, Amhara, Ethiopia",
+  "Bridging Gaps in": "Bridging Gaps in",
+  "Cancel": "Cancel",
+  "Category": "Category",
+  "Change Password": "Change Password",
+  "Change Password Settings": "Change Password Settings",
+  "Changing": "Changing",
+  "Click Here": "Click Here",
+  "Complaint Description": "Complaint Description",
+  "Complaint History": "Complaint History",
+  "Complaint submitted successfully!": "Complaint submitted successfully!",
+  "Confirm Deletion": "Confirm Deletion",
+  "Confirm Password": "Confirm Password",
+  "Confirm the new password": "Confirm the new password",
+  "Confirm your password": "Confirm your password",
+  "Contact Information": "Contact Information",
+  "Contact Support": "Contact Support",
+  "Contact Us": "Contact Us",
+  "Create Your Account": "Create Your Account",
+  "Current Password": "Current Password",
+  "Customer Service": "Customer Service",
+  "Dark Mode": "Dark Mode",
+  "Date": "Date",
+  "Delete Account": "Delete Account",
+  "Describe your complaint": "Describe your complaint",
+  "Description": "Description",
+  "Details of the selected complaint": "Details of the selected complaint",
+  "Do you want to change you password": "Do you want to change you password",
+  "Don't have an account": "Don't have an account",
+  "Email": "Email",
+  "Email Contacts": "Email Contacts",
+  "Enable 2FA": "Enable 2FA",
+  "Enable Two-Factor Authentication": "Enable Two-Factor Authentication",
+  "Enter OTP": "Enter OTP",
+  "Enter your current password": "Enter your current password",
+  "Enter your email": "Enter your email",
+  "Enter your email address": "Enter your email address",
+  "Enter your first name": "Enter your first name",
+  "Enter your full name": "Enter your full name",
+  "Enter your last name": "Enter your last name",
+  "Enter your new password": "Enter your new password",
+  "Enter your password": "Enter your password",
+  "Enter your phone number": "Enter your phone number",
+  "Enter your subject": "Enter your subject",
+  "Enter your username": "Enter your username",
+  "Error resetting password": "Error resetting password",
+  "Error sending password reset link": "Error sending password reset link",
+  "Ethiopian Electric Utility": "Ethiopian Electric Utility",
+  " All Rights Reserved": " All Rights Reserved",
+  "Ethiopian Electric Utility Bahir Dar District": "Ethiopian Electric Utility Bahir Dar District",
+  "FAQs": "FAQs",
+  "Failed to delete account": "Failed to delete account",
+  "Failed to login": "Failed to login",
+  "Failed to logout": "Failed to logout",
+  "Failed to register": "Failed to register",
+  "Failed to send message": "Failed to send message",
+  "Failed to send password reset link": "Failed to send password reset link",
+  "Failed to submit complaint": "Failed to submit complaint",
+  "Failed to update": "Failed to update",
+  " Please try again": " Please try again",
+  "Failed to update! Please try again": "Failed to update! Please try again",
+  "Fill out the form": "Fill out the form",
+  "First Name": "First Name",
+  "For now file uplaoding is not allowed! We will update soon!": "For now file uplaoding is not allowed! We will update soon!",
+  "Forgot Password": "Forgot Password",
+  "Form submitted successfully!": "Form submitted successfully!",
+  "Frequently Asked Questions": "Frequently Asked Questions",
+  "Frequenty Asked Questions": "Frequenty Asked Questions",
+  "Full Name": "Full Name",
+  "Get In Touch": "Get In Touch",
+  "Guest": "Guest",
+  "Have questions? Contact us for more information": "Have questions? Contact us for more information",
+  "Help & Support": "Help & Support",
+  "Help and Support": "Help and Support",
+  "ID": "ID",
+  "It seems you have taken a wrong turn": "It seems you have taken a wrong turn",
+  "Last Name": "Last Name",
+  "Learn More": "Learn More",
+  "Log Out": "Log Out",
+  "Logged in successfully!": "Logged in successfully!",
+  "Logged out successfully!": "Logged out successfully!",
+  "Logging": "Logging",
+  "Logging Out": "Logging Out",
+  "Login": "Login",
+  "Logout": "Logout",
+  "Make Complaint": "Make Complaint",
+  "Make a Complaint": "Make a Complaint",
+  "My Account": "My Account",
+  "New Password": "New Password",
+  "No matching FAQs found": "No matching FAQs found",
+  "OTP sent! Please verify your email": "OTP sent! Please verify your email",
+  "Office Address": "Office Address",
+  "Ohhh! Page Not Found": "Ohhh! Page Not Found",
+  "Our Features": "Our Features",
+  "Password": "Password",
+  "Password changed successfully!": "Password changed successfully!",
+  "Password must be at least 8 characters": "Password must be at least 8 characters",
+  "Password reset link sent to your email": "Password reset link sent to your email",
+  "Password reset successfully!": "Password reset successfully!",
+  "Passwords do not match": "Passwords do not match",
+  "Phone Number": "Phone Number",
+  "Phone Numbers": "Phone Numbers",
+  "Please enter a valid 6-digit OTP": "Please enter a valid 6-digit OTP",
+  "Please enter your email": "Please enter your email",
+  "Privacy Settings": "Privacy Settings",
+  "Profile": "Profile",
+  "Profile Settings": "Profile Settings",
+  "Register": "Register",
+  "Registering": "Registering",
+  "Resend OTP": "Resend OTP",
+  "Resending": "Resending",
+  "Reset Password": "Reset Password",
+  "Reset Your Password": "Reset Your Password",
+  "Resetting": "Resetting",
+  "Save Now": "Save Now",
+  "Saving": "Saving",
+  "Send Reset Link": "Send Reset Link",
+  "Sending": "Sending",
+  "Settings & Privacy": "Settings & Privacy",
+  "Settings and Privacy": "Settings and Privacy",
+  "Show Less": "Show Less",
+  "Show More FAQs": "Show More FAQs",
+  "Social Links": "Social Links",
+  "Something went wrong": "Something went wrong",
+  "Status": "Status",
+  "Subject": "Subject",
+  "Submit": "Submit",
+  "Submit Complaint": "Submit Complaint",
+  "Submit a Complaint": "Submit a Complaint",
+  "Submit, track, and resolve complaints right now": "Submit, track, and resolve complaints right now",
+  "Submitting": "Submitting",
+  "Thanks for your message": "Thanks for your message",
+  "This action will permanently delete your account": "This action will permanently delete your account",
+  " Are you sure you want to proceed": " Are you sure you want to proceed",
+  "Unexpected error occured": "Unexpected error occured",
+  "Updated successfully!": "Updated successfully!",
+  "Upload Supporting File (Optional)": "Upload Supporting File (Optional)",
+  "User Profile": "User Profile",
+  "User not authenticated or ID missing": "User not authenticated or ID missing",
+  "User not found in local store": "User not found in local store",
+  "User not found or unauthorized": "User not found or unauthorized",
+  "Username": "Username",
+  "Verify OTP": "Verify OTP",
+  "Verifying": "Verifying",
+  "View": "View",
+  "Welcome Back": "Welcome Back",
+  "Welcome to EEU Complaint System": "Welcome to EEU Complaint System",
+  "Working Hours": "Working Hours",
+  "Your account has been deleted successfully": "Your account has been deleted successfully",
+  "faq": {
+    "category": {
+      "general": "General Questions",
+      "account": "Account & Login",
+      "complaint": "Complaint Submission & Tracking",
+      "ai": "AI & Automation",
+      "tech": "Technical Support",
+      "contact": "Contact & Assistance"
+    },
+    "general": {
+      "q1": {
+        "title": "What is the AI-Assisted Complaint Management System?",
+        "content": "It is a platform that allows customers to submit complaints, track their progress, and receive resolutions."
+      },
+      "q2": {
+        "title": "Who can use this system?",
+        "content": "The system is designed for customers, complaint handlers, administrators, and general managers. Customers submit complaints, while staff members manage and resolve them."
+      }
+    },
+    "account": {
+      "q1": {
+        "title": "How do I register for an account?",
+        "content": "Click 'Register,' fill in your details, verify your phone number via OTP, and log in."
+      },
+      "q2": {
+        "title": "What if I forget my password?",
+        "content": "Click 'Forgot Password' on the login page, enter your phone number or email, and follow the reset instructions."
+      },
+      "q3": {
+        "title": "Can I update my profile details?",
+        "content": "Yes, you can change your contact details in the 'Profile Settings'."
+      }
+    },
+    "complaint": {
+      "q1": {
+        "title": "How do I submit a complaint?",
+        "content": "Log in, click 'Submit Complaint,' choose an issue that you have faced, and submit."
+      },
+      "q2": {
+        "title": "How can I track my complaint status?",
+        "content": "Navigate to 'Track Complaint Status, and view real-time updates."
+      },
+      "q3": {
+        "title": "What if my complaint is not resolved?",
+        "content": "If unresolved within a set timeframe, it will be escalated to a complaint handler or a general manager."
+      }
+    },
+    "ai": {
+      "q1": {
+        "title": "How does the AI system assist with complaints?",
+        "content": "The AI categorizes complaints,  and escalates complex cases to human handlers."
+      }
+    },
+    "tech": {
+      "q1": {
+        "title": "I can’t log in. What should I do?",
+        "content": "Ensure your credentials are correct, reset your password if needed, clear your browser cache, or contact support."
+      },
+      "q2": {
+        "title": "The system is not accepting my complaint. What should I do?",
+        "content": "Check that all required fields are filled correctly and that your internet connection is stable. If the issue persists, report it via 'Help & Support'."
+      }
+    },
+    "contact": {
+      "q1": {
+        "title": "How can I contact support?",
+        "content": "You can reach support via email (support@eeucomplaints.com), phone (+251-999-888-777), or live chat within the system."
+      }
+    }
+  },
+  "features": {
+    "ai": {
+      "title": "AI-Powered Categorization",
+      "description": "Smart complaint classification for faster resolutions."
+    },
+    "realtime": {
+      "title": "Real-Time Tracking",
+      "description": "Customers can monitor complaint progress instantly."
+    },
+    "automation": {
+      "title": "Automated Responses",
+      "description": "Instant solutions for common electricity issues."
+    }
+  },
+  "go to home": "go to home",
+  "with AI": "with AI"
 }

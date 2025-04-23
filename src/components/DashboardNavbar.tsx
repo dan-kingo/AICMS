@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import DarkModeToggle from "./DarkModeToggle";
 import { Button } from "./ui/button";
 import useSidebar from "@/assets/constants/sidebarItems";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const DashboardNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -42,7 +43,7 @@ const DashboardNavbar = () => {
 
       <div className="hidden md:flex gap-4 ">
         <DarkModeToggle />
-
+        <LanguageSwitcher />
         <CustomDropDown />
       </div>
 
@@ -83,12 +84,14 @@ const DashboardNavbar = () => {
                 className={`hover:text-primary transition ${
                   isActiveLink ? "text-primary" : ""
                 }  flex gap-4 `}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <item.icon />
                 {item.title}
               </NavLink>
             );
           })}
+          <LanguageSwitcher />
         </div>
       </motion.div>
     </nav>

@@ -65,7 +65,7 @@ const LoginForm = () => {
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? t("Logging...") : t("Login")}
+            {isLoading ? t("Logging") + "..." : t("Login")}
           </Button>
         </form>
 

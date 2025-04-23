@@ -15,13 +15,13 @@ const ComplaintHistory = () => {
   );
 
   const { complaints, loading } = useUserComplaints();
+  const { t } = useTranslation();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div>{t("Loading")}...</div>;
 
   const filteredComplaints = complaints.filter((complaint) =>
     complaint.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const { t } = useTranslation();
   return (
     <div className="space-y-6 lg:mx-auto lg:p-6 ">
       <Card className="dark:bg-dark md:w-[98%]">
@@ -32,7 +32,7 @@ const ComplaintHistory = () => {
           {/* Search Bar */}
           <SearchInput
             onSearch={setSearchTerm}
-            placeholder="Search complaints..."
+            placeholder={t("Search complaints...")}
           />
 
           {/* Complaints Table */}

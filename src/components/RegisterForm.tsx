@@ -72,7 +72,7 @@ const RegisterForm = () => {
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? t("Registering...") : t("Register")}
+            {isLoading ? t("Registering") + "..." : t("Register")}
           </Button>
         </form>
       </Form>
