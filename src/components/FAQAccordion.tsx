@@ -1,4 +1,3 @@
-import faqs from "@/assets/constants/FAQ";
 import {
   Accordion,
   AccordionItem,
@@ -8,6 +7,8 @@ import {
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import useFaqs from "@/assets/constants/FAQ";
 
 interface Props {
   searchTerm: string;
@@ -18,6 +19,7 @@ const FAQAccordion = ({ searchTerm }: Props) => {
   const location = useLocation();
   const isFAQPath = location.pathname === "/faqs";
 
+  const faqs = useFaqs();
   // Ensure searchTerm is processed correctly, trimming whitespace and making lowercase
   const lowerCaseSearchTerm = searchTerm?.trim().toLowerCase() || "";
 
@@ -42,6 +44,7 @@ const FAQAccordion = ({ searchTerm }: Props) => {
     ? allFilteredFaqs
     : allFilteredFaqs.filter((faq) => faq.category === "General Questions");
 
+  const { t } = useTranslation();
   return (
     <div
       className={`  ${isFAQPath ? " w-full max-w-2xl mx-auto p-4" : "w-full"}`}
@@ -65,7 +68,7 @@ const FAQAccordion = ({ searchTerm }: Props) => {
         ))
       ) : (
         <p className="text-gray-500 text-center mt-4">
-          No matching FAQs found.
+          {t("No matching FAQs found")}.
         </p>
       )}
 
@@ -79,7 +82,7 @@ const FAQAccordion = ({ searchTerm }: Props) => {
               className={`dark:text-white `}
               onClick={() => setShowMore(true)}
             >
-              Show More FAQs
+              {t("Show More FAQs")}
             </Button>
           </div>
         )}
@@ -91,7 +94,7 @@ const FAQAccordion = ({ searchTerm }: Props) => {
             className="dark:text-white"
             onClick={() => setShowMore(false)}
           >
-            Show Less
+            {t("Show Less")}
           </Button>
         </div>
       )}

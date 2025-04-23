@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Complaint } from "@/components/CustomDialogComponent";
 import { Badge } from "./ui/badge";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   complaints: Complaint[];
@@ -21,16 +22,17 @@ const formatId = (index: number) => {
 };
 
 const CustomTable = ({ complaints, onSelectComplaint }: Props) => {
+  const { t } = useTranslation();
   return (
     <Table className="mt-4">
       <TableHeader>
         <TableRow>
-          <TableHead>ID</TableHead>
-          <TableHead>Description</TableHead>
-          <TableHead>Category</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Date</TableHead>
-          <TableHead>Action</TableHead>
+          <TableHead>{t("ID")}</TableHead>
+          <TableHead>{t("Description")}</TableHead>
+          <TableHead>{t("Category")}</TableHead>
+          <TableHead>{t("Status")}</TableHead>
+          <TableHead>{t("Date")}</TableHead>
+          <TableHead>{t("Action")}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -67,7 +69,7 @@ const CustomTable = ({ complaints, onSelectComplaint }: Props) => {
                 variant="outline"
                 onClick={() => onSelectComplaint(complaint)}
               >
-                View
+                {t("View")}
               </Button>
             </TableCell>
           </TableRow>

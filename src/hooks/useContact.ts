@@ -2,11 +2,12 @@ import { contactFormData, contactFormSchema } from "@/utils/contactFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
 const useContact = () => {
   const [isLoading, setLoading] = useState(false);
-
+  const { t } = useTranslation();
   const form = useForm<contactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -39,17 +40,17 @@ const useContact = () => {
 
       if (isComponentMounted) {
         if (result.success) {
-          toast.success("Form submitted successfully!", {
-            description: `Thanks for your message, ${data.fullname}!`,
+          toast.success(t("Form submitted successfully!"), {
+            description: `${t("Thanks for your message")}, ${data.fullname}!`,
           });
           form.reset();
         } else {
-          toast.error("Something went wrong. Please try again.");
+          toast.error(t("Something went wrong. Please try again."));
         }
       }
     } catch (error) {
       if (isComponentMounted) {
-        toast.error("Failed to send message.");
+        toast.error(t("Failed to send message."));
       }
     } finally {
       if (isComponentMounted) setLoading(false);

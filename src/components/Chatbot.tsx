@@ -14,11 +14,12 @@ import {
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import useMessage from "@/hooks/useMessage";
+import { useTranslation } from "react-i18next";
 
 const Chatbot = () => {
   const { input, messages, setInput, isOpen, setIsOpen, sendMessage, loading } =
     useMessage();
-
+  const { t } = useTranslation();
   return (
     <>
       <Button
@@ -31,9 +32,9 @@ const Chatbot = () => {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="w-[90vw] max-w-xl mx-auto p-4 bg-white dark:bg-dark rounded-lg">
           <DialogHeader className="text-lg font-bold">
-            <DialogTitle>AI Chatbot</DialogTitle>
+            <DialogTitle>{t("AI Chatbot")}</DialogTitle>
             <DialogDescription className="text-sm font-light">
-              An assistant chatbot powered by Gemini.
+              t("An assistant chatbot powered by Gemini.")
             </DialogDescription>
           </DialogHeader>
 

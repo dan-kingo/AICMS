@@ -3,6 +3,7 @@ import { Card, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import useRegister from "@/hooks/useRegister";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
 const OTPVerification = () => {
@@ -12,10 +13,10 @@ const OTPVerification = () => {
 
   const { verifyOTP, resendOTP } = useRegister();
   const [otp, setOtp] = useState("");
-
+  const { t } = useTranslation();
   const handleVerify = () => {
     if (otp.length !== 6) {
-      toast.error("Please enter a valid 6-digit OTP");
+      toast.error(t("Please enter a valid 6-digit OTP"));
       return;
     }
     setIsVerifying(true);
@@ -31,7 +32,7 @@ const OTPVerification = () => {
     <div className="md:mx-20 mx-4 my-12 mt-24 flex items-center justify-center flex-col gap-18">
       <Card className="bg-white dark:bg-dark p-8">
         <CardHeader className="text-lg font-semibold text-center">
-          Enter OTP
+          {t("Enter OTP")}
         </CardHeader>
         <Input
           type="text"
@@ -46,10 +47,10 @@ const OTPVerification = () => {
           onClick={handleVerify}
           disabled={isVerifying}
         >
-          {isVerifying ? "Verifying..." : "Verify OTP"}
+          {isVerifying ? t("Verifying...") : t("Verify OTP")}
         </Button>
         <Button onClick={handleResend} variant="ghost" disabled={isResending}>
-          {isResending ? "Resending..." : "Resend OTP"}
+          {isResending ? t("Resending...") : t("Resend OTP")}
         </Button>
       </Card>
     </div>

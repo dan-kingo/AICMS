@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import useUser from "./useUser";
 import Cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
 
 export const useDeleteAccount = () => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ export const useDeleteAccount = () => {
       if (user && user._id) {
         setUserId(user._id);
       } else {
-        console.error("User not found or unauthorized");
+        console.error(t("User not found or unauthorized"));
       }
     };
     fetchUser();
@@ -24,7 +26,7 @@ export const useDeleteAccount = () => {
 
   const deleteAccount = async () => {
     if (!userId) {
-      toast.error("User not authenticated or ID missing.");
+      toast.error(t("User not authenticated or ID missing."));
       return;
     }
 
@@ -38,15 +40,15 @@ export const useDeleteAccount = () => {
       );
 
       if (response.status === 200) {
-        toast.success("Your account has been deleted successfully.");
+        toast.success(t("Your account has been deleted successfully."));
         Cookies.remove("token");
         navigate("/login");
       } else {
-        toast.error("Failed to delete account.");
+        toast.error(t("Failed to delete account."));
       }
     } catch (error) {
-      console.error("Error deleting account:", error);
-      toast.error("Failed to delete account.");
+      console.error(t("Error deleting account:"), error);
+      toast.error(t("Failed to delete account."));
     } finally {
       setLoading(false);
     }

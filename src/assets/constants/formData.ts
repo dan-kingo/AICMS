@@ -1,19 +1,27 @@
-const formData = [
-  {
-    name: "fullname",
-    label: "Full Name",
-    placeholder: "enter your full name",
-  },
-  {
-    name: "email",
-    label: "Email",
-    placeholder: "enter your email",
-  },
-  {
-    name: "subject",
-    label: "Subject",
-    placeholder: "enter your subject",
-  },
-];
+import { useTranslation } from "react-i18next";
 
-export default formData;
+const useContactForm = () => {
+  const { t } = useTranslation();
+
+  const formData = [
+    {
+      name: "fullname",
+      label: t("Full Name"),
+      placeholder: t("Enter your full name"),
+    },
+    {
+      name: "email",
+      label: t("Email"),
+      placeholder: t("Enter your email"),
+    },
+    {
+      name: "subject",
+      label: t("Subject"),
+      placeholder: t("Enter your subject"),
+    },
+  ];
+
+  return formData;
+};
+
+export default useContactForm;

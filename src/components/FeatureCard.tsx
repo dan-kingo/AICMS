@@ -1,6 +1,7 @@
-import features from "@/assets/constants/features";
+import useFeatures from "@/assets/constants/features";
 
 const FeatureCard = () => {
+  const features = useFeatures();
   return (
     <>
       {features.map((feature, index) => (

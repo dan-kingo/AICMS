@@ -5,9 +5,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
 const usePassword = () => {
+  const { t } = useTranslation();
   const [isLoading, setLoading] = useState(false);
   const form = useForm<changePasswordData>({
     resolver: zodResolver(changePasswordSchema),
@@ -33,18 +35,19 @@ const usePassword = () => {
 
       if (isComponentMounted) {
         if (result.success) {
-          toast.success("Password changed successfully!");
+          toast.success(t("Password changed successfully!"));
           form.reset();
         } else {
           toast.error(
-            result.message || "Something went wrong. Please try again."
+            t(`${result.message}`) ||
+              t("Something went wrong. Please try again.")
           );
         }
       }
     } catch (error) {
       console.log(error);
       if (isComponentMounted) {
-        toast.error("Failed to update. Please try again.");
+        toast.error(t("Failed to update. Please try again."));
       }
     } finally {
       if (isComponentMounted) setLoading(false);

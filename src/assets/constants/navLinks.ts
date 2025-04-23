@@ -1,7 +1,15 @@
-const navLinks = [
-  { label: "About", href: "/about" },
-  { label: "FAQs", href: "/faqs" },
-  { label: "Contact Us", href: "/contact-us" },
-];
+import { useTranslation } from "react-i18next";
 
-export default navLinks;
+const useNavLinks = () => {
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { label: t("About"), href: "/about" },
+    { label: t("FAQs"), href: "/faqs" },
+    { label: t("Contact Us"), href: "/contact-us" },
+  ];
+
+  return navLinks;
+};
+
+export default useNavLinks;

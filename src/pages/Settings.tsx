@@ -9,6 +9,7 @@ import { useTheme } from "@/components/theme-provider";
 import useLogout from "@/hooks/useLogout";
 import { useForm } from "react-hook-form";
 import DeleteAccount from "@/components/DeleteAccount";
+import { useTranslation } from "react-i18next";
 
 const Settings = () => {
   const { setTheme, theme } = useTheme();
@@ -16,15 +17,15 @@ const Settings = () => {
   const { handleSubmit } = useForm();
 
   const [is2FAEnabled, setIs2FAEnabled] = useState(false);
-
+  const { t } = useTranslation();
   return (
     <div className=" lg:mx-auto lg:p-6 md:w-[96%]">
-      <h1 className="text-2xl font-semibold mb-6">Settings & Privacy</h1>
+      <h1 className="text-2xl font-semibold mb-6">{t("Settings & Privacy")}</h1>
 
       {/* Profile Settings */}
       <Card className="mb-6 dark:bg-dark ">
         <CardHeader>
-          <CardTitle>Profile Settings</CardTitle>
+          <CardTitle>{t("Profile Settings")}</CardTitle>
         </CardHeader>
         <CardContent>
           <EditProfileForm />
@@ -35,7 +36,7 @@ const Settings = () => {
 
       <Card className="mb-6 dark:bg-dark">
         <CardHeader>
-          <CardTitle>Change Password Settings</CardTitle>
+          <CardTitle>{t("Change Password Settings")}</CardTitle>
         </CardHeader>
         <CardContent>
           <ChangePassword />
@@ -44,11 +45,11 @@ const Settings = () => {
       {/* Privacy Settings */}
       <Card className="mb-6 dark:bg-dark">
         <CardHeader>
-          <CardTitle>Privacy Settings</CardTitle>
+          <CardTitle>{t("Privacy Settings")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex justify-between items-center">
-            <Label>Dark Mode</Label>
+            <Label>{t("Dark Mode")}</Label>
             <Switch
               className="cursor-pointer"
               checked={theme === "dark"}
@@ -60,9 +61,9 @@ const Settings = () => {
 
           <div className="flex justify-between items-center">
             <Label className="hidden md:block">
-              Enable Two-Factor Authentication
+              {t("Enable Two-Factor Authentication")}
             </Label>
-            <Label className="block md:hidden">Enable 2FA</Label>
+            <Label className="block md:hidden">{t("Enable 2FA")}</Label>
             <Switch
               className="cursor-pointer"
               checked={is2FAEnabled}
@@ -75,13 +76,13 @@ const Settings = () => {
       {/* Account Actions */}
       <Card className="dark:bg-dark">
         <CardHeader>
-          <CardTitle>Account Actions</CardTitle>
+          <CardTitle>{t("Account Actions")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <DeleteAccount />
           <form onSubmit={handleSubmit(logoutUser)}>
             <Button variant="secondary" className="w-full text-white ">
-              {isLoading ? "Logging Out" : "Log Out"}
+              {isLoading ? t("Logging Out") : t("Log Out")}
             </Button>
           </form>
         </CardContent>

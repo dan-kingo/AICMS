@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type RegisterUserFunction = (
   data: { email: string; password: string },
@@ -18,7 +19,7 @@ const useRegister = (): {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isOTPSent, setOTPSent] = useState<boolean>(false);
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const registerUser: RegisterUserFunction = async (data, _reset) => {
     setLoading(true);
     try {
@@ -30,18 +31,19 @@ const useRegister = (): {
 
       if (response.data.success) {
         setOTPSent(true);
-        toast.success("OTP sent! Please verify your email.");
+        toast.success(t("OTP sent! Please verify your email."));
         navigate("/verify-otp");
       } else {
-        toast.error("Something went wrong. Please try again.");
+        toast.error(t("Something went wrong. Please try again."));
       }
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(
-          error.response?.data?.message || "An unknown error occurred."
+          t(`${error.response?.data?.message}`) ||
+            t("An unknown error occurred.")
         );
       } else {
-        toast.error("Failed to register.");
+        toast.error(t("Failed to register."));
       }
     } finally {
       setLoading(false);

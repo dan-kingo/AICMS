@@ -1,16 +1,24 @@
-const loginData = [
-  {
-    name: "userName",
-    label: "Username",
-    placeholder: "Enter your username",
-    type: "text",
-  },
-  {
-    name: "password",
-    label: "Password",
-    placeholder: "Enter your password",
-    type: "password",
-  },
-];
+import { useTranslation } from "react-i18next";
 
-export default loginData;
+const useLoginForm = () => {
+  const { t } = useTranslation();
+
+  const loginData = [
+    {
+      name: "userName",
+      label: t("Username"),
+      placeholder: t("Enter your username"),
+      type: "text",
+    },
+    {
+      name: "password",
+      label: t("Password"),
+      placeholder: t("Enter your password"),
+      type: "password",
+    },
+  ];
+
+  return loginData;
+};
+
+export default useLoginForm;

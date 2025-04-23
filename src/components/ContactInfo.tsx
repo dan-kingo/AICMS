@@ -1,7 +1,8 @@
-import contactInfo from "@/assets/constants/contact";
+import useContactInfo from "@/assets/constants/contact";
 import { icons } from "lucide-react";
 
 const ContactInfo = () => {
+  const contactInfo = useContactInfo();
   return (
     <div className="flex flex-col space-y-4 pb-8">
       {contactInfo.map((item, index) => {

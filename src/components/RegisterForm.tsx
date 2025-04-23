@@ -10,13 +10,15 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
-import registerData from "@/assets/constants/registerData";
 import registerSchema, { registerFormData } from "@/utils/registerFormSchema";
 import useRegister from "@/hooks/useRegister";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+import useRegisterForm from "@/assets/constants/registerData";
 
 const RegisterForm = () => {
+  const registerData = useRegisterForm();
   const { isLoading, registerUser } = useRegister();
 
   const form = useForm<registerFormData>({
@@ -31,10 +33,11 @@ const RegisterForm = () => {
       confirmPassword: "",
     },
   });
+  const { t } = useTranslation();
   return (
     <div className="dark:bg-dark p-4 bg-white  w-[340px] md:w-[450px] flex flex-col rounded-lg shadow-lg">
       <h1 className="md:text-xl font-semibold  pb-6 text-lg font-palanquin flex justify-center w-full">
-        Create Your Account
+        {t("Create Your Account")}
       </h1>
       <Form {...form}>
         <form
@@ -69,14 +72,14 @@ const RegisterForm = () => {
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? "Registering..." : "Register"}
+            {isLoading ? t("Registering...") : t("Register")}
           </Button>
         </form>
       </Form>
       <p className="font-md text-center py-4">
-        Already a member?{" "}
+        {t("Already a member")}?{" "}
         <NavLink to="/login" className="text-primary">
-          Login
+          {t("Login")}
         </NavLink>
       </p>
     </div>

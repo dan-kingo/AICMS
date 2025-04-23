@@ -10,15 +10,18 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
-import profileData from "@/assets/constants/profileData";
 import { profileUpdateData } from "@/utils/profileUpdateSchema";
 
 import useUpdate from "@/hooks/useUpdate";
+import { useTranslation } from "react-i18next";
+import useProfileForm from "@/assets/constants/profileData";
 
 const EditProfileForm = () => {
   const location = useLocation();
   const isUserPath = location.pathname === "/dashboard";
   const { form, isLoading, onSubmit } = useUpdate();
+  const { t } = useTranslation();
+  const profileData = useProfileForm();
   return (
     <div
       className={`${
@@ -61,16 +64,16 @@ const EditProfileForm = () => {
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? "Saving..." : "Save Now"}
+              {isLoading ? t("Saving...") : t("Save Now")}
             </Button>
           </div>
         </form>
       </Form>
       {isUserPath && (
         <p className="font-md text-center py-4">
-          Do you want to change you password?{" "}
+          {t("Do you want to change you password")}?{" "}
           <NavLink to="/dashboard/change-password" className="text-primary">
-            Click Here
+            {t("Click Here")}
           </NavLink>
         </p>
       )}

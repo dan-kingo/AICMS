@@ -2,15 +2,16 @@ import { Menu, X, Zap } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CustomDropDown from "./CustomDropdown";
-import sidebarItems from "@/assets/constants/sidebarItems";
 import { motion } from "framer-motion";
 import DarkModeToggle from "./DarkModeToggle";
 import { Button } from "./ui/button";
+import useSidebar from "@/assets/constants/sidebarItems";
 
 const DashboardNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const sidebarItems = useSidebar();
 
   useEffect(() => {
     const handleScroll = () => {

@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Cookies from "js-cookie";
 import useUserStore from "@/store/userStore";
+import { useTranslation } from "react-i18next";
 
 const useLogout = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
 
@@ -18,22 +20,22 @@ const useLogout = () => {
       );
 
       if (response.data.success) {
-        toast.success("Logged out successfully!");
+        toast.success(t("Logged out successfully!"));
         useUserStore.getState().setUser(null);
         Object.keys(Cookies.get()).forEach((cookie) => {
           Cookies.remove(cookie);
         });
         navigate("/");
       } else {
-        toast.error("Something went wrong. Please try again.");
+        toast.error(t("Something went wrong. Please try again."));
       }
     } catch (error) {
       if (error instanceof AxiosError) {
         const errorMessage =
           error.response?.data?.message || "An unknown error occurred.";
-        toast.error(errorMessage);
+        toast.error(t(`${errorMessage}`));
       } else {
-        toast.error("Failed to logout");
+        toast.error(t("Failed to logout"));
       }
     } finally {
       setLoading(false);

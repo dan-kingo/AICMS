@@ -4,14 +4,16 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import useForgotPassword from "@/hooks/useForgotPassword";
 import { Card, CardHeader } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
 
 const ForgotPassword = () => {
+  const { t } = useTranslation();
   const { requestPasswordReset, isLoading } = useForgotPassword();
   const [email, setEmail] = useState("");
 
   const handleSubmit = () => {
     if (!email) {
-      toast.error("Please enter your email");
+      toast.error(t("Please enter your email"));
       return;
     }
 
@@ -22,7 +24,7 @@ const ForgotPassword = () => {
     <div className="md:mx-20 mx-4 my-12 mt-24 flex items-center justify-center flex-col gap-18">
       <Card className="bg-white dark:bg-dark p-8 w-80">
         <CardHeader className="text-center font-semibold">
-          Forgot Password
+          {t("Forgot Password")}
         </CardHeader>
         <Input
           type="email"
@@ -36,7 +38,7 @@ const ForgotPassword = () => {
           disabled={isLoading}
           className="dark:text-white"
         >
-          {isLoading ? "Sending..." : "Send Reset Link"}
+          {isLoading ? t("Sending...") : t("Send Reset Link")}
         </Button>
       </Card>
     </div>

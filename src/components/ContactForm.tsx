@@ -9,15 +9,18 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { contactFormData } from "@/utils/contactFormSchema";
-import formData from "@/assets/constants/formData";
 import { Textarea } from "./ui/textarea";
 import useContact from "@/hooks/useContact";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import useContactForm from "@/assets/constants/formData";
 
 const ContactForm = () => {
   const location = useLocation();
+  const { t } = useTranslation();
   const { form, isLoading, onSubmit } = useContact();
 
+  const formData = useContactForm();
   let isContactPath = location.pathname === "/contact-us";
   return (
     <Form {...form}>
@@ -66,7 +69,7 @@ const ContactForm = () => {
           )}
         />
         <Button className="dark:text-white" type="submit" disabled={isLoading}>
-          {isLoading ? "Submitting..." : "Submit"}
+          {isLoading ? t("Submitting...") : t("Submit")}
         </Button>
       </form>
     </Form>

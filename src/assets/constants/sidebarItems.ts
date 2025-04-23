@@ -6,38 +6,45 @@ import {
   Settings,
   HelpCircle,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const sidebarItems = [
-  {
-    title: "User Profile",
-    path: "/dashboard",
-    icon: User,
-  },
-  {
-    title: "Make Complaint",
-    path: "/dashboard/add-complaint",
-    icon: FilePlus,
-  },
-  {
-    title: "Complaint History",
-    path: "/dashboard/complaints",
-    icon: ListChecks,
-  },
-  {
-    title: "Change Password",
-    path: "/dashboard/change-password",
-    icon: Key,
-  },
-  {
-    title: "Settings and Privacy",
-    path: "/dashboard/settings",
-    icon: Settings,
-  },
-  {
-    title: "Help and Support",
-    path: "/dashboard/help",
-    icon: HelpCircle,
-  },
-];
+const useSidebar = () => {
+  const { t } = useTranslation();
 
-export default sidebarItems;
+  const sidebarItems = [
+    {
+      title: t("User Profile"),
+      path: "/dashboard",
+      icon: User,
+    },
+    {
+      title: t("Make Complaint"),
+      path: "/dashboard/add-complaint",
+      icon: FilePlus,
+    },
+    {
+      title: t("Complaint History"),
+      path: "/dashboard/complaints",
+      icon: ListChecks,
+    },
+    {
+      title: t("Change Password"),
+      path: "/dashboard/change-password",
+      icon: Key,
+    },
+    {
+      title: t("Settings and Privacy"),
+      path: "/dashboard/settings",
+      icon: Settings,
+    },
+    {
+      title: t("Help and Support"),
+      path: "/dashboard/help",
+      icon: HelpCircle,
+    },
+  ];
+
+  return sidebarItems;
+};
+
+export default useSidebar;

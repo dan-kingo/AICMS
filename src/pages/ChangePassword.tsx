@@ -1,4 +1,4 @@
-import changePassword from "@/assets/constants/changePassword";
+import useChangePasswordForm from "@/assets/constants/changePassword";
 import { Button } from "@/components/ui/button";
 import {
   FormField,
@@ -11,11 +11,15 @@ import {
 import { Input } from "@/components/ui/input";
 import usePassword from "@/hooks/usePassword";
 import { changePasswordData } from "@/utils/changePasswordSchema";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+
 const ChangePassword = () => {
   const location = useLocation();
   const isChangePassword = location.pathname === "/dashboard/change-password";
   const { isLoading, form, onSubmit } = usePassword();
+  const { t } = useTranslation();
+  const changePassword = useChangePasswordForm();
   return (
     <div
       className={`flex  ${
@@ -26,7 +30,7 @@ const ChangePassword = () => {
     >
       {isChangePassword && (
         <h1 className="md:text-2xl font-semibold  pb-6 text-xl font-palanquin flex justify-center w-full">
-          Change Password
+          {t("Change Password")}
         </h1>
       )}
       <Form {...form}>
@@ -65,7 +69,7 @@ const ChangePassword = () => {
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? "Changing..." : "Change Password"}
+              {isLoading ? t("Changing...") : t("Change Password")}
             </Button>
           </div>
         </form>

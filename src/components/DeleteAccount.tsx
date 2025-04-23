@@ -10,6 +10,7 @@ import {
 } from "./ui/dialog";
 import { Button } from "./ui/button";
 import { useDeleteAccount } from "@/hooks/useDeleteAccount";
+import { useTranslation } from "react-i18next";
 const DeleteAccount = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { deleteAccount } = useDeleteAccount();
@@ -17,7 +18,7 @@ const DeleteAccount = () => {
     await deleteAccount();
     setIsOpen(false);
   };
-
+  const { t } = useTranslation();
   return (
     <div>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -27,15 +28,17 @@ const DeleteAccount = () => {
             variant="destructive"
             className="w-full"
           >
-            {"Delete Account"}
+            {t("Delete Account")}
           </Button>
         </DialogTrigger>
 
         <DialogContent>
-          <DialogTitle>Are you sure?</DialogTitle>
+          <DialogTitle>{t("Are you sure")}?</DialogTitle>
           <DialogDescription>
-            This action will permanently delete your account. Are you sure you
-            want to proceed?
+            {t(
+              "This action will permanently delete your account. Are you sure you want to proceed"
+            )}
+            ?
           </DialogDescription>
 
           <div
@@ -43,11 +46,11 @@ const DeleteAccount = () => {
           >
             <DialogClose asChild>
               <Button variant="outline" onClick={() => setIsOpen(false)}>
-                Cancel
+                {t("Cancel")}
               </Button>
             </DialogClose>
             <Button variant="destructive" onClick={handleDelete}>
-              Confirm Deletion
+              {t("Confirm Deletion")}
             </Button>
           </div>
         </DialogContent>

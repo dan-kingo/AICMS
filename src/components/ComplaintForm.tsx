@@ -6,8 +6,10 @@ import { useState } from "react";
 import useComplaint from "@/hooks/useComplaint";
 import { Tooltip, TooltipContent } from "@radix-ui/react-tooltip";
 import { TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { useTranslation } from "react-i18next";
 
 export default function ComplaintForm() {
+  const { t } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const {
     control,
@@ -47,7 +49,7 @@ export default function ComplaintForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
-        <Label htmlFor="description">Complaint Description</Label>
+        <Label htmlFor="description">{t("Complaint Description")}</Label>
         <Controller
           name="description"
           control={control}
@@ -56,7 +58,7 @@ export default function ComplaintForm() {
               className="mt-4 resize-none h-32"
               {...field}
               id="description"
-              placeholder="Describe your complaint..."
+              placeholder={t("Describe your complaint...")}
             />
           )}
         />
@@ -74,7 +76,7 @@ export default function ComplaintForm() {
             <TooltipTrigger asChild>
               <div>
                 <Label htmlFor="file-upload" className="block mb-4 font-medium">
-                  Upload Supporting File (Optional)
+                  {t("Upload Supporting File (Optional)")}
                 </Label>
                 <input
                   disabled
@@ -87,7 +89,7 @@ export default function ComplaintForm() {
               </div>
             </TooltipTrigger>
             <TooltipContent className="text-secondary">
-              For now file uplaoding is not allowed! We will update soon!
+              {t("For now file uplaoding is not allowed! We will update soon!")}
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
@@ -103,7 +105,7 @@ export default function ComplaintForm() {
         type="submit"
         className="w-full mt-6 flex justify-center items-center dark:text-white cursor-pointer"
       >
-        Submit Complaint
+        {t("Submit Complaint")}
       </Button>
     </form>
   );

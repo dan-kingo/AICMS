@@ -1,10 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 const useForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
-
+  const { t } = useTranslation();
   const requestPasswordReset = async (email: string) => {
     setIsLoading(true);
     try {
@@ -14,12 +15,12 @@ const useForgotPassword = () => {
       );
 
       if (response.data.success) {
-        toast.success("Password reset link sent to your email.");
+        toast.success(t("Password reset link sent to your email."));
       } else {
-        toast.error("Failed to send password reset link.");
+        toast.error(t("Failed to send password reset link."));
       }
     } catch (error) {
-      toast.error("Error sending password reset link.");
+      toast.error(t("Error sending password reset link."));
     } finally {
       setIsLoading(false);
     }

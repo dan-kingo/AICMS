@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
-import navLinks from "@/assets/constants/navLinks";
+import LanguageSwitcher from "./LanguageSwitcher";
+import useNavLinks from "@/assets/constants/navLinks";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const navLinks = useNavLinks();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +56,7 @@ const Navbar = () => {
           </NavLink>
         ))}
         <DarkModeToggle />
+        <LanguageSwitcher />
         <Button onClick={() => navigate("/login")} variant="outline">
           Login
         </Button>

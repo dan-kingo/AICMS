@@ -1,3 +1,4 @@
+import useSidebar from "@/assets/constants/sidebarItems";
 import {
   Sidebar,
   SidebarContent,
@@ -8,13 +9,13 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar";
-import sidebarItems from "@/assets/constants/sidebarItems";
 import { NavLink, useLocation } from "react-router-dom";
 
 // Menu items.
 
 const CustomSidebar = () => {
   const location = useLocation();
+  const sidebarItems = useSidebar();
 
   return (
     <SidebarProvider>

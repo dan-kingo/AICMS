@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { useTranslation } from "react-i18next";
 
 export interface Complaint {
   user: string;
@@ -21,31 +22,33 @@ interface Props {
 }
 
 const CustomDialogComponent = ({ selectedComplaint, onClose }: Props) => {
+  const { t } = useTranslation();
   return (
     <Dialog open={!!selectedComplaint} onOpenChange={onClose}>
       {selectedComplaint && (
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Complaint Details</DialogTitle>
+            <DialogTitle>{t("Submit Complaint")}</DialogTitle>
             <DialogDescription>
-              Details of the selected complaint.
+              {t("Details of the selected complaint.")}
             </DialogDescription>
           </DialogHeader>
           <div className="p-4 space-y-3">
             <p>
-              <strong>ID:</strong> {selectedComplaint.user}
+              <strong>{t("ID")}:</strong> {selectedComplaint.user}
             </p>
             <p>
-              <strong>Description:</strong> {selectedComplaint.description}
+              <strong>{t("Description")}:</strong>{" "}
+              {selectedComplaint.description}
             </p>
             <p>
-              <strong>Category:</strong> {selectedComplaint.category}
+              <strong>{t("Category")}:</strong> {selectedComplaint.category}
             </p>
             <p>
-              <strong>Status:</strong> {selectedComplaint.status}
+              <strong>{t("Status")}:</strong> {selectedComplaint.status}
             </p>
             <p>
-              <strong>Date:</strong>{" "}
+              <strong>{t("Date")}:</strong>{" "}
               {format(
                 new Date(selectedComplaint.createdAt),
                 "hh:mm a, MM-dd-yyyy"

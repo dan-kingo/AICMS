@@ -1,24 +1,26 @@
 import axios from "axios";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const useResetPassword = () => {
-  const { resetId } = useParams<{ resetId: string }>(); // ✅ Use correct param name
+  const { resetId } = useParams<{ resetId: string }>();
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const resetPassword = async () => {
     console.log(resetId);
     if (newPassword !== confirmPassword) {
-      toast.error("Passwords do not match.");
+      toast.error(t("Passwords do not match."));
       return;
     }
 
     if (newPassword.length < 8) {
-      toast.error("Password must be at least 8 characters.");
+      toast.error(t("Password must be at least 8 characters."));
       return;
     }
 
@@ -32,17 +34,18 @@ const useResetPassword = () => {
         }
       );
 
-      toast.success("Password reset successfully!");
+      toast.success(t("Password reset successfully!"));
       navigate("/login");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error("Axios Error Response:", error.response?.data);
         toast.error(
-          error.response?.data?.message || "Error resetting password."
+          t(`${error.response?.data?.message}`) ||
+            t("Error resetting password.")
         );
       } else {
         console.error("Unknown Error:", error);
-        toast.error("An unexpected error occurred.");
+        toast.error(t("An unexpected error occurred."));
       }
     } finally {
       setIsLoading(false);

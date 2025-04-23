@@ -9,8 +9,10 @@ import { toast } from "sonner";
 import useUserStore from "@/store/userStore";
 import axios from "axios";
 import useUser from "./useUser";
+import { useTranslation } from "react-i18next";
 
 const useUpdate = () => {
+  const { t } = useTranslation();
   const [isLoading, setLoading] = useState(false);
   const form = useForm<profileUpdateData>({
     resolver: zodResolver(profileUpdateSchema),
@@ -40,7 +42,7 @@ const useUpdate = () => {
     const user = useUserStore.getState().user;
 
     if (!user?._id) {
-      toast.error("User not found in local store.");
+      toast.error(t("User not found in local store."));
       return;
     }
 
@@ -54,16 +56,18 @@ const useUpdate = () => {
       );
 
       if (response.data.success) {
-        toast.success("Updated successfully!");
+        toast.success(t("Updated successfully!"));
 
         useUserStore.getState().updateUser(response.data.user);
         form.reset(response.data.user);
       } else {
-        toast.error(response.data.message || "Something went wrong.");
+        toast.error(
+          t(`${response.data.message}`) || t("Something went wrong.")
+        );
       }
     } catch (error) {
       console.log(error);
-      toast.error("Failed to update! Please try again.");
+      toast.error(t("Failed to update! Please try again."));
     } finally {
       setLoading(false);
     }

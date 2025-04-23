@@ -10,10 +10,11 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import loginSchema, { loginFormData } from "@/utils/loginFormSchema";
-import loginData from "@/assets/constants/loginData";
 import useLogin from "@/hooks/useLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import useLoginForm from "@/assets/constants/loginData";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
   const { isLoading, loginUser } = useLogin();
@@ -25,11 +26,12 @@ const LoginForm = () => {
       password: "",
     },
   });
-
+  const { t } = useTranslation();
+  const loginData = useLoginForm();
   return (
     <div className="dark:bg-dark p-4 bg-white md:w-96 w-80 flex flex-col rounded-lg shadow-lg">
       <h1 className="md:text-xl font-semibold pb-6 text-lg font-palanquin flex justify-center w-full">
-        Welcome Back
+        {t("Welcome Back")}
       </h1>
       <Form {...form}>
         <form
@@ -63,7 +65,7 @@ const LoginForm = () => {
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? "Logging..." : "Login"}
+            {isLoading ? t("Logging...") : t("Login")}
           </Button>
         </form>
 
@@ -71,13 +73,13 @@ const LoginForm = () => {
           to="/forgot-password"
           className="text-primary pt-4 tex-md text-center"
         >
-          Forgot Password
+          {t("Forgot Password")}
         </NavLink>
       </Form>
       <p className="font-md text-center py-4">
-        Don't have an account?{" "}
+        {t("Don't have an account")}?{" "}
         <NavLink to="/register" className="text-primary">
-          Register
+          {t("Register")}
         </NavLink>
       </p>
     </div>
