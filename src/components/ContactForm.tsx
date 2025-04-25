@@ -14,6 +14,7 @@ import useContact from "@/hooks/useContact";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useContactForm from "@/assets/constants/formData";
+import { Loader2Icon } from "lucide-react";
 
 const ContactForm = () => {
   const location = useLocation();
@@ -69,7 +70,7 @@ const ContactForm = () => {
           )}
         />
         <Button className="dark:text-white" type="submit" disabled={isLoading}>
-          {isLoading ? t("Submitting...") : t("Submit")}
+          {isLoading ? <Loader2Icon className="animate-spin" /> : t("Submit")}
         </Button>
       </form>
     </Form>

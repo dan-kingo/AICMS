@@ -4,41 +4,46 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import useComplaint from "@/hooks/useComplaint";
-import { Tooltip, TooltipContent } from "@radix-ui/react-tooltip";
-import { TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import { useTranslation } from "react-i18next";
+import { Loader2Icon } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ComplaintForm() {
   const { t } = useTranslation();
-  const [isLoading, setLoading] = useState(false);
   const [file, setFile] = useState<File | null>(null);
-  const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
+
+  const { control, handleSubmit, reset } = useForm({
     defaultValues: { description: "" },
   });
 
-  const { submitComplaint } = useComplaint();
+  const { submitComplaint, isLoading } = useComplaint();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
-    setFile(selectedFile);
+
+    if (selectedFile && selectedFile.size > 5 * 1024 * 1024) {
+      toast.error("File size must be less than 5MB.");
+      setFile(null);
+    } else {
+      setFile(selectedFile);
+    }
   };
 
   const onSubmit = (data: { description: string }) => {
+    if (!data.description.trim()) {
+      toast.error("Complaint description is required.");
+      return;
+    }
+
     if (file) {
       const formData = new FormData();
-      formData.append("description", data.description);
+      formData.append("description", data.description.trim());
       formData.append("supportingFile", file);
 
       submitComplaint(formData, true);
-      setLoading(true);
     } else {
       const jsonData = {
-        description: data.description,
+        description: data.description.trim(),
       };
 
       submitComplaint(jsonData, false);
@@ -64,37 +69,20 @@ export default function ComplaintForm() {
             />
           )}
         />
-        {errors.description && (
-          <span className="text-red-500 text-sm">
-            {errors.description.message}
-          </span>
-        )}
       </div>
 
       {/* Supporting File (Optional) */}
       <div>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div>
-                <Label htmlFor="file-upload" className="block mb-4 font-medium">
-                  {t("Upload Supporting File (Optional)")}
-                </Label>
-                <input
-                  disabled
-                  id="file-upload"
-                  type="file"
-                  accept="image/*, .pdf, .docx"
-                  className="mt-2 w-full p-3 border border-gray-300 rounded-md cursor-pointer"
-                  onChange={handleFileChange}
-                />
-              </div>
-            </TooltipTrigger>
-            <TooltipContent className="text-secondary">
-              {t("For now file uplaoding is not allowed! We will update soon!")}
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <Label htmlFor="file-upload" className="block mb-4 font-medium">
+          {t("Upload Supporting File (Optional)")}
+        </Label>
+        <input
+          id="file-upload"
+          type="file"
+          accept="image/*, .pdf, .docx, .mp3, .wav"
+          className="mt-2 w-full p-3 border border-gray-300 rounded-md cursor-pointer"
+          onChange={handleFileChange}
+        />
 
         {file && (
           <div className="mt-2 text-sm text-gray-500">
@@ -104,10 +92,15 @@ export default function ComplaintForm() {
       </div>
 
       <Button
+        disabled={isLoading}
         type="submit"
         className="w-full mt-6 flex justify-center items-center dark:text-white cursor-pointer"
       >
-        {isLoading ? t("Submitting Complaint") : t("Submit Complaint")}
+        {isLoading ? (
+          <Loader2Icon className="animate-spin" />
+        ) : (
+          t("Submit Complaint")
+        )}
       </Button>
     </form>
   );

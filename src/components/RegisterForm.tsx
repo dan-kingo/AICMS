@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import useRegisterForm from "@/assets/constants/registerData";
+import { Loader2Icon } from "lucide-react";
 
 const RegisterForm = () => {
   const registerData = useRegisterForm();
@@ -72,7 +73,11 @@ const RegisterForm = () => {
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? t("Registering") + "..." : t("Register")}
+            {isLoading ? (
+              <Loader2Icon className="animate-spin" />
+            ) : (
+              t("Register")
+            )}
           </Button>
         </form>
       </Form>

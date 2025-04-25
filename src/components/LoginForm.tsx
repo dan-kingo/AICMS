@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import useLoginForm from "@/assets/constants/loginData";
 import { useTranslation } from "react-i18next";
+import { Loader2Icon } from "lucide-react";
 
 const LoginForm = () => {
   const { isLoading, loginUser } = useLogin();
@@ -65,7 +66,7 @@ const LoginForm = () => {
             type="submit"
             disabled={isLoading}
           >
-            {isLoading ? t("Logging") + "..." : t("Login")}
+            {isLoading ? <Loader2Icon className="animate-spin" /> : t("Login")}
           </Button>
         </form>
 
