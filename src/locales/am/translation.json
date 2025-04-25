@@ -37,6 +37,7 @@
   "Don't have an account": "መለያ የለዎትም",
   "Email": "ኢሜል",
   "AM": "አማ",
+  "EN": "EN",
   "Email Contacts": "የኢሜል አድራሻዎች",
   "Enable 2FA": "2FA ን ያንቁ",
   "Enable Two-Factor Authentication": "ሁለት-ግምታዊ ማረጋገጫ",
@@ -158,7 +159,7 @@
   "Verifying": "በማረጋገጥ ላይ",
   "View": "እይ",
   "Welcome Back": "እንኳን ደህና መጣችሁ",
-  "Welcome to EEU Complaint System": "ወደ EEU ቅሬታ ስርዓት እንኳን በደህና መጡ",
+  "Welcome to EEU Complaint System": "እንኳን ወደ EEU ቅሬታ ስርዓት በደህና መጡ",
   "Working Hours": "የሥራ ሰዓቶች",
   "Your account has been deleted successfully": "የእርስዎ መለያ በተሳካ ሁኔታ ተሰርዟል",
   "faq": {

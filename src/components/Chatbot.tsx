@@ -34,14 +34,14 @@ const Chatbot = () => {
           <DialogHeader className="text-lg font-bold">
             <DialogTitle>{t("AI Chatbot")}</DialogTitle>
             <DialogDescription className="text-sm font-light">
-              t("An assistant chatbot powered by Gemini.")
+              {t("An assistant chatbot powered by Gemini.")}
             </DialogDescription>
           </DialogHeader>
 
           <div className="chat-window h-64 overflow-auto mt-2 p-2 dark:bg-[#303030] bg-gray-100 rounded-lg">
             {messages.map((msg, index) => (
               <div key={index} className="mb-3">
-                <div className="text-sm font-semibold flex gap-4 items-center">
+                <div className="text-sm font-semibold flex gap-4">
                   <User2Icon />
                   <div className=" bg-blue-900 rounded-sm p-2 text-white">
                     {msg.user}
@@ -49,7 +49,7 @@ const Chatbot = () => {
                 </div>
 
                 {msg.bot && (
-                  <div className="text-sm font-semibold mt-2 flex items-center gap-4">
+                  <div className="text-sm font-semibold mt-2 flex gap-4">
                     <BotIcon />
                     <div className="text-white bg-gray-700 p-2 rounded-sm">
                       {msg.bot}
