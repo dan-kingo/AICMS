@@ -41,17 +41,19 @@ const Chatbot = () => {
           <div className="chat-window h-64 overflow-auto mt-2 p-2 dark:bg-[#303030] bg-gray-100 rounded-lg">
             {messages.map((msg, index) => (
               <div key={index} className="mb-3">
-                <div className="text-sm font-semibold flex gap-4">
-                  <User2Icon />
-                  <div className=" bg-blue-900 rounded-sm p-2 text-white">
+                {/* User Message */}
+                <div className="text-sm font-semibold flex gap-4 items-center">
+                  <User2Icon className="shrink-0 size-6 mt-1" />
+                  <div className="bg-blue-900 rounded-sm p-2 text-white break-words">
                     {msg.user}
                   </div>
                 </div>
 
+                {/* Bot Reply */}
                 {msg.bot && (
-                  <div className="text-sm font-semibold mt-2 flex gap-4">
-                    <BotIcon />
-                    <div className="text-white bg-gray-700 p-2 rounded-sm">
+                  <div className="text-sm font-semibold mt-2 flex items-center gap-4">
+                    <BotIcon className="shrink-0 size-6 mt-1" />
+                    <div className="text-white bg-gray-700 p-2 rounded-sm break-words">
                       {msg.bot}
                     </div>
                   </div>
