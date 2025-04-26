@@ -7,6 +7,7 @@ import DarkModeToggle from "./DarkModeToggle";
 import { Button } from "./ui/button";
 import useSidebar from "@/assets/constants/sidebarItems";
 import LanguageSwitcher from "./LanguageSwitcher";
+import NotificationDropdown from "./NotificationDropdown";
 
 const DashboardNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -44,12 +45,14 @@ const DashboardNavbar = () => {
       <div className="hidden md:flex gap-4 ">
         <DarkModeToggle />
         <LanguageSwitcher />
+        <NotificationDropdown />
         <CustomDropDown />
       </div>
 
       {/* Mobile Controls (Hamburger + Dark Mode) */}
       <div className="md:hidden flex items-center gap-4">
         <CustomDropDown />
+        <NotificationDropdown />
         <DarkModeToggle />
         <Button variant="outline" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <Menu size={28} />
