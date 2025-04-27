@@ -12,7 +12,7 @@ export default function ComplaintForm() {
   const { t } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
 
-  const { control, handleSubmit, reset } = useForm({
+  const { control, handleSubmit } = useForm({
     defaultValues: { description: "" },
   });
 
@@ -49,7 +49,6 @@ export default function ComplaintForm() {
       submitComplaint(jsonData, false);
     }
 
-    reset();
     setFile(null);
   };
 
