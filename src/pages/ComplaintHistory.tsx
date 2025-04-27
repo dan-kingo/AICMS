@@ -7,6 +7,7 @@ import CustomTable from "@/components/CustomTable";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useUserComplaints } from "@/hooks/useUserComplaints";
 import { useTranslation } from "react-i18next";
+import { Loader2Icon } from "lucide-react";
 
 const ComplaintHistory = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -17,7 +18,7 @@ const ComplaintHistory = () => {
   const { complaints, loading } = useUserComplaints();
   const { t } = useTranslation();
 
-  if (loading) return <div>{t("Loading")}...</div>;
+  if (loading) return <Loader2Icon size={24} className="animate-spin" />;
 
   const filteredComplaints = complaints.filter((complaint) =>
     complaint.description.toLowerCase().includes(searchTerm.toLowerCase())
