@@ -7,6 +7,7 @@ import { registerFormData } from "@/utils/registerFormSchema";
 interface Props {
   children: ReactNode;
 }
+
 const AuthProvider = ({ children }: Props) => {
   const [user, setUser] = useState<AuthContextType["user"]>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -33,26 +34,11 @@ const AuthProvider = ({ children }: Props) => {
   const logout = () => {
     axios.get("/api/auth/logout").finally(() => {
       setUser(null);
-      <Navigate to="/login" />;
+      <Navigate to="/" />;
     });
   };
 
-  // handle back and forth navigation
-  useEffect(() => {
-    const handleBackForwardNavigation = () => {
-      if (!window.location.pathname.startsWith("/dashboard")) {
-        logout();
-      }
-    };
-
-    window.addEventListener("popstate", handleBackForwardNavigation);
-
-    return () => {
-      window.removeEventListener("popstate", handleBackForwardNavigation);
-    };
-  }, []);
-
-  // handle site exist
+  // handle site exit
   useEffect(() => {
     const handleSiteExit = () => logout();
 
