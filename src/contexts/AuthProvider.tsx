@@ -38,14 +38,6 @@ const AuthProvider = ({ children }: Props) => {
     });
   };
 
-  // handle site exit
-  useEffect(() => {
-    const handleSiteExit = () => logout();
-
-    window.addEventListener("beforeunload", handleSiteExit);
-    return () => window.removeEventListener("beforeunload", handleSiteExit);
-  }, []);
-
   return (
     <AuthContext.Provider value={{ user, loading, login, logout }}>
       {children}
