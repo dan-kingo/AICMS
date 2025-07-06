@@ -1,116 +1,256 @@
-# AI-Assisted Complaint Management System (Front-End)
+# AI-Assisted Complaint Management System
+
+<!-- Add project screenshots here -->
+![Project Screenshot](./docs/screenshots/dashboard.png)
+*Main Dashboard - Submit and track complaints with AI assistance*
+
+![Features Overview](./docs/screenshots/features.png)
+*Key Features - AI categorization, real-time tracking, and automated responses*
 
 ## 🚀 Overview
 
-The **AI-Assisted Complaint Management System** is a web-based platform designed to streamline handling complaints in the Ethiopian Electric Utility. This is the frontend of the application which  is built using modern technologies, including **React, Vite, ShadCN, TailwindCSS, Framer Motion, and React Router DOM**, ensuring a fast, responsive, and visually appealing user experience.
+The **AI-Assisted Complaint Management System** is a comprehensive web-based platform designed to streamline complaint handling for the Ethiopian Electric Utility. Built with modern technologies including **React, Vite, ShadCN, TailwindCSS, Framer Motion, and React Router DOM**, this system provides a fast, responsive, and visually appealing user experience with intelligent complaint processing capabilities.
+
+## ✨ Key Features
+
+- 🤖 **AI-Powered Complaint Categorization** - Automatic classification for faster resolutions
+- 📊 **Real-Time Tracking** - Monitor complaint progress instantly
+- 🔐 **Secure Authentication** - User registration, login, and OTP verification
+- 📱 **Responsive Design** - Optimized for all devices
+- 🌐 **Multi-Language Support** - English and Amharic localization
+- 🌙 **Dark/Light Mode** - Theme switching capability
+- 💬 **AI Chatbot** - Powered by Gemini for instant assistance
+- 📧 **Email Notifications** - Real-time updates on complaint status
+- 📈 **Analytics Dashboard** - Insights for administrators
 
 ## 🛠 Tech Stack
 
-- **Framework:** React + Vite ⚡
-- **UI Components:** ShadCN 🖌️
-- **Styling:** TailwindCSS 🎨
+- **Framework:** React 19 + Vite ⚡
+- **UI Components:** ShadCN/UI 🖌️
+- **Styling:** TailwindCSS 4.0 🎨
 - **Routing:** React Router DOM 🏗️
-- **Animation:** Framer Motion
-- **Programming Language:** Typescript
+- **Animation:** Framer Motion ✨
+- **State Management:** Zustand 🐻
+- **Form Handling:** React Hook Form + Zod
+- **HTTP Client:** Axios
+- **Internationalization:** React i18next
+- **Programming Language:** TypeScript
 
 ## 📦 Installation
 
+### **Prerequisites**
+- Node.js (v18 or higher)
+- npm or yarn package manager
+
 ### **1. Clone the Repository**
 
-```sh
+```bash
 git clone https://github.com/dan-kingo/AICMS.git
 cd AICMS
 ```
 
 ### **2. Install Dependencies**
 
-```sh
+```bash
 npm install
 ```
 
-### **3. Start the Development Server**
+### **3. Environment Setup**
 
-```sh
+Create a `.env` file in the root directory:
+
+```env
+VITE_API_URL=https://aicms-api.onrender.com
+VITE_WEB3FORMS_ACCESS_KEY=your_web3forms_key
+```
+
+### **4. Start the Development Server**
+
+```bash
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173/`.
+The application will be available at `http://localhost:5173/`
 
 ## 📌 Project Structure
 
 ```
 📦 AICMS
+ ┣ 📂 public
+ ┃ ┣ 📜 icons8-flash-100.png
+ ┃ ┗ 📜 _redirects
  ┣ 📂 src
- ┃ ┣ 📂 assets   # assets to be used
- ┃ ┣ 📂 components   # Reusable UI components
- ┃ ┣ 📂 pages        # Main application pages
- ┃ ┣ 📂 routes       # Route configurations
- ┃ ┣ 📜 main.tsx     # Application entry point
- ┃ ┗ 📜 App.tsx      # Main app component
- ┣ 📜 index.html     # Root HTML file
- ┣ 📜 tailwind.config.js  # TailwindCSS configuration
- ┣ 📜 vite.config.ts  # Vite configuration
- ┣ 📜 components.json  # schadcn configuration
- ┣ 📜 tsconfig.app.jdon  # Typescript configuration
- ┣ 📜 tsconfig.json  # Typescript configuration
- ┣ 📜 tsconfig.node.json  # Typescript configuration
- ┗ 📜 package.json   # Dependencies and scripts
+ ┃ ┣ 📂 assets
+ ┃ ┃ ┣ 📂 constants          # Application constants and configurations
+ ┃ ┃ ┃ ┣ 📜 changePassword.ts
+ ┃ ┃ ┃ ┣ 📜 complaintCategory.ts
+ ┃ ┃ ┃ ┣ 📜 complaints.ts
+ ┃ ┃ ┃ ┣ 📜 contact.ts
+ ┃ ┃ ┃ ┣ 📜 FAQ.ts
+ ┃ ┃ ┃ ┣ 📜 features.ts
+ ┃ ┃ ┃ ┣ 📜 formData.ts
+ ┃ ┃ ┃ ┣ 📜 icons.ts
+ ┃ ┃ ┃ ┣ 📜 issueOptions.ts
+ ┃ ┃ ┃ ┣ 📜 loginData.ts
+ ┃ ┃ ┃ ┣ 📜 navLinks.ts
+ ┃ ┃ ┃ ┣ 📜 profileData.ts
+ ┃ ┃ ┃ ┣ 📜 registerData.ts
+ ┃ ┃ ┃ ┣ 📜 sidebarItems.ts
+ ┃ ┃ ┃ ┗ 📜 social.ts
+ ┃ ┃ ┗ 📂 images             # Static images and assets
+ ┃ ┣ 📂 components           # Reusable UI components
+ ┃ ┃ ┣ 📂 ui                 # ShadCN UI components
+ ┃ ┃ ┣ 📜 Chatbot.tsx
+ ┃ ┃ ┣ 📜 ComplaintCategorySelect.tsx
+ ┃ ┃ ┣ 📜 ComplaintCheckboxes.tsx
+ ┃ ┃ ┣ 📜 ComplaintForm.tsx
+ ┃ ┃ ┣ 📜 ContactForm.tsx
+ ┃ ┃ ┣ 📜 ContactInfo.tsx
+ ┃ ┃ ┣ 📜 CustomDialogComponent.tsx
+ ┃ ┃ ┣ 📜 CustomDropdown.tsx
+ ┃ ┃ ┣ 📜 CustomSidebar.tsx
+ ┃ ┃ ┣ 📜 CustomTable.tsx
+ ┃ ┃ ┣ 📜 DarkModeToggle.tsx
+ ┃ ┃ ┣ 📜 DashboardNavbar.tsx
+ ┃ ┃ ┣ 📜 DeleteAccount.tsx
+ ┃ ┃ ┣ 📜 EditProfileForm.tsx
+ ┃ ┃ ┣ 📜 FAQAccordion.tsx
+ ┃ ┃ ┣ 📜 FeatureCard.tsx
+ ┃ ┃ ┣ 📜 Footer.tsx
+ ┃ ┃ ┣ 📜 LanguageSwitcher.tsx
+ ┃ ┃ ┣ 📜 LoginForm.tsx
+ ┃ ┃ ┣ 📜 Map.tsx
+ ┃ ┃ ┣ 📜 Navbar.tsx
+ ┃ ┃ ┣ 📜 NotificationDropdown.tsx
+ ┃ ┃ ┣ 📜 ProfilePictureUpload.tsx
+ ┃ ┃ ┣ 📜 RegisterForm.tsx
+ ┃ ┃ ┣ 📜 SearchInput.tsx
+ ┃ ┃ ┣ 📜 SocialLink.tsx
+ ┃ ┃ ┗ 📜 theme-provider.tsx
+ ┃ ┣ 📂 contexts            # React contexts for state management
+ ┃ ┃ ┣ 📜 AuthContext.tsx
+ ┃ ┃ ┗ 📜 AuthProvider.tsx
+ ┃ ┣ 📂 hooks               # Custom React hooks
+ ┃ ┃ ┣ 📜 use-mobile.ts
+ ┃ ┃ ┣ 📜 useAuth.ts
+ ┃ ┃ ┣ 📜 useComplaint.ts
+ ┃ ┃ ┣ 📜 useComplaintAI.ts
+ ┃ ┃ ┣ 📜 useContact.ts
+ ┃ ┃ ┣ 📜 useDeleteAccount.ts
+ ┃ ┃ ┣ 📜 useForgotPassword.ts
+ ┃ ┃ ┣ 📜 useLogin.ts
+ ┃ ┃ ┣ 📜 useLogout.ts
+ ┃ ┃ ┣ 📜 useMessage.ts
+ ┃ ┃ ┣ 📜 usePassword.ts
+ ┃ ┃ ┣ 📜 useRegister.ts
+ ┃ ┃ ┣ 📜 useResetPassword.ts
+ ┃ ┃ ┣ 📜 useUpdate.ts
+ ┃ ┃ ┣ 📜 useUser.ts
+ ┃ ┃ ┗ 📜 useUserComplaints.ts
+ ┃ ┣ 📂 locales             # Internationalization files
+ ┃ ┃ ┣ 📂 en
+ ┃ ┃ ┃ ┗ 📜 translation.json
+ ┃ ┃ ┗ 📂 am
+ ┃ ┃   ┗ 📜 translation.json
+ ┃ ┣ 📂 pages               # Main application pages
+ ┃ ┃ ┣ 📜 About.tsx
+ ┃ ┃ ┣ 📜 ChangePassword.tsx
+ ┃ ┃ ┣ 📜 ComplaintHistory.tsx
+ ┃ ┃ ┣ 📜 Contact.tsx
+ ┃ ┃ ┣ 📜 Dashboard.tsx
+ ┃ ┃ ┣ 📜 Error.tsx
+ ┃ ┃ ┣ 📜 FAQs.tsx
+ ┃ ┃ ┣ 📜 ForgotPassword.tsx
+ ┃ ┃ ┣ 📜 HelpAndSupport.tsx
+ ┃ ┃ ┣ 📜 Home.tsx
+ ┃ ┃ ┣ 📜 Layout.tsx
+ ┃ ┃ ┣ 📜 Login.tsx
+ ┃ ┃ ┣ 📜 MakeComplaint.tsx
+ ┃ ┃ ┣ 📜 OTPVerification.tsx
+ ┃ ┃ ┣ 📜 Register.tsx
+ ┃ ┃ ┣ 📜 ResetPassword.tsx
+ ┃ ┃ ┣ 📜 Settings.tsx
+ ┃ ┃ ┣ 📜 UserProfile.tsx
+ ┃ ┃ ┗ 📜 index.ts
+ ┃ ┣ 📂 store               # Zustand state management
+ ┃ ┃ ┣ 📜 complaintStore.ts
+ ┃ ┃ ┣ 📜 notificationsStore.ts
+ ┃ ┃ ┗ 📜 userStore.ts
+ ┃ ┣ 📂 utils               # Utility functions and schemas
+ ┃ ┃ ┣ 📜 changePasswordSchema.ts
+ ┃ ┃ ┣ 📜 complaintValidation.ts
+ ┃ ┃ ┣ 📜 contactFormSchema.ts
+ ┃ ┃ ┣ 📜 loginFormSchema.ts
+ ┃ ┃ ┣ 📜 profileUpdateSchema.ts
+ ┃ ┃ ┗ 📜 registerFormSchema.ts
+ ┃ ┣ 📜 App.tsx             # Main app component
+ ┃ ┣ 📜 main.tsx            # Application entry point
+ ┃ ┣ 📜 routes.tsx          # Route configurations
+ ┃ ┣ 📜 i18n.ts             # Internationalization setup
+ ┃ ┣ 📜 index.css           # Global styles
+ ┃ ┗ 📜 vite-env.d.ts       # Vite type definitions
+ ┣ 📜 index.html            # Root HTML file
+ ┣ 📜 tailwind.config.js    # TailwindCSS configuration
+ ┣ 📜 vite.config.ts        # Vite configuration
+ ┣ 📜 components.json       # ShadCN configuration
+ ┣ 📜 tsconfig.app.json     # TypeScript configuration
+ ┣ 📜 tsconfig.json         # TypeScript configuration
+ ┣ 📜 tsconfig.node.json    # TypeScript configuration
+ ┣ 📜 babel.config.cjs      # Babel configuration
+ ┣ 📜 eslint.config.js      # ESLint configuration
+ ┣ 📜 netlify.toml          # Netlify deployment config
+ ┣ 📜 render.yaml           # Render deployment config
+ ┗ 📜 package.json          # Dependencies and scripts
 ```
 
-## 🚀 Features
+## 🚀 Core Features
 
-- 📌 **User Authentication:** Secure login & registration
-- 🔍 **Complaint Submission & Tracking:** Users can submit complaints and monitor progress
-- 🤖 **AI Assistance:** Automated responses for frequent complaints
-- 📊 **Admin Dashboard:** Insights and analytics for complaint management
-- 🎨 **Modern UI:** Fast, accessible, and responsive design
+### 🔐 **Authentication System**
+- User registration with OTP verification
+- Secure login/logout functionality
+- Password reset via email
+- Protected routes and role-based access
 
-## 📄 Routing Setup
+### 📝 **Complaint Management**
+- Submit complaints with file attachments
+- AI-powered automatic categorization
+- Real-time status tracking
+- Complaint history and search functionality
 
-This project uses **React Router DOM** for navigation. Below are the main routes:
+### 🤖 **AI Integration**
+- Intelligent complaint classification
+- Automated response suggestions
+- Gemini-powered chatbot assistance
+- Smart issue detection and routing
+
+### 📊 **Dashboard & Analytics**
+- User profile management
+- Complaint statistics and insights
+- Real-time notifications
+- Progress tracking visualizations
+
+### 🌐 **User Experience**
+- Responsive design for all devices
+- Dark/Light theme switching
+- Multi-language support (EN/AM)
+- Smooth animations and transitions
+- Accessibility-focused design
+
+## 📄 Routing Structure
+
+The application uses **React Router DOM** for navigation:
 
 ```tsx
-import { createBrowserRouter } from "react-router-dom";
-import {
-  About,
-  ChangePassword,
-  ComplaintHistory,
-  Contact,
-  Dashboard,
-  FAQs,
-  HelpAndSupport,
-  Home,
-  Login,
-  MakeComplaint,
-  Register,
-  Settings,
-  UserProfile,
-} from "./pages";
-import Layout from "./pages/Layout";
-import Error from "./pages/Error";
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     errorElement: <Error />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "faqs",
-        element: <FAQs />,
-      },
-      {
-        path: "contact-us",
-        element: <Contact />,
-      },
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "faqs", element: <FAQs /> },
+      { path: "contact-us", element: <Contact /> },
     ],
   },
   {
@@ -125,52 +265,22 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
     children: [
-      {
-        index: true,
-        element: <UserProfile />,
-      },
-      {
-        path: "add-complaint",
-        element: <MakeComplaint />,
-      },
-      {
-        path: "change-password",
-        element: <ChangePassword />,
-      },
-      {
-        path: "help",
-        element: <HelpAndSupport />,
-      },
-      {
-        path: "settings",
-        element: <Settings />,
-      },
-      {
-        path: "complaints",
-        element: <ComplaintHistory />,
-      },
+      { index: true, element: <UserProfile /> },
+      { path: "add-complaint", element: <MakeComplaint /> },
+      { path: "change-password", element: <ChangePassword /> },
+      { path: "help", element: <HelpAndSupport /> },
+      { path: "settings", element: <Settings /> },
+      { path: "complaints", element: <ComplaintHistory /> },
     ],
   },
 ]);
-
-export default router;
-
-
 ```
 
+## 🎨 Customizing Styles
 
-## 🛠 Customizing TailwindCSS
-
-Modify `index.css` to add custom fonts, colors, and spacing.
+The project uses TailwindCSS with custom theme configuration. Modify `src/index.css` to customize fonts, colors, and spacing:
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Palanquin:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-
-body {
-    @apply bg-body font-poppins text-foreground;
-  }
-}
-
 @theme {
   --font-roboto: "Roboto", sans-serif;
   --font-poppins: "Poppins";
@@ -185,12 +295,69 @@ body {
 
 ## 🌍 Deployment
 
-### **1. Build the Project**
+### **Build for Production**
 
-```sh
+```bash
 npm run build
 ```
+
+### **Preview Production Build**
+
+```bash
+npm run preview
+```
+
+### **Deployment Platforms**
+
+The project is configured for deployment on:
+- **Netlify** (via `netlify.toml`)
+- **Render** (via `render.yaml`)
+- **Vercel** (zero-config deployment)
+
+## 🔧 Available Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run lint         # Run ESLint
+npm run preview      # Preview production build
+npm run extract:i18n # Extract translation strings
+```
+
+## 🌐 Internationalization
+
+The application supports multiple languages using `react-i18next`:
+
+- **English (EN)** - Default language
+- **Amharic (AM)** - Ethiopian local language
+
+Translation files are located in `src/locales/[language]/translation.json`
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Team
+
+- **Developer:** Daniel Kingo
+- **Organization:** Ethiopian Electric Utility
+- **Contact:** [GitHub Profile](https://github.com/dan-kingo)
+
+## 🙏 Acknowledgments
+
+- Ethiopian Electric Utility for project requirements
+- ShadCN/UI for beautiful component library
+- React community for excellent ecosystem
+- All contributors and testers
+
 ---
 
-🚀 **It is under development** 🎯
-
+**Status:** ✅ **Production Ready** - The system is fully functional and deployed for the Ethiopian Electric Utility complaint management operations.
