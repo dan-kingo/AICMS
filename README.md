@@ -1,11 +1,26 @@
 # AI-Assisted Complaint Management System
 
-<!-- Add project screenshots here -->
-![Project Screenshot](./docs/screenshots/dashboard.png)
-*Main Dashboard - Submit and track complaints with AI assistance*
+## 🖼️ Project Screenshots
 
-![Features Overview](./docs/screenshots/features.png)
-*Key Features - AI categorization, real-time tracking, and automated responses*
+### 🔐 Home Page
+![Login Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772437/image_2025-06-25_06-00-30_emxldi.png)
+
+---
+
+### 🏠 Profile Page
+![Dashboard Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772438/image_2025-06-25_06-04-09_t64d67.png)
+
+---
+
+### 👤 FAQ Page
+![Profile Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772437/image_2025-06-25_06-03-18_kd3her.png)
+
+---
+
+### ⚙️ Complaint History Page
+![Settings Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772438/image_2025-06-25_06-05-30_qqfffv.png)
+
+
 
 ## 🚀 Overview
 
