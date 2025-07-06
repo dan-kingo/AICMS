@@ -3,22 +3,22 @@
 ## 🖼️ Project Screenshots
 
 ### 🔐 Home Page
-![Login Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772437/image_2025-06-25_06-00-30_emxldi.png)
+![Login Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751784482/p10_fjo3ad.png)
 
 ---
 
-### 🏠 Profile Page
-![Dashboard Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772438/image_2025-06-25_06-04-09_t64d67.png)
+### 🏠 Admin Dashboard
+![Dashboard Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751784482/p9_gt7syu.png)
 
 ---
 
-### 👤 FAQ Page
-![Profile Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772437/image_2025-06-25_06-03-18_kd3her.png)
+### 👤 Profile Page
+![Profile Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751784482/p8_xgo9v2.png)
 
 ---
 
 ### ⚙️ Complaint History Page
-![Settings Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751772438/image_2025-06-25_06-05-30_qqfffv.png)
+![Settings Screenshot](https://res.cloudinary.com/dpm44ocft/image/upload/v1751784487/p7_on7hw9.png)
 
 
 
